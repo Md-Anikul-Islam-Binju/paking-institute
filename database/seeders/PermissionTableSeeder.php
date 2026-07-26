@@ -41,6 +41,10 @@ class PermissionTableSeeder extends Seeder
             'leadership-list',
             //goal
             'goal-list',
+            //career
+            'career-list',
+            //culture
+            'culture-list',
 
 
             //management board

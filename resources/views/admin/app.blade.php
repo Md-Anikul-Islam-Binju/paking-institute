@@ -106,7 +106,7 @@
                 <li class="side-nav-title">Who We Are</li>
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#aboutPages" aria-expanded="false" aria-controls="aboutPages" class="side-nav-link">
-                        <i class="ri-pages-line"></i>
+                        <i class="ri-information-line"></i>
                         <span> About Section </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -138,7 +138,7 @@
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#leadershipPages" aria-expanded="false" aria-controls="leadershipPages" class="side-nav-link">
-                        <i class="ri-pages-line"></i>
+                        <i class="ri-team-line"></i>
                         <span> Leadership Section </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -157,8 +157,6 @@
                                 </li>
                                 @endcan
 
-
-
                                 @can('management-list')
                                     <li>
                                         <a href="{{route('management.section')}}">Management Board</a>
@@ -172,8 +170,35 @@
                 </li>
 
 
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#leadershipCareer" aria-expanded="false" aria-controls="leadershipCareer" class="side-nav-link">
+                        <i class="ri-briefcase-4-line"></i>
+                        <span> Career Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="leadershipCareer">
+                        <ul class="side-nav-second-level">
+
+                            @can('career-list')
+                                <li>
+                                    <a href="{{route('career.section')}}">Career</a>
+                                </li>
+                            @endcan
+
+                            @can('culture-list')
+                                <li>
+                                    <a href="{{route('culture.section')}}">Culture</a>
+                                </li>
+                            @endcan
 
 
+                        </ul>
+                    </div>
+                </li>
+
+
+
+                <li class="side-nav-title">Settings</li>
                 @can('role-and-permission-list')
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages1" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">

@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\CareerController;
+use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\OurGoalController;
-use App\Http\Controllers\admin\OurGoalMemberController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -37,11 +38,15 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/goal', [OurGoalController::class, 'index'])->name('goal.section');
     Route::post('/goal-update/{id?}', [OurGoalController::class, 'createOrUpdateGoal'])->name('goal.createOrUpdate');
 
-    //our goal member
-    Route::get('/member-section', [OurGoalMemberController::class, 'index'])->name('member.section');
-    Route::post('/member-store', [OurGoalMemberController::class, 'store'])->name('member.store');
-    Route::put('/member-update/{id}', [OurGoalMemberController::class, 'update'])->name('member.update');
-    Route::get('/member-delete/{id}', [OurGoalMemberController::class, 'destroy'])->name('member.destroy');
+
+    //our goal
+    Route::get('/career', [CareerController::class, 'index'])->name('career.section');
+    Route::post('/career-update/{id?}', [CareerController::class, 'createOrUpdateCareer'])->name('career.createOrUpdate');
+    //culture
+    Route::get('/culture', [CultureController::class, 'index'])->name('culture.section');
+    Route::post('/culture-update/{id?}', [CultureController::class, 'createOrUpdateCulture'])->name('culture.createOrUpdate');
+
+
 
     //management board
     Route::get('/management-section', [ManagementController::class, 'index'])->name('management.section');
