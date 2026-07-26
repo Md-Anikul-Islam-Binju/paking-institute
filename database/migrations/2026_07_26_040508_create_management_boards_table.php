@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('designation');
+            $table->longText('details')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

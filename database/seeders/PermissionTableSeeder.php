@@ -41,11 +41,13 @@ class PermissionTableSeeder extends Seeder
             'leadership-list',
             //goal
             'goal-list',
-            //our goal member
-            'member-list',
-            'member-create',
-            'member-edit',
-            'member-delete',
+
+
+            //management board
+            'management-list',
+            'management-create',
+            'management-edit',
+            'management-delete',
 
 
 

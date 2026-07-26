@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\LeadershipController;
+use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\OurGoalController;
 use App\Http\Controllers\admin\OurGoalMemberController;
 use App\Http\Controllers\admin\VisionController;
@@ -41,6 +42,13 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/member-store', [OurGoalMemberController::class, 'store'])->name('member.store');
     Route::put('/member-update/{id}', [OurGoalMemberController::class, 'update'])->name('member.update');
     Route::get('/member-delete/{id}', [OurGoalMemberController::class, 'destroy'])->name('member.destroy');
+
+    //management board
+    Route::get('/management-section', [ManagementController::class, 'index'])->name('management.section');
+    Route::post('/management-store', [ManagementController::class, 'store'])->name('management.store');
+    Route::put('/management-update/{id}', [ManagementController::class, 'update'])->name('management.update');
+    Route::get('/management-delete/{id}', [ManagementController::class, 'destroy'])->name('management.destroy');
+
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/unauthorized-action', [AdminDashboardController::class, 'unauthorized'])->name('unauthorized.action');

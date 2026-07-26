@@ -158,11 +158,12 @@
                                 @endcan
 
 
-                                @can('member-list')
-                                <li>
-                                    <a href="{{route('member.section')}}">Our Goal Member</a>
-                                </li>
-                               @endcan
+
+                                @can('management-list')
+                                    <li>
+                                        <a href="{{route('management.section')}}">Management Board</a>
+                                    </li>
+                                @endcan
 
 
 

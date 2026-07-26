@@ -9,6 +9,7 @@ class ManagementBoard extends Model
     protected $fillable = [
         'name',
         'slug',
+        'details',
         'designation',
         'image',
     ];
