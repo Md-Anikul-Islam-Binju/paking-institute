@@ -50,6 +50,7 @@
                                 <th>Date</th>
                                 <th>Tag</th>
                                 <th>Management</th>
+                                <th>PDF</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -88,36 +89,40 @@
                                         @if($insight->tag)
                                             @foreach(explode(',', $insight->tag) as $tag)
                                                 <span class="badge bg-primary">
-                                        {{ trim($tag) }}
-                                    </span>
+                                                   {{ trim($tag) }}
+                                               </span>
                                             @endforeach
                                         @else
                                             <span class="badge bg-secondary">
-                                    N/A
-                                </span>
+                                               N/A
+                                            </span>
                                         @endif
                                     </td>
 
                                     <td>
-
                                         @if(!empty($insight->multiple_management_board_id))
-
                                             @foreach($managements->whereIn('id',$insight->multiple_management_board_id) as $board)
-
                                                 <span class="badge bg-info mb-1">
-                                        {{ $board->name }}
-                                    </span>
-
+                                                   {{ $board->name }}
+                                                </span>
                                             @endforeach
-
                                         @else
-
                                             <span class="badge bg-secondary">
-                                    N/A
-                                </span>
-
+                                                N/A
+                                            </span>
                                         @endif
+                                    </td>
 
+                                    <td>
+                                        @if($insight->pdf_file)
+                                            <a href="{{ asset('files/insight-pdf/'.$insight->pdf_file) }}"
+                                               target="_blank"
+                                               class="btn btn-sm btn-danger">
+                                                <i class="ri-file-pdf-line"></i> PDF
+                                            </a>
+                                        @else
+                                            <span class="badge bg-secondary">N/A</span>
+                                        @endif
                                     </td>
 
                                     <td style="width:120px;">
@@ -328,6 +333,25 @@
 
                                                             </div>
 
+                                                        </div>
+
+                                                        <div class="col-md-12 mb-3">
+                                                            <label class="form-label">
+                                                                PDF File
+                                                            </label>
+
+                                                            <input type="file"
+                                                                   name="pdf_file"
+                                                                   class="form-control"
+                                                                   accept=".pdf">
+
+                                                            @if($insight->pdf_file)
+                                                                <a href="{{ asset('files/insight-pdf/'.$insight->pdf_file) }}"
+                                                                   target="_blank"
+                                                                   class="btn btn-sm btn-outline-danger mt-2">
+                                                                    <i class="ri-file-pdf-line"></i> Current PDF
+                                                                </a>
+                                                            @endif
                                                         </div>
 
                                                     </div>
@@ -549,6 +573,21 @@
                                     <textarea id="summernote"
                                               name="remark"></textarea>
                                 </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">
+                                    PDF File
+                                </label>
+
+                                <input type="file"
+                                       name="pdf_file"
+                                       class="form-control"
+                                       accept=".pdf">
+
+                                <small class="text-muted">
+                                    Optional (PDF only)
+                                </small>
                             </div>
 
                         </div>

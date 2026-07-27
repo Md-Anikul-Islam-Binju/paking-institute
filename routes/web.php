@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
+use App\Http\Controllers\admin\InsightBookController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\InsightTypeController;
 use App\Http\Controllers\admin\JoinUsController;
@@ -75,6 +76,11 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/insight-delete/{id}', [InsightController::class, 'destroy'])->name('insight.destroy');
 
 
+    //insight book
+    Route::get('/insight-book-section', [InsightBookController::class, 'index'])->name('insight.book.section');
+    Route::post('/insight-book-store', [InsightBookController::class, 'store'])->name('insight.book.store');
+    Route::put('/insight-book-update/{id}', [InsightBookController::class, 'update'])->name('insight.book.update');
+    Route::get('/insight-book-delete/{id}', [InsightBookController::class, 'destroy'])->name('insight.book.destroy');
 
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');

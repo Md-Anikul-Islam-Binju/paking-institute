@@ -60,6 +60,7 @@ class InsightController extends Controller
                 'multiple_management_board_id' => 'nullable|array',
                 'multiple_management_board_id.*' => 'exists:management_boards,id',
                 'cover_image' => 'required|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'pdf_file'    => 'nullable|mimes:pdf|max:10240',
             ]);
 
             $insight = new Insight();
@@ -82,6 +83,18 @@ class InsightController extends Controller
                 );
 
                 $insight->cover_image = $file;
+            }
+
+            if ($request->hasFile('pdf_file')) {
+
+                $pdf = time() . '_pdf.' . $request->pdf_file->extension();
+
+                $request->pdf_file->move(
+                    public_path('files/insight-pdf'),
+                    $pdf
+                );
+
+                $insight->pdf_file = $pdf;
             }
 
             $insight->save();
@@ -112,6 +125,7 @@ class InsightController extends Controller
                 'multiple_management_board_id' => 'nullable|array',
                 'multiple_management_board_id.*' => 'exists:management_boards,id',
                 'cover_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'pdf_file'    => 'nullable|mimes:pdf|max:10240',
             ]);
 
             $insight = Insight::findOrFail($id);
@@ -143,6 +157,25 @@ class InsightController extends Controller
                 $insight->cover_image = $file;
             }
 
+            if ($request->hasFile('pdf_file')) {
+
+                if (
+                    $insight->pdf_file &&
+                    file_exists(public_path('files/insight-pdf/' . $insight->pdf_file))
+                ) {
+                    unlink(public_path('files/insight-pdf/' . $insight->pdf_file));
+                }
+
+                $pdf = time() . '_pdf.' . $request->pdf_file->extension();
+
+                $request->pdf_file->move(
+                    public_path('files/insight-pdf'),
+                    $pdf
+                );
+
+                $insight->pdf_file = $pdf;
+            }
+
             $insight->save();
 
             return redirect()->back()->with(
@@ -169,6 +202,13 @@ class InsightController extends Controller
                 file_exists(public_path('images/insight/' . $insight->cover_image))
             ) {
                 unlink(public_path('images/insight/' . $insight->cover_image));
+            }
+
+            if (
+                $insight->pdf_file &&
+                file_exists(public_path('files/insight-pdf/' . $insight->pdf_file))
+            ) {
+                unlink(public_path('files/insight-pdf/' . $insight->pdf_file));
             }
 
             $insight->delete();

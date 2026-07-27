@@ -72,6 +72,12 @@ class PermissionTableSeeder extends Seeder
             'insight-edit',
             'insight-delete',
 
+            //insight book board
+            'insight-book-list',
+            'insight-book-create',
+            'insight-book-edit',
+            'insight-book-delete',
+
 
         ];
         foreach ($permissions as $permission) {

@@ -15,6 +15,7 @@ class Insight extends Model
         'tag',
         'multiple_management_board_id',
         'cover_image',
+        'pdf_file',
     ];
 
     protected $casts = [

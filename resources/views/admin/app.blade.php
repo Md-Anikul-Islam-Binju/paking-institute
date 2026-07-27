@@ -126,9 +126,11 @@
                                 </li>
                             @endcan
 
+                            @can('insight-book-list')
                                 <li>
-                                    <a href="#">Insight Chapter</a>
+                                    <a href="{{route('insight.book.section')}}">Insight Book</a>
                                 </li>
+                            @endcan
 
                         </ul>
                     </div>

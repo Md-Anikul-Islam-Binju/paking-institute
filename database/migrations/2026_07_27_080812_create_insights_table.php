@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('tag')->nullable();
             $table->json('multiple_management_board_id')->nullable();
             $table->string('cover_image')->nullable();
+            $table->string('pdf_file')->nullable();
             $table->timestamps();
         });
     }
