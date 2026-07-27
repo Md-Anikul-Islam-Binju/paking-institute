@@ -59,6 +59,12 @@ class PermissionTableSeeder extends Seeder
             'expert-category-edit',
             'expert-category-delete',
 
+            //insight type board
+            'insight-type-list',
+            'insight-type-create',
+            'insight-type-edit',
+            'insight-type-delete',
+
 
 
 

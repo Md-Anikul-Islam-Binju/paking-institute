@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
+use App\Http\Controllers\admin\InsightTypeController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
@@ -39,7 +40,6 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/goal', [OurGoalController::class, 'index'])->name('goal.section');
     Route::post('/goal-update/{id?}', [OurGoalController::class, 'createOrUpdateGoal'])->name('goal.createOrUpdate');
 
-
     //our goal
     Route::get('/career', [CareerController::class, 'index'])->name('career.section');
     Route::post('/career-update/{id?}', [CareerController::class, 'createOrUpdateCareer'])->name('career.createOrUpdate');
@@ -54,12 +54,18 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/expert-category-delete/{id}', [ExpertCategoryController::class, 'destroy'])->name('expert.category.destroy');
 
 
-
     //management board
     Route::get('/management-section', [ManagementController::class, 'index'])->name('management.section');
     Route::post('/management-store', [ManagementController::class, 'store'])->name('management.store');
     Route::put('/management-update/{id}', [ManagementController::class, 'update'])->name('management.update');
     Route::get('/management-delete/{id}', [ManagementController::class, 'destroy'])->name('management.destroy');
+
+    //insight type
+    Route::get('/insight-type-section', [InsightTypeController::class, 'index'])->name('insight.type.section');
+    Route::post('/insight-type-store', [InsightTypeController::class, 'store'])->name('insight.type.store');
+    Route::put('/insight-type-update/{id}', [InsightTypeController::class, 'update'])->name('insight.type.update');
+    Route::get('/insight-type-delete/{id}', [InsightTypeController::class, 'destroy'])->name('insight.type.destroy');
+
 
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');

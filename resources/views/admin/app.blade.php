@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Admin Dashboard</title>
+    <title>Paking Institute | Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
-    <meta content="SDMGA" name="author" />
+    <meta content="paking institute" name="author" />
     <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
     <!-- Select2 css -->
     <link href="{{asset('backend/vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
@@ -18,7 +18,6 @@
     <link href="{{asset('backend/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('backend/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('backend/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css')}}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{asset('backend/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}">
     <script src="{{asset('backend/js/config.js')}}"></script>
     <link href="{{asset('backend/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style" />
     <link href="{{asset('backend/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -102,6 +101,37 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
+
+
+
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#insightPages" aria-expanded="false" aria-controls="insightPages" class="side-nav-link">
+                        <i class="ri-article-line"></i>
+                        <span> Insight Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="insightPages">
+                        <ul class="side-nav-second-level">
+
+                            @can('insight-type-list')
+                                <li>
+                                    <a href="{{route('insight.type.section')}}">Insight Type</a>
+                                </li>
+                            @endcan
+
+
+                                <li>
+                                    <a href="#">Insight</a>
+                                </li>
+
+                                <li>
+                                    <a href="#">Insight Chapter</a>
+                                </li>
+
+                        </ul>
+                    </div>
+                </li>
+
 
                 <li class="side-nav-title">Who We Are</li>
                 <li class="side-nav-item">
