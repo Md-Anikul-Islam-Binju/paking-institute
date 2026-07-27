@@ -66,7 +66,11 @@ class PermissionTableSeeder extends Seeder
             'insight-type-delete',
 
 
-
+            //insight  board
+            'insight-list',
+            'insight-create',
+            'insight-edit',
+            'insight-delete',
 
 
         ];

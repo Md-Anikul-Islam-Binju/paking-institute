@@ -120,9 +120,11 @@
                             @endcan
 
 
+                            @can('insight-list')
                                 <li>
-                                    <a href="#">Insight</a>
+                                    <a href="{{route('insight.section')}}">Insight</a>
                                 </li>
+                            @endcan
 
                                 <li>
                                     <a href="#">Insight Chapter</a>

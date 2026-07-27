@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
+use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\InsightTypeController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\LeadershipController;
@@ -65,6 +66,14 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/insight-type-store', [InsightTypeController::class, 'store'])->name('insight.type.store');
     Route::put('/insight-type-update/{id}', [InsightTypeController::class, 'update'])->name('insight.type.update');
     Route::get('/insight-type-delete/{id}', [InsightTypeController::class, 'destroy'])->name('insight.type.destroy');
+
+
+    //insight
+    Route::get('/insight-section', [InsightController::class, 'index'])->name('insight.section');
+    Route::post('/insight-store', [InsightController::class, 'store'])->name('insight.store');
+    Route::put('/insight-update/{id}', [InsightController::class, 'update'])->name('insight.update');
+    Route::get('/insight-delete/{id}', [InsightController::class, 'destroy'])->name('insight.destroy');
+
 
 
 
