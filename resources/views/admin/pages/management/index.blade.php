@@ -40,6 +40,7 @@
                     <th>S/N</th>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>Expert Category</th>
                     <th>Designation</th>
                     <th>Details</th>
                     <th width="120">Action</th>
@@ -61,6 +62,7 @@
                     </td>
 
                     <td>{{ $management->name }}</td>
+                    <td>{{ $management->category?->name ?? 'N/A' }}</td>
 
                     <td>{{ $management->designation }}</td>
                     <td>
@@ -127,6 +129,18 @@
                                     @method('PUT')
 
                                     <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Expert Category </label>
+                                                <select name="expert_category_id" class="form-select">
+                                                    <option selected>Select Expert Category</option>
+                                                    @foreach($categories as $key => $category)
+                                                        <option value="{{ $category->id }}" {{ $management->expert_category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
 
                                         <div class="col-md-6">
 
@@ -309,6 +323,19 @@
                     @csrf
 
                     <div class="row">
+
+
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <label class="form-label">Expert Category </label>
+                                <select name="expert_category_id" class="form-select">
+                                    <option selected>Select Expert Category</option>
+                                    @foreach($categories as $key => $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
                         <!-- Name -->
                         <div class="col-md-6">

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('management_boards', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('expert_category_id')->nullable();
             $table->string('slug')->unique();
             $table->string('designation');
             $table->longText('details')->nullable();

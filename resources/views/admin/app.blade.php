@@ -157,9 +157,15 @@
                                 </li>
                                 @endcan
 
+                                @can('expert-category-list')
+                                    <li>
+                                        <a href="{{route('expert.category.section')}}">Expert Category</a>
+                                    </li>
+                                @endcan
+
                                 @can('management-list')
                                     <li>
-                                        <a href="{{route('management.section')}}">Management Board</a>
+                                        <a href="{{route('management.section')}}">Management & Expertise</a>
                                     </li>
                                 @endcan
 

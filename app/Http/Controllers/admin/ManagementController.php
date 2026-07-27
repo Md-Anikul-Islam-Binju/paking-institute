@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ExpertCategory;
 use App\Models\ManagementBoard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -27,9 +28,9 @@ class ManagementController extends Controller
 
     public function index()
     {
-        $managements = ManagementBoard::latest()->get();
-
-        return view('admin.pages.management.index', compact('managements'));
+        $categories = ExpertCategory::latest()->get();
+        $managements = ManagementBoard::with('category')->latest()->get();
+        return view('admin.pages.management.index', compact('managements','categories'));
     }
 
     public function store(Request $request)
@@ -46,6 +47,7 @@ class ManagementController extends Controller
             $management = new ManagementBoard();
 
             $management->name = $request->name;
+            $management->expert_category_id = $request->expert_category_id;
             $management->slug = Str::slug($request->name);
             $management->designation = $request->designation;
             $management->details = $request->details;
@@ -87,6 +89,7 @@ class ManagementController extends Controller
             $management = ManagementBoard::findOrFail($id);
 
             $management->name = $request->name;
+            $management->expert_category_id = $request->expert_category_id;
             $management->slug = Str::slug($request->name);
             $management->designation = $request->designation;
             $management->details = $request->details;

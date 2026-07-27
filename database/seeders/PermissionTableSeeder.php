@@ -53,6 +53,13 @@ class PermissionTableSeeder extends Seeder
             'management-edit',
             'management-delete',
 
+            //expert category board
+            'expert-category-list',
+            'expert-category-create',
+            'expert-category-edit',
+            'expert-category-delete',
+
+
 
 
 

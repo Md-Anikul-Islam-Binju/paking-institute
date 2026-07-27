@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
+use App\Http\Controllers\admin\ExpertCategoryController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
@@ -45,6 +46,12 @@ Route::middleware('auth')->group(callback: function () {
     //culture
     Route::get('/culture', [CultureController::class, 'index'])->name('culture.section');
     Route::post('/culture-update/{id?}', [CultureController::class, 'createOrUpdateCulture'])->name('culture.createOrUpdate');
+
+    //expert category
+    Route::get('/expert-category-section', [ExpertCategoryController::class, 'index'])->name('expert.category.section');
+    Route::post('/expert-category-store', [ExpertCategoryController::class, 'store'])->name('expert.category.store');
+    Route::put('/expert-category-update/{id}', [ExpertCategoryController::class, 'update'])->name('expert.category.update');
+    Route::get('/expert-category-delete/{id}', [ExpertCategoryController::class, 'destroy'])->name('expert.category.destroy');
 
 
 
