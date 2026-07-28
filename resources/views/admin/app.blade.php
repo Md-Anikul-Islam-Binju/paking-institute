@@ -24,6 +24,7 @@
     {{-- Custom Css File here --}}
     <script src="{{asset('backend/js/chart.js')}}"></script>
     <script src="{{asset('backend/js/echarts.min.js')}}"></script>
+ 
 
 </head>
 
@@ -373,6 +374,7 @@
 </div>
 
 
+
 <script src="{{asset('backend/js/vendor.min.js')}}"></script>
 <!-- Dropzone File Upload js -->
 <script src="{{asset('backend/vendor/dropzone/min/dropzone.min.js')}}"></script>
@@ -414,6 +416,7 @@
         });
     });
 </script>
+
 
 <script src="{{asset('backend/js/summernote-bs5.min.js')}}"></script>
 <script type="text/javascript">
