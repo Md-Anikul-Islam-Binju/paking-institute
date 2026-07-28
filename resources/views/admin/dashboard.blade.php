@@ -22,8 +22,8 @@
                     <div class="float-end">
                         <i class="ri-app-store-line widget-icon"></i>
                     </div>
-                    <h6 class="text-uppercase mt-0" title="Customers">Total</h6>
-                    <h2 class="my-2">100</h2>
+                    <h6 class="text-uppercase mt-0" title="Customers">Total Expertise</h6>
+                    <h2 class="my-2">{{$totalExpertise}}</h2>
                 </div>
             </div>
         </div>
