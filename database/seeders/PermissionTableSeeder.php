@@ -51,6 +51,10 @@ class PermissionTableSeeder extends Seeder
             'how-work-list',
             //partnership
             'partnership-list',
+            //future
+            'future-list',
+            //radical
+            'radical-list',
 
 
 
@@ -96,6 +100,12 @@ class PermissionTableSeeder extends Seeder
             'insight-book-create',
             'insight-book-edit',
             'insight-book-delete',
+
+            //explore board
+            'explore-list',
+            'explore-create',
+            'explore-edit',
+            'explore-delete',
 
 
         ];

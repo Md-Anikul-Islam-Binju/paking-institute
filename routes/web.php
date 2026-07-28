@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\ApproachController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
+use App\Http\Controllers\admin\ExploreController;
+use App\Http\Controllers\admin\FutureController;
 use App\Http\Controllers\admin\HowWorkController;
 use App\Http\Controllers\admin\InsightBookController;
 use App\Http\Controllers\admin\InsightController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\OurGoalController;
 use App\Http\Controllers\admin\PartnershipController;
+use App\Http\Controllers\admin\RadicalController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -64,6 +67,14 @@ Route::middleware('auth')->group(callback: function () {
     //partnership
     Route::get('/partnership', [PartnershipController::class, 'index'])->name('partnership.section');
     Route::post('/partnership-update/{id?}', [PartnershipController::class, 'createOrUpdatePartnership'])->name('partnership.createOrUpdate');
+
+
+    //future
+    Route::get('/future', [FutureController::class, 'index'])->name('future.section');
+    Route::post('/future-update/{id?}', [FutureController::class, 'createOrUpdateFuture'])->name('future.createOrUpdate');
+    //radical
+    Route::get('/radical', [RadicalController::class, 'index'])->name('radical.section');
+    Route::post('/radical-update/{id?}', [RadicalController::class, 'createOrUpdateRadical'])->name('radical.createOrUpdate');
 
 
     //expert category
@@ -115,6 +126,12 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/key-benefit-store', [KeyBenefitController::class, 'store'])->name('key.benefit.store');
     Route::put('/key-benefit-update/{id}', [KeyBenefitController::class, 'update'])->name('key.benefit.update');
     Route::get('/key-benefit-delete/{id}', [KeyBenefitController::class, 'destroy'])->name('key.benefit.destroy');
+
+    //explore
+    Route::get('/explore-section', [ExploreController::class, 'index'])->name('explore.section');
+    Route::post('/explore-store', [ExploreController::class, 'store'])->name('explore.store');
+    Route::put('/explore-update/{id}', [ExploreController::class, 'update'])->name('explore.update');
+    Route::get('/explore-delete/{id}', [ExploreController::class, 'destroy'])->name('explore.destroy');
 
 
     //Role and User Section

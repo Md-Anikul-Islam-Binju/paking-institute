@@ -102,54 +102,6 @@
                     </a>
                 </li>
 
-                    <li class="side-nav-title">What we do</li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#whatPages" aria-expanded="false" aria-controls="whatPages" class="side-nav-link">
-                        <i class="ri-information-line"></i>
-                        <span> Approach Section </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="whatPages">
-                        <ul class="side-nav-second-level">
-
-                            @can('approach-list')
-                                <li>
-                                    <a href="{{route('approach.section')}}">Approach</a>
-                                </li>
-                            @endcan
-
-                            @can('how-work-list')
-                                <li>
-                                    <a href="{{route('how.work.section')}}">How We Work</a>
-                                </li>
-                            @endcan
-
-                            @can('partnership-list')
-                                <li>
-                                    <a href="{{route('partnership.section')}}">Partnership</a>
-                                </li>
-                            @endcan
-
-                            @can('involved-list')
-                                <li>
-                                    <a href="{{route('involved.section')}}">Involved</a>
-                                </li>
-                            @endcan
-
-                            @can('key-benefit-list')
-                                <li>
-                                    <a href="{{route('key.benefit.section')}}">Key Benefit</a>
-                                </li>
-                            @endcan
-
-
-
-
-                        </ul>
-                    </div>
-                </li>
-
-
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#insightPages" aria-expanded="false" aria-controls="insightPages" class="side-nav-link">
@@ -178,6 +130,93 @@
                                     <a href="{{route('insight.book.section')}}">Insight Book</a>
                                 </li>
                             @endcan
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="side-nav-title">What we do</li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#whatPages" aria-expanded="false" aria-controls="whatPages" class="side-nav-link">
+                        <i class="ri-guide-line"></i>
+                        <span> Approach Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="whatPages">
+                        <ul class="side-nav-second-level">
+
+                            @can('approach-list')
+                                <li>
+                                    <a href="{{route('approach.section')}}">Approach</a>
+                                </li>
+                            @endcan
+
+                            @can('how-work-list')
+                                <li>
+                                    <a href="{{route('how.work.section')}}">How We Work</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#partnershipPages" aria-expanded="false" aria-controls="partnershipPages" class="side-nav-link">
+                        <i class="ri-group-line"></i>
+                        <span> Partnership Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="partnershipPages">
+                        <ul class="side-nav-second-level">
+                            @can('partnership-list')
+                                <li>
+                                    <a href="{{route('partnership.section')}}">Partnership</a>
+                                </li>
+                            @endcan
+
+                            @can('involved-list')
+                                <li>
+                                    <a href="{{route('involved.section')}}">Involved</a>
+                                </li>
+                            @endcan
+
+                            @can('key-benefit-list')
+                                <li>
+                                    <a href="{{route('key.benefit.section')}}">Key Benefit</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#futurePages" aria-expanded="false" aria-controls="futurePages" class="side-nav-link">
+                        <i class="ri-earth-line"></i>
+                        <span> Future Of Britain </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="futurePages">
+                        <ul class="side-nav-second-level">
+
+                            @can('future-list')
+                                <li>
+                                    <a href="{{route('future.section')}}">Future</a>
+                                </li>
+                            @endcan
+
+                            @can('radical-list')
+                                <li>
+                                    <a href="{{route('radical.section')}}">Radical Yet Practical</a>
+                                </li>
+                            @endcan
+
+                            @can('explore-list')
+                                <li>
+                                    <a href="{{route('explore.section')}}">Explore</a>
+                                </li>
+                            @endcan
+
 
                         </ul>
                     </div>
