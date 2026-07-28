@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
+
 class AboutController extends Controller
 {
     public function __construct()
@@ -24,12 +25,13 @@ class AboutController extends Controller
         })->only('index');
     }
 
+
     public function index()
     {
         $about = About::first();
-
         return view('admin.pages.about.index', compact('about'));
     }
+
 
     public function createOrUpdateAbout(Request $request, $id = null)
     {
@@ -68,10 +70,11 @@ class AboutController extends Controller
         }
 
         $about->save();
-
-        return redirect()->back()->with(
-            'success',
+        //flash()->success('Operation completed successfully.');
+        flash()->success(
             $id ? 'About updated successfully!' : 'About created successfully!'
         );
+
+        return redirect()->back();
     }
 }
