@@ -45,6 +45,13 @@ class PermissionTableSeeder extends Seeder
             'career-list',
             //culture
             'culture-list',
+            //approach
+            'approach-list',
+            //how work
+            'how-work-list',
+            //partnership
+            'partnership-list',
+
 
 
             //management board
@@ -52,6 +59,18 @@ class PermissionTableSeeder extends Seeder
             'management-create',
             'management-edit',
             'management-delete',
+
+            //involved board
+            'involved-list',
+            'involved-create',
+            'involved-edit',
+            'involved-delete',
+
+            //key benefit board
+            'key-benefit-list',
+            'key-benefit-create',
+            'key-benefit-edit',
+            'key-benefit-delete',
 
             //expert category board
             'expert-category-list',

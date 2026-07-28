@@ -102,6 +102,53 @@
                     </a>
                 </li>
 
+                    <li class="side-nav-title">What we do</li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#whatPages" aria-expanded="false" aria-controls="whatPages" class="side-nav-link">
+                        <i class="ri-information-line"></i>
+                        <span> Approach Section </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="whatPages">
+                        <ul class="side-nav-second-level">
+
+                            @can('approach-list')
+                                <li>
+                                    <a href="{{route('approach.section')}}">Approach</a>
+                                </li>
+                            @endcan
+
+                            @can('how-work-list')
+                                <li>
+                                    <a href="{{route('how.work.section')}}">How We Work</a>
+                                </li>
+                            @endcan
+
+                            @can('partnership-list')
+                                <li>
+                                    <a href="{{route('partnership.section')}}">Partnership</a>
+                                </li>
+                            @endcan
+
+                            @can('involved-list')
+                                <li>
+                                    <a href="{{route('involved.section')}}">Involved</a>
+                                </li>
+                            @endcan
+
+                            @can('key-benefit-list')
+                                <li>
+                                    <a href="{{route('key.benefit.section')}}">Key Benefit</a>
+                                </li>
+                            @endcan
+
+
+
+
+                        </ul>
+                    </div>
+                </li>
+
 
 
                 <li class="side-nav-item">

@@ -2,16 +2,21 @@
 
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\ApproachController;
 use App\Http\Controllers\admin\CareerController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
+use App\Http\Controllers\admin\HowWorkController;
 use App\Http\Controllers\admin\InsightBookController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\InsightTypeController;
+use App\Http\Controllers\admin\InvolvedController;
 use App\Http\Controllers\admin\JoinUsController;
+use App\Http\Controllers\admin\KeyBenefitController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
 use App\Http\Controllers\admin\OurGoalController;
+use App\Http\Controllers\admin\PartnershipController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -49,6 +54,18 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/culture', [CultureController::class, 'index'])->name('culture.section');
     Route::post('/culture-update/{id?}', [CultureController::class, 'createOrUpdateCulture'])->name('culture.createOrUpdate');
 
+
+    //approach
+    Route::get('/approach', [ApproachController::class, 'index'])->name('approach.section');
+    Route::post('/approach-update/{id?}', [ApproachController::class, 'createOrUpdateApproach'])->name('approach.createOrUpdate');
+    //how work
+    Route::get('/how-work', [HowWorkController::class, 'index'])->name('how.work.section');
+    Route::post('/how-work-update/{id?}', [HowWorkController::class, 'createOrUpdateHowWork'])->name('how.work.createOrUpdate');
+    //partnership
+    Route::get('/partnership', [PartnershipController::class, 'index'])->name('partnership.section');
+    Route::post('/partnership-update/{id?}', [PartnershipController::class, 'createOrUpdatePartnership'])->name('partnership.createOrUpdate');
+
+
     //expert category
     Route::get('/expert-category-section', [ExpertCategoryController::class, 'index'])->name('expert.category.section');
     Route::post('/expert-category-store', [ExpertCategoryController::class, 'store'])->name('expert.category.store');
@@ -85,6 +102,19 @@ Route::middleware('auth')->group(callback: function () {
 
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/unauthorized-action', [AdminDashboardController::class, 'unauthorized'])->name('unauthorized.action');
+
+
+    //involved
+    Route::get('/involved-section', [InvolvedController::class, 'index'])->name('involved.section');
+    Route::post('/involved-store', [InvolvedController::class, 'store'])->name('involved.store');
+    Route::put('/involved-update/{id}', [InvolvedController::class, 'update'])->name('involved.update');
+    Route::get('/involved-delete/{id}', [InvolvedController::class, 'destroy'])->name('involved.destroy');
+
+    //key benefit
+    Route::get('/key-benefit-section', [KeyBenefitController::class, 'index'])->name('key.benefit.section');
+    Route::post('/key-benefit-store', [KeyBenefitController::class, 'store'])->name('key.benefit.store');
+    Route::put('/key-benefit-update/{id}', [KeyBenefitController::class, 'update'])->name('key.benefit.update');
+    Route::get('/key-benefit-delete/{id}', [KeyBenefitController::class, 'destroy'])->name('key.benefit.destroy');
 
 
     //Role and User Section
