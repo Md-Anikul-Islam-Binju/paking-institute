@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('videos')->nullable();
 
             $table->longText('details')->nullable();
+            $table->json('multiple_image')->nullable();
             $table->timestamps();
         });
     }

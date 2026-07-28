@@ -48,10 +48,12 @@ class KeyBenefitController extends Controller
 
             $request->validate([
                 'involved_id' => 'required|exists:involveds,id',
-                'title'       => 'required|max:255',
-                'details'     => 'nullable',
-                'videos'      => 'nullable|max:500',
-                'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'title' => 'required|max:255',
+                'details' => 'nullable',
+                'videos' => 'nullable|max:500',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'multiple_image' => 'nullable|array',
+                'multiple_image.*' => 'image|mimes:jpg,jpeg,png,webp|max:4096',
             ]);
 
             $benefit = new KeyBenefit();
@@ -61,9 +63,10 @@ class KeyBenefitController extends Controller
             $benefit->details = $request->details;
             $benefit->videos = $request->videos;
 
+            // Cover Image
             if ($request->hasFile('image')) {
 
-                $file = time() . '.' . $request->image->extension();
+                $file = time().'_cover.'.$request->image->extension();
 
                 $request->image->move(
                     public_path('images/key-benefit'),
@@ -72,6 +75,26 @@ class KeyBenefitController extends Controller
 
                 $benefit->image = $file;
             }
+
+            // Multiple Images
+            $images = [];
+
+            if ($request->hasFile('multiple_image')) {
+
+                foreach ($request->file('multiple_image') as $img) {
+
+                    $fileName = uniqid().'_'.$img->getClientOriginalName();
+
+                    $img->move(
+                        public_path('images/key-benefit/multiple'),
+                        $fileName
+                    );
+
+                    $images[] = $fileName;
+                }
+            }
+
+            $benefit->multiple_image = $images;
 
             $benefit->save();
 
@@ -96,10 +119,12 @@ class KeyBenefitController extends Controller
 
             $request->validate([
                 'involved_id' => 'required|exists:involveds,id',
-                'title'       => 'required|max:255',
-                'details'     => 'nullable',
-                'videos'      => 'nullable|max:500',
-                'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'title' => 'required|max:255',
+                'details' => 'nullable',
+                'videos' => 'nullable|max:500',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:4096',
+                'multiple_image' => 'nullable|array',
+                'multiple_image.*' => 'image|mimes:jpg,jpeg,png,webp|max:4096',
             ]);
 
             $benefit = KeyBenefit::findOrFail($id);
@@ -109,16 +134,17 @@ class KeyBenefitController extends Controller
             $benefit->details = $request->details;
             $benefit->videos = $request->videos;
 
+            // Cover Image
             if ($request->hasFile('image')) {
 
                 if (
                     $benefit->image &&
-                    file_exists(public_path('images/key-benefit/' . $benefit->image))
+                    file_exists(public_path('images/key-benefit/'.$benefit->image))
                 ) {
-                    unlink(public_path('images/key-benefit/' . $benefit->image));
+                    unlink(public_path('images/key-benefit/'.$benefit->image));
                 }
 
-                $file = time() . '.' . $request->image->extension();
+                $file = time().'_cover.'.$request->image->extension();
 
                 $request->image->move(
                     public_path('images/key-benefit'),
@@ -126,6 +152,39 @@ class KeyBenefitController extends Controller
                 );
 
                 $benefit->image = $file;
+            }
+
+            // Multiple Images
+            if ($request->hasFile('multiple_image')) {
+
+                // Delete old gallery
+                if (!empty($benefit->multiple_image)) {
+
+                    foreach ($benefit->multiple_image as $oldImage) {
+
+                        if (file_exists(public_path('images/key-benefit/multiple/'.$oldImage))) {
+                            unlink(public_path('images/key-benefit/multiple/'.$oldImage));
+                        }
+
+                    }
+
+                }
+
+                $images = [];
+
+                foreach ($request->file('multiple_image') as $img) {
+
+                    $fileName = uniqid().'_'.$img->getClientOriginalName();
+
+                    $img->move(
+                        public_path('images/key-benefit/multiple'),
+                        $fileName
+                    );
+
+                    $images[] = $fileName;
+                }
+
+                $benefit->multiple_image = $images;
             }
 
             $benefit->save();
@@ -151,11 +210,25 @@ class KeyBenefitController extends Controller
 
             $benefit = KeyBenefit::findOrFail($id);
 
+            // Delete Cover Image
             if (
                 $benefit->image &&
-                file_exists(public_path('images/key-benefit/' . $benefit->image))
+                file_exists(public_path('images/key-benefit/'.$benefit->image))
             ) {
-                unlink(public_path('images/key-benefit/' . $benefit->image));
+                unlink(public_path('images/key-benefit/'.$benefit->image));
+            }
+
+            // Delete Multiple Images
+            if (!empty($benefit->multiple_image)) {
+
+                foreach ($benefit->multiple_image as $image) {
+
+                    if (file_exists(public_path('images/key-benefit/multiple/'.$image))) {
+                        unlink(public_path('images/key-benefit/multiple/'.$image));
+                    }
+
+                }
+
             }
 
             $benefit->delete();

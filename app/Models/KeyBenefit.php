@@ -12,6 +12,11 @@ class KeyBenefit extends Model
         'image',
         'videos',
         'details',
+        'multiple_image'
+    ];
+
+    protected $casts = [
+        'multiple_image' => 'array',
     ];
 
     public function involved()

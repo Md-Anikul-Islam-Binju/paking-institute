@@ -1,5 +1,51 @@
 @extends('admin.app')
 @section('admin_content')
+    <style>
+        .dropzoneWrapperEdit{
+            border:2px dashed #d9d9d9;
+            border-radius:10px;
+            /*padding:30px;*/
+            text-align:center;
+            cursor:pointer;
+            transition:.3s;
+            background:#fafafa;
+        }
+
+        .dropzoneWrapperEdit:hover{
+            border-color:#0d6efd;
+            background:#f8fbff;
+        }
+
+        .image-preview{
+            position:relative;
+            display:inline-block;
+            margin:10px;
+        }
+
+        .img-preview{
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:8px;
+            border:1px solid #ddd;
+        }
+
+        .remove-preview{
+            position:absolute;
+            top:5px;
+            right:5px;
+            width:22px;
+            height:22px;
+            background:#dc3545;
+            color:#fff;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            font-size:14px;
+        }
+    </style>
     <div class="content">
         <div class="container-fluid">
 
@@ -48,6 +94,7 @@
                                 <th>Title</th>
                                 <th>Video</th>
                                 <th>Details</th>
+                                <th>Gallery</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -94,8 +141,20 @@
 
                                     <td>
                                         {!! $benefit->details
-                                            ? \Illuminate\Support\Str::limit(strip_tags($benefit->details),80)
+                                            ? \Illuminate\Support\Str::limit(strip_tags($benefit->details),50)
                                             : 'N/A' !!}
+                                    </td>
+
+                                    <td>
+                                        @if(!empty($benefit->multiple_image))
+                                            @foreach($benefit->multiple_image as $img)
+                                                <img src="{{ asset('images/key-benefit/multiple/'.$img) }}"
+                                                     class="img-thumbnail me-1 mb-1"
+                                                     style="width:45px;height:45px;object-fit:cover;">
+                                            @endforeach
+                                        @else
+                                            <span class="badge bg-secondary">N/A</span>
+                                        @endif
                                     </td>
 
                                     <td style="width:120px">
@@ -218,6 +277,70 @@
 
                                                         </div>
 
+
+                                                        <div class="col-md-12 mb-3">
+
+                                                            <label class="form-label fw-bold">
+                                                                Gallery Images
+                                                            </label>
+
+                                                            <div id="dropzoneWrapperBenefit{{ $benefit->id }}"
+                                                                 class="dropzoneWrapperEdit">
+
+                                                                <i class="ri-upload-cloud-2-line text-muted"
+                                                                   style="font-size:50px"></i>
+
+                                                                <h5 class="mt-2">
+                                                                    Drag & Drop Images Here
+                                                                </h5>
+
+                                                                <small class="text-muted">
+                                                                    or click to browse
+                                                                </small>
+
+                                                                <input
+                                                                    type="file"
+                                                                    id="image-input-benefit{{ $benefit->id }}"
+                                                                    name="multiple_image[]"
+                                                                    multiple
+                                                                    accept="image/*"
+                                                                    style="position:absolute;left:-9999px;">
+
+                                                            </div>
+
+                                                            <input
+                                                                type="hidden"
+                                                                name="deleted_images"
+                                                                id="deleted-images-benefit{{ $benefit->id }}"
+                                                                value="[]">
+
+                                                            <div id="image-preview-container-benefit{{ $benefit->id }}"
+                                                                 class="mt-3 d-flex flex-wrap gap-2">
+
+                                                                @if(!empty($benefit->multiple_image))
+
+                                                                    @foreach($benefit->multiple_image as $image)
+
+                                                                        <div class="image-preview">
+
+                                                                            <img src="{{ asset('images/key-benefit/multiple/'.$image) }}"
+                                                                                 class="img-preview">
+
+                                                                            <span class="remove-preview"
+                                                                                  data-filename="{{ $image }}">
+                                                                                <i class="ri-close-line"></i>
+                                                                            </span>
+
+                                                                        </div>
+
+                                                                    @endforeach
+
+                                                                @endif
+
+                                                            </div>
+
+                                                        </div>
+
                                                     </div>
 
                                                     <div class="text-end mt-3">
@@ -285,6 +408,110 @@
                                     </div>
 
                                 </div>
+
+
+
+                                <script>
+
+                                    document.addEventListener('DOMContentLoaded',function(){
+
+                                        const wrapper=document.getElementById('dropzoneWrapperBenefit{{ $benefit->id }}');
+                                        const input=document.getElementById('image-input-benefit{{ $benefit->id }}');
+                                        const preview=document.getElementById('image-preview-container-benefit{{ $benefit->id }}');
+                                        const deleted=document.getElementById('deleted-images-benefit{{ $benefit->id }}');
+
+                                        if(wrapper){
+
+                                            wrapper.onclick=()=>input.click();
+
+                                            wrapper.ondragover=function(e){
+                                                e.preventDefault();
+                                                wrapper.style.borderColor='#0d6efd';
+                                            }
+
+                                            wrapper.ondragleave=function(){
+                                                wrapper.style.borderColor='#ddd';
+                                            }
+
+                                            wrapper.ondrop=function(e){
+
+                                                e.preventDefault();
+
+                                                wrapper.style.borderColor='#ddd';
+
+                                                input.files=e.dataTransfer.files;
+
+                                                previewImages(e.dataTransfer.files);
+
+                                            }
+
+                                            input.onchange=function(){
+
+                                                previewImages(this.files);
+
+                                            }
+
+                                            function previewImages(files){
+
+                                                Array.from(files).forEach(function(file){
+
+                                                    if(!file.type.match('image.*')) return;
+
+                                                    const reader=new FileReader();
+
+                                                    reader.onload=function(e){
+
+                                                        preview.insertAdjacentHTML('beforeend',`
+
+                        <div class="image-preview">
+
+                            <img src="${e.target.result}" class="img-preview">
+
+                            <span class="remove-preview">
+
+                                <i class="ri-close-line"></i>
+
+                            </span>
+
+                        </div>
+
+                    `);
+
+                                                    };
+
+                                                    reader.readAsDataURL(file);
+
+                                                });
+
+                                            }
+
+                                            preview.onclick=function(e){
+
+                                                const btn=e.target.closest('.remove-preview');
+
+                                                if(!btn) return;
+
+                                                const filename=btn.dataset.filename;
+
+                                                if(filename){
+
+                                                    let arr=JSON.parse(deleted.value);
+
+                                                    arr.push(filename);
+
+                                                    deleted.value=JSON.stringify(arr);
+
+                                                }
+
+                                                btn.parentElement.remove();
+
+                                            }
+
+                                        }
+
+                                    });
+
+                                </script>
 
                             @endforeach
 
@@ -391,6 +618,43 @@
 
                             </div>
 
+                            <div class="col-md-12 mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Gallery Images
+                                </label>
+
+                                <div id="dropzoneWrapperBenefit" class="dropzoneWrapperEdit">
+
+                                    <i class="ri-upload-cloud-2-line text-muted"
+                                       style="font-size:50px"></i>
+
+                                    <h5 class="mt-2">
+                                        Drag & Drop Images Here
+                                    </h5>
+
+                                    <small class="text-muted">
+                                        or click to browse
+                                    </small>
+
+                                    <input
+                                        type="file"
+                                        id="image-input-benefit"
+                                        name="multiple_image[]"
+                                        multiple
+                                        accept="image/*"
+                                        style="position:absolute;left:-9999px;">
+
+                                </div>
+
+                                <div id="image-preview-container-benefit"
+                                     class="mt-3 d-flex flex-wrap gap-2">
+
+                                </div>
+
+                            </div>
+
+
                         </div>
 
                         <div class="text-end mt-3">
@@ -412,4 +676,96 @@
         </div>
 
     </div>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded',function(){
+
+            const wrapper=document.getElementById('dropzoneWrapperBenefit');
+            const input=document.getElementById('image-input-benefit');
+            const preview=document.getElementById('image-preview-container-benefit');
+
+            if(wrapper){
+
+                wrapper.onclick=()=>input.click();
+
+                wrapper.ondragover=function(e){
+                    e.preventDefault();
+                    wrapper.style.borderColor='#0d6efd';
+                }
+
+                wrapper.ondragleave=function(){
+                    wrapper.style.borderColor='#ddd';
+                }
+
+                wrapper.ondrop=function(e){
+
+                    e.preventDefault();
+
+                    wrapper.style.borderColor='#ddd';
+
+                    input.files=e.dataTransfer.files;
+
+                    previewImages(e.dataTransfer.files);
+
+                }
+
+                input.onchange=function(){
+
+                    preview.innerHTML='';
+
+                    previewImages(this.files);
+
+                }
+
+                function previewImages(files){
+
+                    Array.from(files).forEach(function(file){
+
+                        if(!file.type.match('image.*')) return;
+
+                        const reader=new FileReader();
+
+                        reader.onload=function(e){
+
+                            preview.insertAdjacentHTML('beforeend',`
+
+                        <div class="image-preview">
+
+                            <img src="${e.target.result}" class="img-preview">
+
+                            <span class="remove-preview">
+                                <i class="ri-close-line"></i>
+                            </span>
+
+                        </div>
+
+                    `);
+
+                        };
+
+                        reader.readAsDataURL(file);
+
+                    });
+
+                }
+
+                preview.onclick=function(e){
+
+                    const btn=e.target.closest('.remove-preview');
+
+                    if(btn){
+
+                        btn.parentElement.remove();
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
 @endsection
