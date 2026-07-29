@@ -220,6 +220,32 @@
                             @endcan
 
 
+
+                                @can('explore-vision-list')
+                                    <li>
+                                        <a href="{{route('explore.vision.section')}}">Explore Vision</a>
+                                    </li>
+                                @endcan
+
+                                @can('conference-category-list')
+                                    <li>
+                                        <a href="{{route('conference.category.section')}}">Conference Category</a>
+                                    </li>
+                                @endcan
+
+                                @can('conference-sub-category-list')
+                                    <li>
+                                        <a href="{{route('conference.sub.category.section')}}">Conference Sub Category</a>
+                                    </li>
+                                @endcan
+
+                                @can('conference-list')
+                                    <li>
+                                        <a href="{{route('conference.section')}}">Conference</a>
+                                    </li>
+                                @endcan
+
+
                         </ul>
                     </div>
                 </li>

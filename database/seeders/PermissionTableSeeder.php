@@ -107,6 +107,30 @@ class PermissionTableSeeder extends Seeder
             'explore-edit',
             'explore-delete',
 
+            //explore vision
+            'explore-vision-list',
+            'explore-vision-create',
+            'explore-vision-edit',
+            'explore-vision-delete',
+
+            //conference category
+            'conference-category-list',
+            'conference-category-create',
+            'conference-category-edit',
+            'conference-category-delete',
+
+            //conference sub category
+            'conference-sub-category-list',
+            'conference-sub-category-create',
+            'conference-sub-category-edit',
+            'conference-sub-category-delete',
+
+            //conference
+            'conference-list',
+            'conference-create',
+            'conference-edit',
+            'conference-delete',
+
 
         ];
         foreach ($permissions as $permission) {

@@ -4,9 +4,13 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\ApproachController;
 use App\Http\Controllers\admin\CareerController;
+use App\Http\Controllers\admin\ConferenceCategoryController;
+use App\Http\Controllers\admin\ConferenceController;
+use App\Http\Controllers\admin\ConferenceSubCategoryController;
 use App\Http\Controllers\admin\CultureController;
 use App\Http\Controllers\admin\ExpertCategoryController;
 use App\Http\Controllers\admin\ExploreController;
+use App\Http\Controllers\admin\ExploreVisionController;
 use App\Http\Controllers\admin\FutureController;
 use App\Http\Controllers\admin\HowWorkController;
 use App\Http\Controllers\admin\InsightBookController;
@@ -133,6 +137,35 @@ Route::middleware('auth')->group(callback: function () {
     Route::put('/explore-update/{id}', [ExploreController::class, 'update'])->name('explore.update');
     Route::get('/explore-delete/{id}', [ExploreController::class, 'destroy'])->name('explore.destroy');
 
+
+    //explore vision
+    Route::get('/explore-vision-section', [ExploreVisionController::class, 'index'])->name('explore.vision.section');
+    Route::post('/explore-vision-store', [ExploreVisionController::class, 'store'])->name('explore.vision.store');
+    Route::put('/explore-vision-update/{id}', [ExploreVisionController::class, 'update'])->name('explore.vision.update');
+    Route::get('/explore-vision-delete/{id}', [ExploreVisionController::class, 'destroy'])->name('explore.vision.destroy');
+
+    //conference category
+    Route::get('/conference-category-section', [ConferenceCategoryController::class, 'index'])->name('conference.category.section');
+    Route::post('/conference-category-store', [ConferenceCategoryController::class, 'store'])->name('conference.category.store');
+    Route::put('/conference-category-update/{id}', [ConferenceCategoryController::class, 'update'])->name('conference.category.update');
+    Route::get('/conference-category-delete/{id}', [ConferenceCategoryController::class, 'destroy'])->name('conference.category.destroy');
+
+
+    //conference sub category
+    Route::get('/conference-sub-category-section', [ConferenceSubCategoryController::class, 'index'])->name('conference.sub.category.section');
+    Route::post('/conference-sub-category-store', [ConferenceSubCategoryController::class, 'store'])->name('conference.sub.category.store');
+    Route::put('/conference-sub-category-update/{id}', [ConferenceSubCategoryController::class, 'update'])->name('conference.sub.category.update');
+    Route::get('/conference-sub-category-delete/{id}', [ConferenceSubCategoryController::class, 'destroy'])->name('conference.sub.category.destroy');
+
+
+    //conference
+    Route::get('/conference-section', [ConferenceController::class, 'index'])->name('conference.section');
+    Route::post('/conference-store', [ConferenceController::class, 'store'])->name('conference.store');
+    Route::put('/conference-update/{id}', [ConferenceController::class, 'update'])->name('conference.update');
+    Route::get('/conference-delete/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
+
+    Route::get('/conference-category/{id}',[ConferenceController::class,'getCategories'])->name('conference.category');
+    Route::get('/conference-sub-category/{id}',[ConferenceController::class,'getSubCategories'])->name('conference.sub.category');
 
     //Role and User Section
     Route::resource('roles', RoleController::class);
