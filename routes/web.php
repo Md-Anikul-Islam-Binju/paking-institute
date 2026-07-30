@@ -21,9 +21,13 @@ use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\KeyBenefitController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
+use App\Http\Controllers\admin\NewsLetterController;
 use App\Http\Controllers\admin\OurGoalController;
 use App\Http\Controllers\admin\PartnershipController;
 use App\Http\Controllers\admin\RadicalController;
+use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\SiteSettingController;
+use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -79,6 +83,16 @@ Route::middleware('auth')->group(callback: function () {
     //radical
     Route::get('/radical', [RadicalController::class, 'index'])->name('radical.section');
     Route::post('/radical-update/{id?}', [RadicalController::class, 'createOrUpdateRadical'])->name('radical.createOrUpdate');
+
+
+
+    //slider home page
+    Route::get('/slider', [SliderController::class, 'index'])->name('slider.section');
+    Route::post('/slider-update/{id?}', [SliderController::class, 'createOrUpdateSlider'])->name('slider.createOrUpdate');
+
+    //setting
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.section');
+    Route::post('/setting-update/{id?}', [SettingController::class, 'createOrUpdateSetting'])->name('setting.createOrUpdate');
 
 
     //expert category
@@ -163,6 +177,22 @@ Route::middleware('auth')->group(callback: function () {
     Route::post('/conference-store', [ConferenceController::class, 'store'])->name('conference.store');
     Route::put('/conference-update/{id}', [ConferenceController::class, 'update'])->name('conference.update');
     Route::get('/conference-delete/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
+
+
+    //news letter
+    Route::get('/news-letter-section', [NewsLetterController::class, 'index'])->name('news.letter.section');
+    Route::post('/news-letter-store', [NewsLetterController::class, 'store'])->name('news.letter.store');
+    Route::put('/news-letter-update/{id}', [NewsLetterController::class, 'update'])->name('news.letter.update');
+    Route::get('/news-letter-delete/{id}', [NewsLetterController::class, 'destroy'])->name('news.letter.destroy');
+
+
+    //site setting
+    Route::get('/site-setting-section', [SiteSettingController::class, 'index'])->name('site.setting.section');
+    Route::post('/site-setting-store', [SiteSettingController::class, 'store'])->name('site.setting.store');
+    Route::put('/site-setting-update/{id}', [SiteSettingController::class, 'update'])->name('site.setting.update');
+    Route::get('/site-setting-delete/{id}', [SiteSettingController::class, 'destroy'])->name('site.setting.destroy');
+
+
 
     Route::get('/conference-category/{id}',[ConferenceController::class,'getCategories'])->name('conference.category');
     Route::get('/conference-sub-category/{id}',[ConferenceController::class,'getSubCategories'])->name('conference.sub.category');

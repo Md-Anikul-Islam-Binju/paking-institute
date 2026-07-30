@@ -104,6 +104,24 @@
                     </a>
                 </li>
 
+                @can('slider-list')
+                <li class="side-nav-item">
+                    <a href="{{route('slider.section')}}" class="side-nav-link">
+                        <i class="ri-slideshow-3-line"></i>
+                        <span> Slider </span>
+                    </a>
+                </li>
+                @endcan
+
+                @can('news-letter-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('news.letter.section')}}" class="side-nav-link">
+                            <i class="ri-mail-send-line"></i>
+                            <span> News Letter </span>
+                        </a>
+                    </li>
+                @endcan
+
 
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#insightPages" aria-expanded="false" aria-controls="insightPages" class="side-nav-link">
@@ -373,6 +391,19 @@
                                         <a href="{{url('roles')}}">Role & Permission</a>
                                     </li>
                                 @endcan
+
+                                @can('setting-list')
+                                    <li>
+                                        <a href="{{route('setting.section')}}">Setting</a>
+                                    </li>
+                                @endcan
+
+                                @can('site-setting-list')
+                                    <li>
+                                        <a href="{{route('site.setting.section')}}">Site Setting</a>
+                                    </li>
+                                @endcan
+
                             </ul>
                         </div>
                     </li>

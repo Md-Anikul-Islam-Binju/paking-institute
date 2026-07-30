@@ -55,6 +55,22 @@ class PermissionTableSeeder extends Seeder
             'future-list',
             //radical
             'radical-list',
+            //slider
+            'slider-list',
+            //setting
+            'setting-list',
+
+            //news-letter board
+            'news-letter-list',
+            'news-letter-create',
+            'news-letter-edit',
+            'news-letter-delete',
+
+            //site setting board
+            'site-setting-list',
+            'site-setting-create',
+            'site-setting-edit',
+            'site-setting-delete',
 
 
 
