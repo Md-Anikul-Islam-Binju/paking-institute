@@ -1,0 +1,45 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.overlay{
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,.20) 0%,
+        rgba(0,0,0,.25) 25%,
+        rgba(0,0,0,.55) 60%,
+        rgba(0,0,0,.95) 100%
+    );
+}
+
+.ticker-wrapper{
+            overflow:hidden;
+            white-space:nowrap;
+            width:100%;
+            user-select:none;
+        }
+
+        .ticker-track{
+            display:inline-flex;
+            align-items:center;
+            will-change:transform;
+            transition:transform .1s ease;
+        }
+
+        .ticker-img{
+            width:110px;
+            height:65px;
+            object-fit:cover;
+            border-radius:4px;
+        }
+
+        .ticker-text{
+            font-family:'Playfair Display',serif;
+            font-size:clamp(2.5rem,5vw,5rem);
+            font-weight:500;
+            line-height:1;
+        }
