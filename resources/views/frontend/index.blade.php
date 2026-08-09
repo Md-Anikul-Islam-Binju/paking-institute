@@ -158,7 +158,7 @@
 <div class="container">
     <div class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
         <!-- Background Image -->
-        <img src="img/hero.png" class="card-img rounded-0" alt="Background Image"
+        <img src="{{ asset('images/insight/'.$latestInsight->cover_image) }}" class="card-img rounded-0" alt="Background Image"
              style="object-fit: cover; min-height: 550px;">
 
         <!-- Dark Overlay Gradient -->
@@ -172,19 +172,19 @@
                 <!-- Category Tag -->
                 <small class="text-uppercase fw-semibold tracking-wider text-white-50 d-block mb-2"
                        style="letter-spacing: 1.5px; font-size: 0.75rem;">
-                    Tech & Digitalisation
+                    {{ $latestInsight->type->type ?? 'N/A' }}
                 </small>
 
                 <!-- Headline -->
                 <h1 class="display-4 fw-normal text-white mb-4"
                     style="font-family: 'Times New Roman', Georgia, serif; line-height: 1.15;">
-                    Why the AI Techlash Is a Test of Leadership
+                    {{ $latestInsight->title }}
                 </h1>
 
                 <!-- Date -->
                 <p class="small text-uppercase text-white-50 fw-semibold mb-2"
                    style="letter-spacing: 1px; font-size: 0.75rem;">
-                    15th may 2026
+                    {{ $latestInsight->date ? \Carbon\Carbon::parse($latestInsight->date)->format('d M Y') : 'N/A' }}
                 </p>
 
                 <!-- Subtitle / Essay snippet -->

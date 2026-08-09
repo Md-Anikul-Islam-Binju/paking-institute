@@ -1,0 +1,51 @@
+
+        #topicSection {
+            transition: background-color .5s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #444;
+            font-weight: 500;
+            background: transparent !important;
+            border: 0 !important;
+            padding: .5rem 0;
+            transition: color .3s ease;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        /* Underline */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 3px;
+            background: #000;
+            border-radius: 50px;
+            transition: width .35s ease;
+        }
+
+        /* Active underline */
+        .nav-link.active {
+            color: #000 !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Optional: hover underline */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .card-img {
+            height: 100%;
+            object-fit: cover;
+        }
+    

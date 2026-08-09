@@ -32,6 +32,7 @@ use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WhoWeAreController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', function () {
@@ -40,10 +41,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+//who we are
+Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');
+
+
 
 Route::middleware('auth')->group(callback: function () {
 
-    //who we are
+
     //About
     Route::get('/about', [AboutController::class, 'index'])->name('about.section');
     Route::post('/about-update/{id?}', [AboutController::class, 'createOrUpdateAbout'])->name('about.createOrUpdate');

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Paking Institute</title>
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
@@ -165,7 +165,7 @@
             @endphp
 
             <!-- Brand Logo / Text -->
-            <a class="navbar-brand me-auto d-flex align-items-center" href="index.html">
+            <a class="navbar-brand me-auto d-flex align-items-center" href="{{route('home')}}">
                 <span class="fw-bold tracking-tight text-uppercase small">
                       @if($setting && !empty($setting->logo))
                         <img src="{{ asset('images/setting/' . $setting->logo) }}"
@@ -225,7 +225,7 @@
 
                                             <!-- Card 1: About Us -->
                                             <div class="col-12 col-md-4">
-                                                <a href="about.html" class="text-decoration-none text-dark d-block mega-card">
+                                                <a href="{{route('aboutUs')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
                                                             src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
