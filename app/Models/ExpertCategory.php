@@ -11,4 +11,9 @@ class ExpertCategory extends Model
         'slug',
         'status',
     ];
+
+    public function managementBoards()
+    {
+        return $this->hasMany(ManagementBoard::class, 'expert_category_id');
+    }
 }

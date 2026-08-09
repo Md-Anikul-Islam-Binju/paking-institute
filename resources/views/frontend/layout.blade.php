@@ -244,7 +244,7 @@
 
                                             <!-- Card 2: Executive Leadership -->
                                             <div class="col-12 col-md-4">
-                                                <a href="executive-leadership.html" class="text-decoration-none text-dark d-block mega-card">
+                                                <a href="{{route('executiveLeadership')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
                                                             src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
