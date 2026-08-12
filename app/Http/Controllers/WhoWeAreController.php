@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Career;
 use App\Models\ExpertCategory;
 use App\Models\ManagementBoard;
+use App\Models\OurCulture;
 use App\Models\OurGoal;
 use App\Models\Vision;
 use Illuminate\Http\Request;
@@ -34,4 +36,10 @@ class WhoWeAreController extends Controller
     }
 
     //Careers
+    public function career()
+    {
+        $career = Career::first();
+        $culture = OurCulture::first();
+        return view('frontend.pages.whoWeAre.career',compact('career','culture'));
+    }
 }

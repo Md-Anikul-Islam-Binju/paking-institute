@@ -263,7 +263,7 @@
 
                                             <!-- Card 3: Careers -->
                                             <div class="col-12 col-md-4">
-                                                <a href="#" class="text-decoration-none text-dark d-block mega-card">
+                                                <a href="{{route('career')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
                                                             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
@@ -455,6 +455,7 @@
 
 <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('frontend/js/boxicons.js')}}"></script>
+<script src="{{asset('frontend/js/video.js')}}"></script>
 </body>
 
 </html>

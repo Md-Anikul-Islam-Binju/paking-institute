@@ -27,3 +27,19 @@ addEventListener("scroll", () => {
 });
 
 move(0);
+
+document.addEventListener('DOMContentLoaded', function () {
+      const video = document.getElementById('heroVideo');
+      const toggleBtn = document.getElementById('videoToggleBtn');
+      const videoIcon = document.getElementById('videoIcon');
+
+      toggleBtn.addEventListener('click', function () {
+        if (video.paused) {
+          video.play();
+          videoIcon.setAttribute('name', 'pause');
+        } else {
+          video.pause();
+          videoIcon.setAttribute('name', 'play');
+        }
+      });
+    });

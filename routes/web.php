@@ -44,6 +44,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 //who we are
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/who-we-are/executive-leadership', [WhoWeAreController::class, 'executiveLeadership'])->name('executiveLeadership');
+Route::get('/who-we-are/career', [WhoWeAreController::class, 'career'])->name('career');
+
 
 
 
