@@ -31,6 +31,7 @@ use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InsightPageController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhoWeAreController;
@@ -50,6 +51,8 @@ Route::get('/who-we-are/career', [WhoWeAreController::class, 'career'])->name('c
 //expert
 Route::get('/experts', [ExpertController::class, 'expert'])->name('expert');
 
+//insight
+Route::get('/insights', [InsightPageController::class, 'insight'])->name('insight');
 
 
 

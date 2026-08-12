@@ -9,6 +9,8 @@
     <link href="{{asset('frontend/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/color.css')}}">
+    <link href="{{asset('frontend/css/nav.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/css/accordion.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;700&display=swap"
@@ -194,7 +196,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="insights.html">INSIGHTS</a>
+                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="{{route('insight')}}">INSIGHTS</a>
                     </li>
 
                     <li class="nav-item">
@@ -456,6 +458,9 @@
 <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('frontend/js/boxicons.js')}}"></script>
 <script src="{{asset('frontend/js/video.js')}}"></script>
+
+<script src="{{asset('frontend/js/topic-switcher.js')}}"></script>
+<script src="{{asset('frontend/js/accordion.js')}}"></script>
 </body>
 
 </html>
