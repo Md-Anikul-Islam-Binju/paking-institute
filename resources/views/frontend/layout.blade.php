@@ -198,7 +198,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="experts.html">EXPERTS</a>
+                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="{{route('expert')}}">EXPERTS</a>
                     </li>
 
                     <!-- Mega Dropdown Navigation Item -->

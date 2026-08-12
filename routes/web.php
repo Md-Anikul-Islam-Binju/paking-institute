@@ -29,6 +29,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\VisionController;
+use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -45,6 +46,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/who-we-are/executive-leadership', [WhoWeAreController::class, 'executiveLeadership'])->name('executiveLeadership');
 Route::get('/who-we-are/career', [WhoWeAreController::class, 'career'])->name('career');
+
+//expert
+Route::get('/experts', [ExpertController::class, 'expert'])->name('expert');
+
 
 
 
