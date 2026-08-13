@@ -1,0 +1,169 @@
+@extends('frontend.layout')
+@section('content')
+
+    <section class="vision-section py-5 text-bg-dark">
+        <div class="container ">
+            <div class="mt-2" style="width: 60%;">
+                <small class="text-uppercase text-secondary fw-semibold">Our Approach</small>
+                <h2 class="display-1 fw-bold mt-3">{{$approach->title}}</h2>
+                <h5>{!! $approach->details !!}</h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="vision-section py-5 text-bg-white">
+        <div class="container ">
+            <div class="mt-2">
+                <small class="text-uppercase text-secondary fw-semibold">How We Work</small>
+                <h2 class="display-2 fw-bold mt-3">{{$howWork->title}}</h2>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-5"></div>
+
+                <div class="col-lg-5 offset-lg-2 d-flex flex-column justify-content-center">
+                    <p class="lead fw-bold">{!! $howWork->details !!}</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 mb-5">
+        <div class="container py-5">
+            <div class="accordion-wrapper d-flex gap-4" style="height:520px;">
+                <!-- Card 1 -->
+                <div class="accordion-card active" id="card-1" onclick="activateCard(1)" onmouseenter="activateCard(1)">
+
+                    <div class="card-img-box  overflow-hidden rounded-4">
+
+                        <img class="w-100 h-100 object-fit-cover"  src="{{ asset('images/how-work/'.$howWork->strategy_logo) }}"
+                             alt="Strategy">
+
+                        <div class="card-overlay"></div>
+
+                        <button class="position-absolute top-0 end-0 mt-3 me-3 btn btn-light rounded-circle d-flex align-items-center justify-content-center border-0 fs-4 arrow-btn"
+                                style="width:48px; height:48px;">
+                            →
+                        </button>
+
+                    </div>
+
+                    <div class="pt-3">
+                        <h2 class="font-serif display-6 mb-2">Strategy</h2>
+                        <p class="card-desc text-secondary overflow-hidden mb-0">
+                            {{ $howWork->strategy_details }}
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Card 2 -->
+                <div class="accordion-card" id="card-2" onclick="activateCard(2)" onmouseenter="activateCard(2)">
+
+                    <div class="card-img-box overflow-hidden rounded-4">
+
+                        <img class="w-100 h-100 object-fit-cover" src="{{ asset('images/how-work/'.$howWork->policy_logo) }}"
+                             alt="Policy">
+
+                        <div class="card-overlay"></div>
+
+                        <button
+                            class="position-absolute top-0 end-0 mt-3 me-3
+           btn btn-light rounded-circle
+           d-flex align-items-center justify-content-center
+           border-0 fs-4 arrow-btn"
+                            style="width:48px; height:48px;">
+                            →
+                        </button>
+
+                    </div>
+
+                    <div class="pt-3">
+
+                        <h2 class="font-serif display-6 mb-2">
+                            Policy
+                        </h2>
+
+                        <p class="card-desc">
+                            {{ $howWork->policy_details }}
+                        </p>
+
+                    </div>
+
+                </div>
+                <!-- Card 3 -->
+                <div class="accordion-card" id="card-3" onclick="activateCard(3)" onmouseenter="activateCard(3)">
+                    <div class="card-img-box overflow-hidden rounded-4">
+
+                        <img class="w-100 h-100 object-fit-cover" src="{{ asset('images/how-work/'.$howWork->delivery_logo) }}"
+                             alt="Delivery">
+
+                        <div class="card-overlay"></div>
+                        <button
+                            class="position-absolute top-0 end-0 mt-3 me-3
+           btn btn-light rounded-circle
+           d-flex align-items-center justify-content-center
+           border-0 fs-4 arrow-btn"
+                            style="width:48px; height:48px;">
+                            →
+                        </button>
+                    </div>
+                    <div class="pt-3">
+                        <h2 class="font-serif display-6 mb-2">
+                            Delivery
+                        </h2>
+                        <p class="card-desc">
+                            {{ $howWork->delivery_details }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Explore -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container py-4">
+            <div class="row g-4">
+
+                <!-- Left Column: Badge / Label -->
+                <div class="col-md-3">
+          <span class="badge text-secondary-emphasis text-uppercase fw-normal rounded-1 px-2 py-1">
+            EXPLORE
+          </span>
+                </div>
+
+                <!-- Right Column: Links List -->
+                <div class="col-md-9">
+                    <div class="d-flex flex-column">
+
+                        <!-- Item 1 -->
+                        <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-secondary">
+                            <span class="display-5 font-serif">Insights</span>
+                            <i class="bi bi-arrow-right fs-4"></i>
+                        </a>
+
+                        <!-- Item 2 -->
+                        <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-secondary">
+                            <span class="display-5 font-serif">Approach</span>
+                            <i class="bi bi-arrow-right fs-4"></i>
+                        </a>
+
+                        <!-- Item 3 -->
+                        <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-bottom border-secondary">
+                            <span class="display-5 font-serif">Partnerships</span>
+                            <i class="bi bi-arrow-right fs-4"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+@endsection

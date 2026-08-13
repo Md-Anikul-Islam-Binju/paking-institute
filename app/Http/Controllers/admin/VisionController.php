@@ -26,7 +26,6 @@ class VisionController extends Controller
     public function index()
     {
         $vision = Vision::first();
-
         return view('admin.pages.vision.index', compact('vision'));
     }
 

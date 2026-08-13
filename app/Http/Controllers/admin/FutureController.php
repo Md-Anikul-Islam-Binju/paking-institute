@@ -28,7 +28,6 @@ class FutureController extends Controller
     public function index()
     {
         $future = Future::first();
-
         return view('admin.pages.future.index', compact('future'));
     }
 

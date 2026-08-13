@@ -34,6 +34,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InsightPageController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WhatWeDoController;
 use App\Http\Controllers\WhoWeAreController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
+//what we do
+Route::get('/what-we-do/approach', [WhatWeDoController::class, 'approach'])->name('approach');
+Route::get('/what-we-do/partnerships', [WhatWeDoController::class, 'partnership'])->name('partnership');
+Route::get('/what-we-do/future-of-britain', [WhatWeDoController::class, 'future'])->name('future');
+
+
+
+
 //who we are
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/who-we-are/executive-leadership', [WhoWeAreController::class, 'executiveLeadership'])->name('executiveLeadership');
@@ -50,7 +60,6 @@ Route::get('/who-we-are/career', [WhoWeAreController::class, 'career'])->name('c
 
 //expert
 Route::get('/experts', [ExpertController::class, 'expert'])->name('expert');
-
 //insight
 Route::get('/insights', [InsightPageController::class, 'insight'])->name('insight');
 
