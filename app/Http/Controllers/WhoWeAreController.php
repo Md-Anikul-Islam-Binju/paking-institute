@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Career;
 use App\Models\ExpertCategory;
+use App\Models\JoinUs;
 use App\Models\ManagementBoard;
 use App\Models\OurCulture;
 use App\Models\OurGoal;
@@ -18,7 +19,8 @@ class WhoWeAreController extends Controller
     {
         $aboutUs = About::first();
         $ourVision = Vision::first();
-        return view('frontend.pages.whoWeAre.aboutUs',compact('aboutUs','ourVision'));
+        $join = JoinUs::first();
+        return view('frontend.pages.whoWeAre.aboutUs',compact('aboutUs','ourVision','join'));
     }
 
     //Executive

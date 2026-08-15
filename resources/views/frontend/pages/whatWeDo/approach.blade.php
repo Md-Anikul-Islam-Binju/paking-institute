@@ -3,10 +3,17 @@
 
     <section class="vision-section py-5 text-bg-dark">
         <div class="container ">
-            <div class="mt-2" style="width: 60%;">
+            <div class="mt-2 mb-5" style="width: 60%;">
                 <small class="text-uppercase text-secondary fw-semibold">Our Approach</small>
                 <h2 class="display-1 fw-bold mt-3">{{$approach->title}}</h2>
                 <h5>{!! $approach->details !!}</h5>
+            </div>
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset('images/approach/'.$approach->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
         </div>
     </section>
@@ -123,6 +130,20 @@
         </div>
     </section>
 
+    <section class="mt-5">
+        <div class="container">
+            <div class="mb-3">
+                <p class="text-uppercase  fw-semibold">TECH</p>
+            </div>
+            <div class="row md-3">
+                <div class="col-md-6"></div>
+                <div class="col-md-6 mb-5">
+                    <h1 class="mb-3">Powered by technology</h1>
+                    <p class="">The greatest opportunity for governments today is the technological revolution. Across all our work, we help leaders unlock the power of technology to create real change for their people.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Explore -->
     <section class="py-5 bg-dark text-white">
@@ -164,6 +185,9 @@
             </div>
         </div>
     </section>
+
+
+
 
 
 @endsection

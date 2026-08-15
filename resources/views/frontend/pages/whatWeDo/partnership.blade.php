@@ -5,10 +5,18 @@
 
     <section class="vision-section py-5 text-bg-dark">
         <div class="container ">
-            <div class="mt-2">
+            <div class="mt-2 mb-5">
                 <small class="text-uppercase text-secondary fw-semibold">Partnerships</small>
                 <h2 class="display-1 fw-bold mt-3">{{$partnership->title}}</h2>
                 <h5>{!! $partnership->details  !!}</h5>
+            </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset('images/partnership/'.$partnership->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
         </div>
     </section>

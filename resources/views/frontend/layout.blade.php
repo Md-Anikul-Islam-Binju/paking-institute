@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/color.css')}}">
     <link href="{{asset('frontend/css/nav.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/accordion.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/css/overlapping.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;700&display=swap"

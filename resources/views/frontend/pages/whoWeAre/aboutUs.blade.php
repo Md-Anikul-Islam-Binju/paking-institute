@@ -1,13 +1,50 @@
 @extends('frontend.layout')
 @section('content')
 
+    <style>
+        .video-wrapper {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #000000;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.08) !important;
+        }
+
+        .duration-badge {
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+
     <!-- ABOUT US -->
 
     <section class="vision-section py-5 bg-light text-dark">
         <div class="container ">
-            <div class="mt-2">
+            <div class="mt-2 mb-5">
                 <small class="text-uppercase text-secondary fw-semibold">About Us</small>
                 <h2 class="display-2 fw-bold mt-3"> {{$aboutUs->title}}</h2>
+            </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset($aboutUs->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
         </div>
     </section>
@@ -107,12 +144,37 @@
 
     </section>
 
+    <!--video section-->
+    <section class="py-5">
+        <div class="container">
+
+            <div class="video-wrapper overflow-hidden rounded shadow" id="videoContainer">
+                <video id="myVideo" class="w-100 d-block ifject-fit-cover">
+                    <source src="{{ asset($ourVision->video_file) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Centered Custom Play Button -->
+                <button id="playBtn"
+                        class="play-btn position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center text-uppercase shadow-sm">
+                    PLAY
+                </button>
+
+                <!-- Time Duration Badge (Bottom Right) -->
+                <div id="videoDuration" class="duration-badge position-absolute bottom-0 end-0 m-3 text-white">
+                    01:28
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- JOIN US -->
     <section class="vision-section py-5 bg-light text-dark">
         <div class="container ">
             <div class="mt-2">
                 <small class="text-uppercase text-secondary fw-semibold">Join Us</small>
-                <h2 class="display-2 fw-bold mt-3"> We don’t just talk, we do. Lead the change with us</h2>
+                <h2 class="display-2 fw-bold mt-3"> {{$join->title}}</h2>
             </div>
 
             <div class="row mt-4">
@@ -120,7 +182,7 @@
 
                 <div class="col-lg-5 offset-lg-2 d-flex flex-column justify-content-center">
                     <p class="lead fw-bold">
-                        We’re a global team of political strategists, policy experts, delivery practitioners, technology specialists and more. We’re from the public, private and tech sectors. We come from over 50 different countries and speak over 45 languages. We are united in our desire to make the world a better place and our optimism that it can be done. If you’re a dynamic changemaker who shares our vision, there’s room at our table for you.
+                       {!! $join->details !!}
                     </p>
                     <button class="btn btn-dark rounded-pill mt-4 w-50">BE PART OF IT <i class="bi bi-arrow-right"></i></button>
                 </div>
@@ -128,8 +190,9 @@
         </div>
     </section>
 
-    <!-- Explore -->
 
+
+    <!-- Explore -->
     <section class="py-5 bg-dark text-white">
         <div class="container py-4">
             <div class="row g-4">
@@ -169,5 +232,6 @@
             </div>
         </div>
     </section>
+
 
 @endsection

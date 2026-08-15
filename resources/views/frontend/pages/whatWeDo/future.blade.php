@@ -16,7 +16,16 @@
                     {!! $future->details !!}
                     </p>
             </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset('images/future/'.$future->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
+            </div>
         </div>
+
     </section>
 
     <section class="py-5 bg-white">
@@ -72,6 +81,14 @@
                     <hr class="d-none d-sm-block">
                 </div>
                 @endforeach
+            </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset('frontend/img/1.webp') }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
         </div>
     </section>
