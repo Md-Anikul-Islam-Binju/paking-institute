@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Career;
 use App\Models\ExpertCategory;
 use App\Models\JoinUs;
+use App\Models\Leadership;
 use App\Models\ManagementBoard;
 use App\Models\OurCulture;
 use App\Models\OurGoal;
@@ -33,8 +34,10 @@ class WhoWeAreController extends Controller
 
         $managingDirector = ExpertCategory::where('slug', '=', 'managing-director')->first();
         $managementBoards = $managingDirector->managementBoards;
+
+        $leadership  = Leadership::first();
         return view('frontend.pages.whoWeAre.executiveLeadership',compact('ourGoal','tonyBlair','catherineRimmer',
-        'managementBoards'));
+        'managementBoards','leadership'));
     }
 
     //Careers

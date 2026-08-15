@@ -118,7 +118,15 @@
         <div class="container ">
             <div class="mt-2">
                 <small class="text-uppercase text-secondary fw-semibold">Leadership</small>
-                <h2 class="display-1 fw-bold mt-3 w-100">Leading with ambition and optimism</h2>
+                <h2 class="display-1 fw-bold mt-3 w-100">{{$leadership->title}}</h2>
+            </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset($leadership->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
 
         </div>
@@ -126,29 +134,27 @@
 
     <section class="py-5 py-lg-6">
         <div class="container py-5">
+            <div>
+                <small class="text-uppercase fw-semibold text-secondary">
+                    Our Goal
+                </small>
+                <div class="mb-5">
+                    <h2 class="display-1">
+                        {{$ourGoal->title}}
+                    </h2>
+                </div>
+            </div>
+
+            <h2 class="display-1 fw-normal mt-4 lh-1 font-serif">
+            </h2>
 
             <div class="row g-5 align-items-start">
 
                 <!-- Left -->
-                <div class="col-lg-6">
-
-                    <small class="text-uppercase fw-semibold text-secondary">
-                        Our Goal
-                    </small>
-
-                    <h2 class="display-1 fw-normal mt-4 lh-1 font-serif">
-                    </h2>
-
-                </div>
+                <div class="col-lg-6"></div>
 
                 <!-- Right -->
                 <div class="col-lg-5 offset-lg-1 d-flex flex-column justify-content-between">
-
-                    <div class="mb-5">
-                        <h2 class="display-1 fw-normal lh-1 font-serif">
-                            {{$ourGoal->title}}
-                        </h2>
-                    </div>
 
                     <div class="mt-lg-5 pt-lg-5">
                         <p class="fs-4 lh-lg mb-0">
