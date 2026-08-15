@@ -18,6 +18,8 @@ class HomeController extends Controller
         $latestInsight = Insight::where('type_id', $techType->id)->with('type')
             ->latest('created_at')
             ->first();
-        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight'));
+
+        $insights = Insight::with('type')->limit(6)->get();
+        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights'));
     }
 }

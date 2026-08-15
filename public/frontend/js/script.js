@@ -43,3 +43,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     });
+
+    document.querySelectorAll('[class]').forEach(el => {
+
+    el.className.split(/\s+/).forEach(c => {
+
+        // Height: h-[...]
+        let h = c.match(/^h-\[(.+)\]$/);
+        if (h) el.style.height = h[1];
+
+        // Top: top-[...]
+        let top = c.match(/^top-\[(.+)\]$/);
+        if (top) el.style.top = top[1];
+
+        // Bottom: bottom-[...]
+        let bottom = c.match(/^bottom-\[(.+)\]$/);
+        if (bottom) el.style.bottom = bottom[1];
+
+    });
+
+});

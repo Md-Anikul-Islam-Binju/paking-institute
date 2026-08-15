@@ -4,7 +4,9 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,h5,
+h6 {
     font-family: 'Playfair Display', serif;
 }
 
@@ -15,6 +17,14 @@ h3 {
             rgba(0, 0, 0, .55) 60%,
             rgba(0, 0, 0, .95) 100%);
 }
+/*  Hero Section half section in and out */
+.hero-image-wrapper {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        /* Position the image at the bottom of the hero content on desktop */
+        bottom: -25rem; 
+    }
 
 .ticker-wrapper {
     overflow: hidden;
@@ -45,7 +55,6 @@ h3 {
 }
 
 /*  Accordion */
-
 .accordion-card {
     flex: 1;
     cursor: pointer;
@@ -115,3 +124,28 @@ h3 {
         font-size: 32px;
     }
 }
+
+/* Mobile (max-width: 767.98px) */
+/*  Hero Section half section in and out */
+    @media (max-width: 767.98px) {
+        /* Change fixed vh-100 to auto height on mobile so content isn't cramped */
+        .hero-section {
+            height: auto !important;
+            padding-bottom: 12rem !important;
+        }
+
+        .hero-image-wrapper {
+            padding-left: 12px;
+            padding-right: 12px;
+            bottom: -10rem !important; /* Adjust offset for mobile height */
+        }
+
+        .hero-image-wrapper img {
+            height: 22rem !important;
+        }
+
+        /* Adjust spacing div below hero for mobile */
+        .hero-bottom-space {
+            height: 12rem !important;
+        }
+    }

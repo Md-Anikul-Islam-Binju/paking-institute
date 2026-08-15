@@ -1,10 +1,12 @@
 @extends('frontend.layout')
 @section('content')
 
+
+
 <!-- hero section muted-->
 <section class="hero-section">
     <div class="card border-0  overflow-hidden position-relative vh-100">
-        <video autoplay muted loop playsinline class="w-100 h-100 position-absolute top-0 start-0"
+        <video id="heroVideo" autoplay muted loop playsinline class="w-100 h-100 position-absolute top-0 start-0"
                style="object-fit: cover;">
             <source src="{{ asset('videos/slider/'.$slider->videos) }}" type="video/mp4">
         </video>
@@ -15,6 +17,16 @@
             <h1 class="card-text display-1 mb-2 fw-bold" style="max-width: 60rem;">
                 {{$slider->title}}
             </h1>
+        </div>
+
+        <!-- Play/Pause Controls at Bottom End -->
+        <div class="position-absolute bottom-0 end-0 p-4">
+            <button id="videoToggleBtn"
+                    class="btn btn-outline-light rounded-circle p-3 d-flex align-items-center justify-content-center"
+                    style="width: 50px; height: 50px; backdrop-filter: blur(5px); background: rgba(0,0,0,0.3);"
+                    aria-label="Toggle Video Playback">
+                <box-icon id="videoIcon" name='pause' color='white' size='24px'></box-icon>
+            </button>
         </div>
     </div>
 </section>
@@ -213,135 +225,61 @@
                     policy experts.
                 </h1>
 
-                <a href="#" class="btn btn-light rounded-pill px-4">
+                <a href="{{route('aboutUs')}}" class="btn btn-dark rounded-pill px-4">
                     Learn More
                 </a>
 
             </div>
         </div>
+    </div>
 </section>
 
-<div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="false">
-
-    <!-- Indicators -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3"></button>
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="4"></button>
-        <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="5"></button>
-    </div>
-
-
+<div id="heroSlider" class="carousel slide carousel-fade position-relative" data-bs-ride="false">
     <div class="carousel-inner container">
 
         <!-- Slide 1 -->
+        @foreach($insights as $insight)
         <div class="carousel-item active position-relative">
-            <img src="img/Climater_optimized.webp" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
+            <img src="{{ asset('images/insight/'.$insight->cover_image) }}" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
 
-            <div class="position-absolute top-0 start-0 w-100 h-100  bg-opacity-10"></div>
+            <!-- Image Overlay with Container -->
+            <div class="carousel-caption top-0 start-0 w-100 h-100 p-0 d-flex flex-column justify-content-between">
+                <!-- Top Empty Div for Spacing -->
+                <div></div>
 
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Climate & Energy</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
+                <!-- Center Text Content -->
+                <div class="text-center">
+                    <p class="text-uppercase text-white-50 mb-2">Explore</p>
+                    <h1 class="display-1 fw-bold text-white">{{$insight->type->type}}</h1>
+                    <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
+                </div>
+
+                <!-- Bottom Controls inside Container -->
+                <div class="container pb-4 d-flex justify-content-end">
+                    <div class="d-flex gap-2">
+                        <button
+                            class="carousel-control-prev position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
+                            type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+                <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
+                  <box-icon name='left-arrow-alt' color='white' size='24px'></box-icon>
+                </span>
+                        </button>
+
+                        <button
+                            class="carousel-control-next position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
+                            type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+                <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
+                  <box-icon name='right-arrow-alt' color='white' size='24px'></box-icon>
+                </span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-        <!-- Slide 2 -->
-        <div class="carousel-item position-relative">
-            <img src="img/" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
-
-            <div class="position-absolute top-0 start-0 w-100 h-100  bg-opacity-10"></div>
-
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Economic Prosperity</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
-            </div>
-        </div>
-
-
-        <!-- Slide 3 -->
-        <div class="carousel-item position-relative">
-            <img src="img/GeopoliticsSecurity_optimized.webp" class="d-block w-100 object-fit-cover" style="height:600px;"
-                 alt="">
-
-            <div class="position-absolute top-0 start-0 w-100 h-100  bg-opacity-10"></div>
-
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Geopolitics & Security</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
-            </div>
-        </div>
-
-
-        <!-- Slide 4 -->
-        <div class="carousel-item position-relative">
-            <img src="img/PoliticsGovernance_optimized.webp" class="d-block w-100 object-fit-cover" style="height:600px;"
-                 alt="">
-
-            <div class="position-absolute top-0 start-0 w-100 h-100  bg-opacity-10"></div>
-
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Politics & Governance</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
-            </div>
-        </div>
-
-
-        <!-- Slide 5 -->
-        <div class="carousel-item position-relative">
-            <img src="img/Homepage_PublicServices_optimized.webp" class="d-block w-100 object-fit-cover"
-                 style="height:600px;" alt="">
-
-            <div class="position-absolute top-0 start-0 w-100 h-100 bg-opacity-10"></div>
-
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Public Service</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
-            </div>
-        </div>
-
-
-        <!-- Slide 6 -->
-        <div class="carousel-item position-relative">
-            <img src="img/Homepage_TechDigitalisation__1__optimized.webp" class="d-block w-100 object-fit-cover"
-                 style="height:600px;" alt="">
-
-            <div class="position-absolute top-0 start-0 w-100 h-100  bg-opacity-10"></div>
-
-            <div
-                class="carousel-caption top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center">
-                <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                <h1 class="display-1 fw-bold text-white">Tech & Digitalisation</h1>
-                <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
-            </div>
-        </div>
-
+        @endforeach
     </div>
-
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-
 </div>
+
 
 <div class="container py-lg-5">
     <div class="row align-items-center justify-content-center g-4 g-lg-5">

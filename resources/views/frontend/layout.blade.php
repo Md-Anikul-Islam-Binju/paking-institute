@@ -654,13 +654,15 @@
 
     activateCard(1);
 </script>
-
+<script src="{{asset('frontend/js/script.js')}}"></script>
 <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('frontend/js/boxicons.js')}}"></script>
 <script src="{{asset('frontend/js/video.js')}}"></script>
 
 <script src="{{asset('frontend/js/topic-switcher.js')}}"></script>
 <script src="{{asset('frontend/js/accordion.js')}}"></script>
+<script src="{{asset('frontend/js/nav.js')}}"></script>
+<script src="{{asset('frontend/js/video.js')}}"></script>
 </body>
 
 </html>
