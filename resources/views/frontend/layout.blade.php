@@ -135,6 +135,12 @@
 
             @php
                 $setting = \App\Models\Setting::first();
+                $approach = \App\Models\Approach::first();
+                $partnership = \App\Models\Partnership::first();
+                $future = \App\Models\Future::first();
+                $about = \App\Models\About::first();
+                $leadership = \App\Models\Leadership::first();
+                $career = \App\Models\Career::first();
             @endphp
 
             <!-- Brand Logo / Text -->
@@ -193,7 +199,7 @@
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset('images/approach/'.$approach->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Approach">
                                                     </div>
 
@@ -213,7 +219,7 @@
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset('images/partnership/'.$partnership->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Partnerships">
                                                     </div>
 
@@ -233,7 +239,7 @@
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset('images/future/'.$future->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Future of Britain">
                                                     </div>
 
@@ -287,7 +293,7 @@
                                                 <a href="{{route('aboutUs')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset($about->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="About Us">
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">
@@ -306,7 +312,7 @@
                                                 <a href="{{route('executiveLeadership')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset($leadership->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Executive Leadership">
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">
@@ -325,7 +331,7 @@
                                                 <a href="{{route('career')}}" class="text-decoration-none text-dark d-block mega-card">
                                                     <div class="ratio ratio-16x9 mb-3">
                                                         <img
-                                                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+                                                            src="{{ asset($career->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Careers">
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">

@@ -32,11 +32,19 @@
 
     <section class="vision-section py-5 text-bg-dark">
         <div class="container ">
-            <div class="mt-2">
+            <div class="mt-2 mb-5">
                 <small class="text-uppercase text-secondary fw-semibold">Careers</small>
                 <h2 class="display-1 fw-bold mt-3">{{$career->title}}</h2>
                 <h5>{!! $career->details !!}</h5>
                 <button class="btn btn-outline-light rounded-pill mt-3 py-2 text-uppercase fw-semibold ">Find Your Role <i class="bi bi-arrow-right ms-2"></i></button>
+            </div>
+            <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
+            <div class="overlapping-image-wrapper ">
+                <img
+                    src="{{ asset($career->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
             </div>
 
         </div>

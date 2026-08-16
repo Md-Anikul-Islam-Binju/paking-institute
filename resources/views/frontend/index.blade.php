@@ -70,7 +70,7 @@
 
                 <div class="card-img-box  overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover"  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80"
+                    <img class="w-100 h-100 object-fit-cover"  src="{{asset('frontend/img/a.webp')}}"
                          alt="Insights">
 
                     <div class="card-overlay"></div>
@@ -96,7 +96,7 @@
 
                 <div class="card-img-box overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+                    <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/b.webp')}}"
                          alt="Partnerships">
 
                     <div class="card-overlay"></div>
@@ -131,7 +131,7 @@
 
                 <div class="card-img-box overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
+                    <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/c.webp')}}"
                          alt="Approach">
 
                     <div class="card-overlay"></div>
@@ -286,7 +286,7 @@
 
         <div class="col-12 col-md-6 col-lg-5">
             <div class="w-100">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                <img src="{{asset('frontend/img/d.jfif')}}"
                      alt="Woman holding microphone at conference" class="img-fluid w-100 object-fit-cover" />
             </div>
         </div>
