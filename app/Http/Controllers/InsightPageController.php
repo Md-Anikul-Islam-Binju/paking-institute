@@ -60,4 +60,13 @@ class InsightPageController extends Controller
             )
         );
     }
+
+    public function insightDetails($slug)
+    {
+        //$insightDetail = Insight::where('slug',$slug)->with('type')->first();
+        $insightDetail = Insight::with(['type', 'books'])
+            ->where('slug', $slug)
+            ->firstOrFail();
+        return view('frontend.pages.insight.insightDetails', compact('insightDetail'));
+    }
 }

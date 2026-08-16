@@ -45,35 +45,35 @@
 @if($featuredInsight)
 
     <div class="container">
+        <a href="{{route('insight.details',$featuredInsight->slug)}}">
+            <div class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
 
-        <div class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
+                {{-- Background Image --}}
+                @if($featuredInsight->cover_image)
 
-            {{-- Background Image --}}
-            @if($featuredInsight->cover_image)
+                    <img
+                        src="{{ asset('images/insight/'.$featuredInsight->cover_image) }}"
+                        class="card-img rounded-0"
+                        alt="{{ $featuredInsight->title }}"
+                        style="object-fit: cover; min-height: 550px;"
+                    >
 
-                <img
-                    src="{{ asset('images/insight/'.$featuredInsight->cover_image) }}"
-                    class="card-img rounded-0"
-                    alt="{{ $featuredInsight->title }}"
-                    style="object-fit: cover; min-height: 550px;"
-                >
+                @else
 
-            @else
+                    <img
+                        src="{{ asset('frontend/img/hero.png') }}"
+                        class="card-img rounded-0"
+                        alt="{{ $featuredInsight->title }}"
+                        style="object-fit: cover; min-height: 550px;"
+                    >
 
-                <img
-                    src="{{ asset('frontend/img/hero.png') }}"
-                    class="card-img rounded-0"
-                    alt="{{ $featuredInsight->title }}"
-                    style="object-fit: cover; min-height: 550px;"
-                >
-
-            @endif
+                @endif
 
 
-            {{-- Dark Overlay --}}
-            <div
-                class="card-img-overlay d-flex flex-column justify-content-end p-4 p-md-5"
-                style="
+                {{-- Dark Overlay --}}
+                <div
+                    class="card-img-overlay d-flex flex-column justify-content-end p-4 p-md-5"
+                    style="
                 background:
                 linear-gradient(
                     to top,
@@ -82,68 +82,68 @@
                     rgba(0,0,0,0.2) 100%
                 );
             "
-            >
+                >
 
-                <div class="col-12 col-lg-8 ps-md-3">
+                    <div class="col-12 col-lg-8 ps-md-3">
 
-                    {{-- Category --}}
-                    <small
-                        class="text-uppercase fw-semibold text-white-50 d-block mb-2"
-                        style="
+                        {{-- Category --}}
+                        <small
+                            class="text-uppercase fw-semibold text-white-50 d-block mb-2"
+                            style="
                         letter-spacing: 1.5px;
                         font-size: 0.75rem;
                     "
-                    >
-                        {{ $featuredInsight->type?->type }}
-                    </small>
+                        >
+                            {{ $featuredInsight->type?->type }}
+                        </small>
 
 
-                    {{-- Title --}}
-                    <h1
-                        class="display-4 fw-normal text-white mb-4"
-                        style="
+                        {{-- Title --}}
+                        <h1
+                            class="display-4 fw-normal text-white mb-4"
+                            style="
                         font-family: 'Times New Roman', Georgia, serif;
                         line-height: 1.15;
                     "
-                    >
-                        {{ $featuredInsight->title }}
-                    </h1>
+                        >
+                            {{ $featuredInsight->title }}
+                        </h1>
 
 
-                    {{-- Date --}}
-                    @if($featuredInsight->date)
+                        {{-- Date --}}
+                        @if($featuredInsight->date)
 
-                        <p
-                            class="small text-uppercase text-white-50 fw-semibold mb-2"
-                            style="
+                            <p
+                                class="small text-uppercase text-white-50 fw-semibold mb-2"
+                                style="
                             letter-spacing: 1px;
                             font-size: 0.75rem;
                         "
-                        >
-                            {{ \Carbon\Carbon::parse($featuredInsight->date)->format('jS F Y') }}
-                        </p>
+                            >
+                                {{ \Carbon\Carbon::parse($featuredInsight->date)->format('jS F Y') }}
+                            </p>
 
-                    @endif
+                        @endif
 
 
-                    {{-- Remark --}}
-                    @if($featuredInsight->remark)
+                        {{-- Remark --}}
+                        @if($featuredInsight->remark)
 
-                        <div
-                            class="card-text text-white-50 small mb-0"
-                            style="font-size: 0.85rem;"
-                        >
-                            {!! \Illuminate\Support\Str::limit(strip_tags($featuredInsight->remark), 220) !!}
-                        </div>
+                            <div
+                                class="card-text text-white-50 small mb-0"
+                                style="font-size: 0.85rem;"
+                            >
+                                {!! \Illuminate\Support\Str::limit(strip_tags($featuredInsight->remark), 220) !!}
+                            </div>
 
-                    @endif
+                        @endif
+
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
-
+        </a>
     </div>
 
 @endif
@@ -155,37 +155,38 @@
 
             @forelse($insights as $insight)
 
-                <div class="col">
-                    <div class="card border-0 h-100">
+               <a class="text-decoration-none" href="{{route('insight.details',$insight->slug)}}">
+                   <div class="col">
+                       <div class="card border-0 h-100">
 
-                        {{-- Image --}}
-                        @if($insight->cover_image)
-                            <img
-                                src="{{ asset('images/insight/'.$insight->cover_image) }}"
-                                class="card-img-top"
-                                alt="{{ $insight->title }}"
-                                style="
+                           {{-- Image --}}
+                           @if($insight->cover_image)
+                               <img
+                                   src="{{ asset('images/insight/'.$insight->cover_image) }}"
+                                   class="card-img-top"
+                                   alt="{{ $insight->title }}"
+                                   style="
                                     height: 260px;
                                     object-fit: cover;
                                 "
-                            >
-                        @else
-                            <img
-                                src="{{ asset('frontend/img/hero.png') }}"
-                                class="card-img-top"
-                                alt="{{ $insight->title }}"
-                                style="
+                               >
+                           @else
+                               <img
+                                   src="{{ asset('frontend/img/hero.png') }}"
+                                   class="card-img-top"
+                                   alt="{{ $insight->title }}"
+                                   style="
                                     height: 260px;
                                     object-fit: cover;
                                 "
-                            >
-                        @endif
+                               >
+                           @endif
 
-                        <div class="card-body px-0">
+                           <div class="card-body px-0">
 
-                            {{-- Category --}}
-                            @if($insight->type)
-                                <p class="text-uppercase mb-2">
+                               {{-- Category --}}
+                               @if($insight->type)
+                                   <p class="text-uppercase mb-2">
 
                                     <span
                                         class="d-inline-block rounded-circle me-1"
@@ -196,50 +197,51 @@
                                         "
                                     ></span>
 
-                                    <small class="fw-semibold">
-                                        {{ $insight->type->type }}
-                                    </small>
+                                       <small class="fw-semibold">
+                                           {{ $insight->type->type }}
+                                       </small>
 
-                                </p>
-                            @endif
+                                   </p>
+                               @endif
 
-                            {{-- Title --}}
-                            <h5 class="card-title">
-                                {{ $insight->title }}
-                            </h5>
+                               {{-- Title --}}
+                               <h5 class="card-title">
+                                   {{ $insight->title }}
+                               </h5>
 
-                            {{-- Date / Tag --}}
-                            <p class="text-uppercase mb-3">
-                                <small>
+                               {{-- Date / Tag --}}
+                               <p class="text-uppercase mb-3">
+                                   <small>
 
-                                    @if($insight->tag)
-                                        {{ $insight->tag }}
-                                    @endif
+                                       @if($insight->tag)
+                                           {{ $insight->tag }}
+                                       @endif
 
-                                    @if($insight->tag && $insight->date)
-                                        |
-                                    @endif
+                                       @if($insight->tag && $insight->date)
+                                           |
+                                       @endif
 
-                                    @if($insight->date)
-                                        {{ \Carbon\Carbon::parse($insight->date)->format('jS F Y') }}
-                                    @endif
+                                       @if($insight->date)
+                                           {{ \Carbon\Carbon::parse($insight->date)->format('jS F Y') }}
+                                       @endif
 
-                                </small>
-                            </p>
+                                   </small>
+                               </p>
 
-                            {{-- Remark --}}
-                            @if($insight->remark)
-                                <div class="card-text">
-                                    {!! \Illuminate\Support\Str::limit(
-                                        strip_tags($insight->remark),
-                                        180
-                                    ) !!}
-                                </div>
-                            @endif
+                               {{-- Remark --}}
+                               @if($insight->remark)
+                                   <div class="card-text">
+                                       {!! \Illuminate\Support\Str::limit(
+                                           strip_tags($insight->remark),
+                                           180
+                                       ) !!}
+                                   </div>
+                               @endif
 
-                        </div>
-                    </div>
-                </div>
+                           </div>
+                       </div>
+                   </div>
+               </a>
 
             @empty
 
@@ -311,92 +313,94 @@
                 >
 
                     @if($latestInsight)
+                        <a href="{{route('insight.details',$latestInsight->slug)}}">
+                            <div class="card border-0 text-white overflow-hidden">
 
-                        <div class="card border-0 text-white overflow-hidden">
+                                {{-- ================= IMAGE ================= --}}
+                                @if($latestInsight->cover_image)
 
-                            {{-- ================= IMAGE ================= --}}
-                            @if($latestInsight->cover_image)
-
-                                <img
-                                    src="{{ asset('images/insight/'.$latestInsight->cover_image) }}"
-                                    class="card-img"
-                                    alt="{{ $latestInsight->title }}"
-                                    style="
+                                    <img
+                                        src="{{ asset('images/insight/'.$latestInsight->cover_image) }}"
+                                        class="card-img"
+                                        alt="{{ $latestInsight->title }}"
+                                        style="
                                         width: 100%;
                                         height: 600px;
                                         object-fit: cover;
                                     "
-                                >
+                                    >
 
-                            @else
+                                @else
 
-                                <img
-                                    src="{{ asset('frontend/img/hero.png') }}"
-                                    class="card-img"
-                                    alt="{{ $latestInsight->title }}"
-                                    style="
+                                    <img
+                                        src="{{ asset('frontend/img/hero.png') }}"
+                                        class="card-img"
+                                        alt="{{ $latestInsight->title }}"
+                                        style="
                                         width: 100%;
                                         height: 600px;
                                         object-fit: cover;
                                     "
+                                    >
+
+                                @endif
+
+
+                                {{-- ================= OVERLAY ================= --}}
+                                <div
+                                    class="card-img-overlay overlay d-flex align-items-end"
                                 >
 
-                            @endif
+                                    <div class="col-12 col-lg-6 p-4 p-lg-5">
 
 
-                            {{-- ================= OVERLAY ================= --}}
-                            <div
-                                class="card-img-overlay overlay d-flex align-items-end"
-                            >
-
-                                <div class="col-12 col-lg-6 p-4 p-lg-5">
-
-
-                                    {{-- CATEGORY --}}
-                                    <p class="text-uppercase fw-semibold mb-3">
-                                        {{ $type->type }}
-                                    </p>
-
-
-                                    {{-- TITLE --}}
-                                    <h1 class="display-3 fw-normal">
-
-                                        {{ $latestInsight->title }}
-
-                                    </h1>
-
-
-                                    {{-- DATE --}}
-                                    @if($latestInsight->date)
-
-                                        <p class="text-uppercase mt-3">
-
-                                            {{ \Carbon\Carbon::parse($latestInsight->date)->format('jS F Y') }}
-
+                                        {{-- CATEGORY --}}
+                                        <p class="text-uppercase fw-semibold mb-3">
+                                            {{ $type->type }}
                                         </p>
 
-                                    @endif
+
+                                        {{-- TITLE --}}
+                                        <h1 class="display-3 fw-normal">
+
+                                            {{ $latestInsight->title }}
+
+                                        </h1>
 
 
-                                    {{-- REMARK --}}
-                                    @if($latestInsight->remark)
+                                        {{-- DATE --}}
+                                        @if($latestInsight->date)
 
-                                        <div class="mt-3">
+                                            <p class="text-uppercase mt-3">
 
-                                            {!! \Illuminate\Support\Str::limit(
-                                                strip_tags($latestInsight->remark),
-                                                300
-                                            ) !!}
+                                                {{ \Carbon\Carbon::parse($latestInsight->date)->format('jS F Y') }}
 
-                                        </div>
+                                            </p>
 
-                                    @endif
+                                        @endif
+
+
+                                        {{-- REMARK --}}
+                                        @if($latestInsight->remark)
+
+                                            <div class="mt-3">
+
+                                                {!! \Illuminate\Support\Str::limit(
+                                                    strip_tags($latestInsight->remark),
+                                                    300
+                                                ) !!}
+
+                                            </div>
+
+                                        @endif
+
+                                    </div>
 
                                 </div>
 
                             </div>
+                        </a>
 
-                        </div>
 
                     @else
 
@@ -416,6 +420,7 @@
 
             @endforeach
 
+
         </div>
 
     </div>
@@ -432,8 +437,8 @@
             @forelse($insights as $insight)
 
                 <div class="col">
-
-                    <div class="card border-0 h-100">
+                    <a class="text-decoration-none" href="{{route('insight.details',$insight->slug)}}">
+                     <div class="card border-0 h-100">
 
                         {{-- Image --}}
                         @if($insight->cover_image)
@@ -533,6 +538,7 @@
                         </div>
 
                     </div>
+                    </a>
 
                 </div>
 

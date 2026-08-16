@@ -168,45 +168,48 @@
 </section>
 
 <div class="container">
-    <div class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
-        <!-- Background Image -->
-        <img src="{{ asset('images/insight/'.$latestInsight->cover_image) }}" class="card-img rounded-0" alt="Background Image"
-             style="object-fit: cover; min-height: 550px;">
+    <div  class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
+        <a href="{{route('insight.details',$latestInsight->slug)}}">
+            <!-- Background Image -->
+            <img src="{{ asset('images/insight/'.$latestInsight->cover_image) }}" class="card-img rounded-0" alt="Background Image"
+                 style="object-fit: cover; min-height: 550px;">
 
-        <!-- Dark Overlay Gradient -->
-        <div class="card-img-overlay d-flex flex-column justify-content-end p-4 p-md-5 bg-dark bg-opacity-50"
-             style="background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);">
+            <!-- Dark Overlay Gradient -->
+            <div class="card-img-overlay d-flex flex-column justify-content-end p-4 p-md-5 bg-dark bg-opacity-50"
+                 style="background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);">
 
 
 
-            <!-- Main Content Container -->
-            <div class="col-12 col-lg-8 ps-md-3">
-                <!-- Category Tag -->
-                <small class="text-uppercase fw-semibold tracking-wider text-white-50 d-block mb-2"
-                       style="letter-spacing: 1.5px; font-size: 0.75rem;">
-                    {{ $latestInsight->type->type ?? 'N/A' }}
-                </small>
+                <!-- Main Content Container -->
+                <div class="col-12 col-lg-8 ps-md-3">
+                    <!-- Category Tag -->
+                    <small class="text-uppercase fw-semibold tracking-wider text-white-50 d-block mb-2"
+                           style="letter-spacing: 1.5px; font-size: 0.75rem;">
+                        {{ $latestInsight->type->type ?? 'N/A' }}
+                    </small>
 
-                <!-- Headline -->
-                <h1 class="display-4 fw-normal text-white mb-4"
-                    style="font-family: 'Times New Roman', Georgia, serif; line-height: 1.15;">
-                    {{ $latestInsight->title }}
-                </h1>
+                    <!-- Headline -->
+                    <h1 class="display-4 fw-normal text-white mb-4"
+                        style="font-family: 'Times New Roman', Georgia, serif; line-height: 1.15;">
+                        {{ $latestInsight->title }}
+                    </h1>
 
-                <!-- Date -->
-                <p class="small text-uppercase text-white-50 fw-semibold mb-2"
-                   style="letter-spacing: 1px; font-size: 0.75rem;">
-                    {{ $latestInsight->date ? \Carbon\Carbon::parse($latestInsight->date)->format('d M Y') : 'N/A' }}
-                </p>
+                    <!-- Date -->
+                    <p class="small text-uppercase text-white-50 fw-semibold mb-2"
+                       style="letter-spacing: 1px; font-size: 0.75rem;">
+                        {{ $latestInsight->date ? \Carbon\Carbon::parse($latestInsight->date)->format('d M Y') : 'N/A' }}
+                    </p>
 
-                <!-- Subtitle / Essay snippet -->
-                <p class="card-text text-white-50 small mb-0" style="font-size: 0.85rem;">
-                    Governments must confidently embrace AI to drive innovation and accelerate economic growth – but they also
-                    need to get the public on side.
-                </p>
+                    <!-- Subtitle / Essay snippet -->
+                    <p class="card-text text-white-50 small mb-0" style="font-size: 0.85rem;">
+                        Governments must confidently embrace AI to drive innovation and accelerate economic growth – but they also
+                        need to get the public on side.
+                    </p>
+                </div>
+
             </div>
+        </a>
 
-        </div>
     </div>
 </div>
 
@@ -251,7 +254,8 @@
                 <div class="text-center">
                     <p class="text-uppercase text-white-50 mb-2">Explore</p>
                     <h1 class="display-1 fw-bold text-white">{{$insight->type->type}}</h1>
-                    <button class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</button>
+
+                    <a href="{{route('insight.details',$insight->slug)}}" class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</a>
                 </div>
 
                 <!-- Bottom Controls inside Container -->
