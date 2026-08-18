@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\admin\AboutSliderController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\ApproachController;
 use App\Http\Controllers\admin\CareerController;
@@ -222,7 +223,11 @@ Route::middleware('auth')->group(callback: function () {
     Route::put('/site-setting-update/{id}', [SiteSettingController::class, 'update'])->name('site.setting.update');
     Route::get('/site-setting-delete/{id}', [SiteSettingController::class, 'destroy'])->name('site.setting.destroy');
 
-
+    //About Slider
+    Route::get('/about-slider', [AboutSliderController::class, 'index'])->name('about.slider');
+    Route::post('/about-slider/store', [AboutSliderController::class, 'store'])->name('about.slider.store');
+    Route::put('/about-slider/update/{id}', [AboutSliderController::class, 'update'])->name('about.slider.update');
+    Route::get('/about-slider/destroy/{id}', [AboutSliderController::class, 'destroy'])->name('about.slider.destroy');
 
     Route::get('/conference-category/{id}',[ConferenceController::class,'getCategories'])->name('conference.category');
     Route::get('/conference-sub-category/{id}',[ConferenceController::class,'getSubCategories'])->name('conference.sub.category');

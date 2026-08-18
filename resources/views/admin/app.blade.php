@@ -285,6 +285,14 @@
                             </li>
                             @endcan
 
+                            @can('about-slider-list')
+                                <li>
+                                    <a href="{{route('about.slider')}}">About Slider</a>
+                                </li>
+                            @endcan
+
+
+
                             @can('vision-list')
                             <li>
                                 <a href="{{route('vision.section')}}">Our Vision</a>

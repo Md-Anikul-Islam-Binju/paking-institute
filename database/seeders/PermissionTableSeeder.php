@@ -104,6 +104,12 @@ class PermissionTableSeeder extends Seeder
             'insight-type-edit',
             'insight-type-delete',
 
+            //about slider
+            'about-slider-list',
+            'about-slider-create',
+            'about-slider-edit',
+            'about-slider-delete',
+
 
             //insight  board
             'insight-list',

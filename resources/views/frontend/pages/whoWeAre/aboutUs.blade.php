@@ -28,6 +28,78 @@
             font-size: 0.8rem;
             letter-spacing: 0.5px;
         }
+
+        /*for image slider*/
+        .custom-carousel-wrapper {
+            overflow: hidden;
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .custom-carousel-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-card {
+            flex: 0 0 78%;
+            padding: 0 3px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0.45;
+            transform: scale(0.95);
+        }
+
+        .slider-card.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slider-card img {
+            width: 100%;
+            height: 45rem;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Bottom Divider Line */
+        .slider-divider {
+            border: 0;
+            border-top: 1px solid #e0e0e0;
+            margin: 25px 0 20px 0;
+            opacity: 1;
+        }
+
+        /* Controls Container at Bottom Right */
+        .controls-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding-right: 15px;
+        }
+
+        /* Minimalist Circle Buttons */
+        .btn-control {
+            width: 42px;
+            height: 42px;
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-control:hover {
+            background-color: #333;
+            color: #fff;
+        }
     </style>
 
     <!-- ABOUT US -->
@@ -191,6 +263,60 @@
     </section>
 
 
+    <!--slider sction -->
+    <!-- Slider Section -->
+    <div class="my-5 custom-carousel-wrapper">
+
+        <!-- Slider Track -->
+        <div class="custom-carousel-inner" id="sliderTrack">
+
+            @foreach($aboutSliders as $key => $aboutSlider)
+
+                <div class="slider-card">
+
+                    <img
+                        src="{{ asset('images/about-slider/' . $aboutSlider->image) }}"
+                        alt="{{ $aboutSlider->title }}"
+                    >
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+
+        <!-- Divider Line -->
+        <div class="container">
+
+            <hr class="slider-divider">
+
+            <!-- Navigation Buttons -->
+            <div class="controls-container">
+
+                <button class="btn-control"
+                        id="prevBtn"
+                        aria-label="Previous">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                </button>
+
+
+                <button class="btn-control"
+                        id="nextBtn"
+                        aria-label="Next">
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <!-- Explore -->
     <section class="py-5 bg-dark text-white">
@@ -233,5 +359,63 @@
         </div>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
+            const track = document.getElementById('sliderTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+
+            function updateActiveState() {
+
+                const cards = track.querySelectorAll('.slider-card');
+
+                // Remove active class from all
+                cards.forEach(card => {
+                    card.classList.remove('active');
+                });
+
+                // Find middle item
+                const middleIndex = Math.floor(cards.length / 2);
+
+                // Add active class only to middle item
+                if (cards[middleIndex]) {
+                    cards[middleIndex].classList.add('active');
+                }
+            }
+
+
+            // Next
+            nextBtn.addEventListener('click', function () {
+
+                const firstCard = track.firstElementChild;
+
+                track.appendChild(firstCard);
+
+                updateActiveState();
+
+            });
+
+
+            // Previous
+            prevBtn.addEventListener('click', function () {
+
+                const lastCard = track.lastElementChild;
+
+                track.insertBefore(
+                    lastCard,
+                    track.firstElementChild
+                );
+
+                updateActiveState();
+
+            });
+
+
+            // Initial active state
+            updateActiveState();
+
+        });
+    </script>
 @endsection
