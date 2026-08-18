@@ -327,15 +327,19 @@
 
                     <!-- Member Card 1 -->
                     @foreach($managementBoards as $managementBoard)
-                    <div class="swiper-slide">
-                        <div class="member-card">
-                            <img src="{{ asset('images/management/'.$managementBoard->image) }}" alt="John Smith">
-                            <div class="member-info">
-                                <h4>{{$managementBoard->name}}</h4>
-                                <p>{{$managementBoard->designation}}</p>
+
+                        <div class="swiper-slide">
+                            <div class="member-card">
+                                <a class="text-decoration-none text-dark" href="{{route('expert.details',$managementBoard->slug)}}">
+                                    <img src="{{ asset('images/management/'.$managementBoard->image) }}" alt="John Smith">
+                                    <div class="member-info">
+                                        <h4>{{$managementBoard->name}}</h4>
+                                        <p>{{$managementBoard->designation}}</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
+
                     @endforeach
 
                 </div>

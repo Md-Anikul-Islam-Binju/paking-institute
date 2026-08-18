@@ -116,39 +116,39 @@
                     @foreach($category->managementBoards as $expert)
 
                         <div class="col">
+                            <a class="text-decoration-none" href="{{route('expert.details',$expert->slug)}}">
+                                <div class="card border-0 h-100">
 
-                            <div class="card border-0 h-100">
+                                    <!-- Expert Image -->
+                                    @if($expert->image)
 
-                                <!-- Expert Image -->
-                                @if($expert->image)
+                                        <img
+                                            src="{{ asset('images/management/'.$expert->image) }}"
+                                            class="card-img-top img-fluid"
+                                            alt="{{ $expert->name }}"
+                                        >
 
-                                    <img
-                                        src="{{ asset('images/management/'.$expert->image) }}"
-                                        class="card-img-top img-fluid"
-                                        alt="{{ $expert->name }}"
-                                    >
-
-                                @endif
-
-
-                                <!-- Expert Information -->
-                                <div class="card-body px-0">
-
-                                    <!-- Expert Name -->
-                                    <h2 class="fw-normal">
-                                        {{ $expert->name }}
-                                    </h2>
+                                    @endif
 
 
-                                    <!-- Expert Designation -->
-                                    <p class="card-text">
-                                        {{ $expert->designation }}
-                                    </p>
+                                    <!-- Expert Information -->
+                                    <div class="card-body px-0">
+
+                                        <!-- Expert Name -->
+                                        <h2 class="fw-normal">
+                                            {{ $expert->name }}
+                                        </h2>
+
+
+                                        <!-- Expert Designation -->
+                                        <p class="card-text">
+                                            {{ $expert->designation }}
+                                        </p>
+
+                                    </div>
 
                                 </div>
-
-                            </div>
-
+                            </a>
                         </div>
 
                     @endforeach

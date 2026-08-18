@@ -63,10 +63,12 @@ Route::get('/who-we-are/career', [WhoWeAreController::class, 'career'])->name('c
 
 //expert
 Route::get('/experts', [ExpertController::class, 'expert'])->name('expert');
+Route::get('/experts/{slug}', [ExpertController::class, 'expertDetail'])->name('expert.details');
+
+
 //insight
 Route::get('/insights', [InsightPageController::class, 'insight'])->name('insight');
 Route::get('/insights/{slug}', [InsightPageController::class, 'insightDetails'])->name('insight.details');
-
 
 
 

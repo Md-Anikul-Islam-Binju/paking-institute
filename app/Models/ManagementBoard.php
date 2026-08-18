@@ -20,4 +20,7 @@ class ManagementBoard extends Model
         return $this->belongsTo(ExpertCategory::class, 'expert_category_id');
     }
 
+
+
+
 }
