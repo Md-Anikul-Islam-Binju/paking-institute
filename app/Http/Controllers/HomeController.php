@@ -22,4 +22,8 @@ class HomeController extends Controller
         $insights = Insight::with('type')->limit(6)->get();
         return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights'));
     }
+    public function conference()
+    {
+        return view('frontend.pages.conference');
+    }
 }

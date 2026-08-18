@@ -36,7 +36,7 @@
                 <small class="text-uppercase text-secondary fw-semibold">Careers</small>
                 <h2 class="display-1 fw-bold mt-3">{{$career->title}}</h2>
                 <h5>{!! $career->details !!}</h5>
-                <button class="btn btn-outline-light rounded-pill mt-3 py-2 text-uppercase fw-semibold ">Find Your Role <i class="bi bi-arrow-right ms-2"></i></button>
+                <a href="https://tbinstitute.wd3.myworkdayjobs.com/TBI" target="_blank" class="btn btn-outline-light rounded-pill mt-3 py-2 text-uppercase fw-semibold ">Find Your Role <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
             <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
             <div class="overlapping-image-wrapper ">
@@ -65,9 +65,9 @@
                     <p class="lead fw-bold">
                         {!! $culture->details !!}
                     </p>
-                    <button class="btn btn-outline-dark rounded-pill mt-2 py-2 w-25 text-uppercase fw-semibold ">
+                    <a href="{{route('aboutUs')}}" class="btn btn-outline-dark rounded-pill mt-2 py-2 w-25 text-uppercase fw-semibold ">
                         About Us <i class="bi bi-arrow-right ms-2"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

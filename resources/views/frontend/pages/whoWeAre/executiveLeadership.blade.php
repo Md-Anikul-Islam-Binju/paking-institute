@@ -184,9 +184,9 @@
                         {!! $tonyBlair->details !!}
                     </p>
 
-                    <a href="#" class="btn btn-dark rounded-pill px-4 py-2 text-uppercase fw-bold btn-sm tracking-wider">
-                        Read More <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
+                    <button type="button" class="btn btn-dark rounded-pill px-4 py-2 text-uppercase fw-bold btn-sm tracking-wider" data-bs-toggle="modal" data-bs-target="#bioModal"> Read More
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
                 </div>
 
                 <!-- Right Column: Image -->
@@ -197,6 +197,55 @@
             </div>
         </div>
     </section>
+    <div class="modal fade" id="bioModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-black text-white position-relative">
+
+                <!-- Top Right Close Button -->
+                <div class="position-absolute top-0 end-0 p-4" style="z-index: 10;">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Main Modal Content -->
+                <div class="modal-body d-flex align-items-center justify-content-center p-3 p-md-5">
+                    <div class="container" style="max-width: 1000px;">
+                        <div class="row align-items-center gy-4">
+
+                            <!-- Left Side: Profile Image -->
+                            <div class="col-md-5 text-center text-md-start">
+                                <img src="{{ asset('images/management/'.$tonyBlair->image) }}"
+                                     alt="Tony Blair"
+                                     class="img-fluid w-100 object-fit-cover"
+                                     style="max-width: 380px; aspect-ratio: 4/5;">
+                            </div>
+
+                            <!-- Right Side: Scrollable Text Area -->
+                            <div class="col-md-7 ps-md-5">
+                                <!-- Name Header -->
+                                <h1 class="display-3 fw-normal mb-1" style="font-family: 'Times New Roman', serif;">
+                                    {{$tonyBlair->name}}
+                                </h1>
+
+                                <!-- Role / Title -->
+                                <p class="text-uppercase fw-semibold tracking-wider text-white-50 small mb-4">
+                                    {{$tonyBlair->designation}}
+                                </p>
+
+                                <!-- Scrollable Biography Text Container -->
+                                <div class="pe-3" style="max-height: 380px; overflow-y: auto;">
+                                    <p class="text-white-50 lh-base mb-3">
+                                        {!! $tonyBlair->details !!}
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <section class="py-5">
         <div class="container py-md-4">
@@ -212,14 +261,61 @@
                         <span> {{$catherineRimmer->designation}}</span>
                     </h2>
                     <p class="text-secondary mb-3"> {!! $catherineRimmer->details !!}</p>
-                    <a href="#" class="btn btn-dark rounded-pill px-4 py-2 text-uppercase fw-bold btn-sm tracking-wider">
+                    <button class="btn btn-dark rounded-pill px-4 py-2 text-uppercase fw-bold btn-sm tracking-wider" data-bs-toggle="modal" data-bs-target="#bioneModal">
                         Read More <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
+                    </button>
                 </div>
 
             </div>
         </div>
     </section>
+    <div class="modal fade" id="bioneModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-black text-white position-relative">
+
+                <!-- Top Right Close Button -->
+                <div class="position-absolute top-0 end-0 p-4" style="z-index: 10;">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Main Modal Content -->
+                <div class="modal-body d-flex align-items-center justify-content-center p-3 p-md-5">
+                    <div class="container" style="max-width: 1000px;">
+                        <div class="row align-items-center gy-4">
+
+                            <!-- Left Side: Profile Image -->
+                            <div class="col-md-5 text-center text-md-start">
+                                <img src="{{ asset('images/management/'.$catherineRimmer->image) }}"
+                                     alt="Tony Blair"
+                                     class="img-fluid w-100 object-fit-cover"
+                                     style="max-width: 380px; aspect-ratio: 4/5;">
+                            </div>
+
+                            <!-- Right Side: Scrollable Text Area -->
+                            <div class="col-md-7 ps-md-5">
+                                <!-- Name Header -->
+                                <h1 class="display-3 fw-normal mb-1" style="font-family: 'Times New Roman', serif;">
+                                    {{$catherineRimmer->name}}<br>
+                                </h1>
+
+                                <!-- Role / Title -->
+                                <p class="text-uppercase fw-semibold tracking-wider text-white-50 small mb-4">
+                                    {{$catherineRimmer->designation}}
+                                </p>
+
+                                <!-- Scrollable bionegraphy Text Container -->
+                                <div class="pe-3" style="max-height: 380px; overflow-y: auto;">
+                                    <p class="text-white-50 lh-base mb-3">{!! $catherineRimmer->details !!}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <section>
         <div class="container">

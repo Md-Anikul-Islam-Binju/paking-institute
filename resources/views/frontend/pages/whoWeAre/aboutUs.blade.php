@@ -184,7 +184,7 @@
                     <p class="lead fw-bold">
                        {!! $join->details !!}
                     </p>
-                    <button class="btn btn-dark rounded-pill mt-4 w-50">BE PART OF IT <i class="bi bi-arrow-right"></i></button>
+                    <a href="{{route('career')}}" class="btn btn-dark rounded-pill mt-4 w-50">BE PART OF IT <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>

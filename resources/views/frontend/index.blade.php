@@ -66,100 +66,106 @@
     <div class="container py-5">
         <div class="accordion-wrapper d-flex gap-4" style="height:520px;">
             <!-- Card 1 -->
-            <div class="accordion-card active" id="card-1" onclick="activateCard(1)" onmouseenter="activateCard(1)">
+          <a href="{{route('insight')}}" >
+              <div class="accordion-card active" id="card-1" onclick="activateCard(1)" onmouseenter="activateCard(1)">
 
-                <div class="card-img-box  overflow-hidden rounded-4">
+                  <div class="card-img-box  overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover"  src="{{asset('frontend/img/a.webp')}}"
-                         alt="Insights">
+                      <img class="w-100 h-100 object-fit-cover"  src="{{asset('frontend/img/a.webp')}}"
+                           alt="Insights">
 
-                    <div class="card-overlay"></div>
+                      <div class="card-overlay"></div>
 
-                    <button class="position-absolute top-0 end-0 mt-3 me-3 btn btn-light rounded-circle d-flex align-items-center justify-content-center border-0 fs-4 arrow-btn"
-                            style="width:48px; height:48px;">
-                        →
-                    </button>
+                      <a href="{{route('insight')}}" class="position-absolute top-0 end-0 mt-3 me-3 btn btn-light rounded-circle d-flex align-items-center justify-content-center border-0 fs-4 arrow-btn"
+                         style="width:48px; height:48px;">
+                          →
+                      </a>
 
-                </div>
+                  </div>
 
-                <div class="pt-3">
-                    <h2 class="font-serif display-6 mb-2">Insights</h2>
-                    <p class="card-desc text-secondary overflow-hidden mb-0">
-                        Discover the latest thinking from our experts.
-                    </p>
-                </div>
+                  <div class="pt-3">
+                      <h2 class="font-serif display-6 mb-2">Insights</h2>
+                      <p class="card-desc text-secondary overflow-hidden mb-0">
+                          Discover the latest thinking from our experts.
+                      </p>
+                  </div>
 
-            </div>
+              </div>
 
+          </a>
             <!-- Card 2 -->
-            <div class="accordion-card" id="card-2" onclick="activateCard(2)" onmouseenter="activateCard(2)">
+            <a  href="{{route('partnership')}}">
+                <div class="accordion-card" id="card-2" onclick="activateCard(2)" onmouseenter="activateCard(2)">
 
-                <div class="card-img-box overflow-hidden rounded-4">
+                    <div class="card-img-box overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/b.webp')}}"
-                         alt="Partnerships">
+                        <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/b.webp')}}"
+                             alt="Partnerships">
 
-                    <div class="card-overlay"></div>
+                        <div class="card-overlay"></div>
 
-                    <button
-                        class="position-absolute top-0 end-0 mt-3 me-3
+                        <a  href="{{route('partnership')}}"
+                            class="position-absolute top-0 end-0 mt-3 me-3
            btn btn-light rounded-circle
            d-flex align-items-center justify-content-center
            border-0 fs-4 arrow-btn"
-                        style="width:48px; height:48px;">
-                        →
-                    </button>
+                            style="width:48px; height:48px;">
+                            →
+                        </a>
+
+                    </div>
+
+                    <div class="pt-3">
+
+                        <h2 class="font-serif display-6 mb-2">
+                            Partnerships
+                        </h2>
+
+                        <p class="card-desc">
+                            Join us to deliver meaningful change together.
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div class="pt-3">
-
-                    <h2 class="font-serif display-6 mb-2">
-                        Partnerships
-                    </h2>
-
-                    <p class="card-desc">
-                        Join us to deliver meaningful change together.
-                    </p>
-
-                </div>
-
-            </div>
-
+            </a>
             <!-- Card 3 -->
-            <div class="accordion-card" id="card-3" onclick="activateCard(3)" onmouseenter="activateCard(3)">
+         <a href="{{route('approach')}}">
+             <div class="accordion-card" id="card-3" onclick="activateCard(3)" onmouseenter="activateCard(3)">
 
-                <div class="card-img-box overflow-hidden rounded-4">
+                 <div class="card-img-box overflow-hidden rounded-4">
 
-                    <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/c.webp')}}"
-                         alt="Approach">
+                     <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/c.webp')}}"
+                          alt="Approach">
 
-                    <div class="card-overlay"></div>
+                     <div class="card-overlay"></div>
 
-                    <button
-                        class="position-absolute top-0 end-0 mt-3 me-3
+                     <a  href="{{route('approach')}}"
+                         class="position-absolute top-0 end-0 mt-3 me-3
            btn btn-light rounded-circle
            d-flex align-items-center justify-content-center
            border-0 fs-4 arrow-btn"
-                        style="width:48px; height:48px;">
-                        →
-                    </button>
+                         style="width:48px; height:48px;">
+                         →
+                     </a>
 
-                </div>
+                 </div>
 
-                <div class="pt-3">
+                 <div class="pt-3">
 
-                    <h2 class="font-serif display-6 mb-2">
-                        Approach
-                    </h2>
+                     <h2 class="font-serif display-6 mb-2">
+                         Approach
+                     </h2>
 
-                    <p class="card-desc">
-                        Learn about our unique methodology and values.
-                    </p>
+                     <p class="card-desc">
+                         Learn about our unique methodology and values.
+                     </p>
 
-                </div>
+                 </div>
 
-            </div>
+             </div>
+         </a>
 
         </div>
 
@@ -314,7 +320,7 @@
             </p>
 
             <!-- Call to Action Button -->
-            <a href="#"
+            <a href="{{route('conference')}}"
                class="btn btn-dark rounded-pill px-4 py-2 text-white d-inline-flex align-items-center gap-2 text-decoration-none shadow-sm"
                style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.8px;">
                 <span class="text-uppercase">LEARN MORE</span>

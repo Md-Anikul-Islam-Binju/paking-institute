@@ -43,6 +43,8 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+//conference
+Route::get('/tbi-at-party-conferences', [HomeController::class, 'conference'])->name('conference');
 
 
 //what we do
