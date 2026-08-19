@@ -34,7 +34,8 @@ class WhatWeDoController extends Controller
     {
         $involved = Involved::where('slug',$slug)->first();
         $keyBenefit = KeyBenefit::latest()->get();
-        return view('frontend.pages.whatWeDo.partnershipDetails',compact('involved','keyBenefit'));
+        $keyBenefitInvolved = KeyBenefit::where('involved_id',2)->get();
+        return view('frontend.pages.whatWeDo.partnershipDetails',compact('involved','keyBenefit','keyBenefitInvolved'));
     }
 
     //future

@@ -25,6 +25,7 @@
     </div>
 </section>
 
+@if($involved->slug == "inspire-change")
 <section>
     <div class="container">
         <div class="mt-5 mb-5">
@@ -37,7 +38,6 @@
         </div>
     </div>
 </section>
-
 <section class="py-5">
     <div class="container py-5">
         <div class="p-4">
@@ -87,7 +87,6 @@
     </div>
 
 </section>
-
 <!-- Create with us -->
 <section class="py-5 text-dark bg-white">
     <div class="container py-4">
@@ -116,8 +115,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- Explore -->
 <section class="py-5 bg-dark text-white">
     <div class="container py-4">
@@ -158,5 +155,155 @@
         </div>
     </div>
 </section>
+@elseif($involved->slug == "deliver-change")
+    <section>
+        <div class="container">
+            <div class="mt-5 mb-5">
+                <h1 class="display-1 fw-bold mb-4">
+                    Partner with us on the radical reinvention of government.
+                </h1>
+                <div class="text-center">
+                    <button class="btn btn-dark text-uppercase rounded-pill px-4 py-2">Reach out <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+{{--    Key benefits--}}
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="p-4">
+                <h1>Key benefits</h1>
+            </div>
+            <div class="accordion-wrapper d-flex gap-4" style="height:520px;">
+                <!-- Card 1 -->
+                <div class="accordion-card active" id="card-1" onclick="activateCard(1)" onmouseenter="activateCard(1)">
+                    <div class="card-img-box  overflow-hidden rounded-4">
+                        <img class="w-100 h-100 object-fit-cover"  src="{{asset('frontend/img/a5.webp')}}"
+                             alt="Insights">
+                        <div class="card-overlay"></div>
+                    </div>
+
+                    <div class="pt-3">
+                        <h4 class="font-serif  mb-2">Roll out and co-create bold solutions to transform lives</h4>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="accordion-card" id="card-2" onclick="activateCard(2)" onmouseenter="activateCard(2)">
+                    <div class="card-img-box overflow-hidden rounded-4">
+                        <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/a6.webp')}}" alt="Partnerships">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="pt-3">
+                        <h4 class="font-serif  mb-2">
+                            Use your real-world expertise and groundbreaking technology to transform public services
+                        </h4>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="accordion-card" id="card-3" onclick="activateCard(3)" onmouseenter="activateCard(3)">
+                    <div class="card-img-box overflow-hidden rounded-4">
+                        <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/a7.webp')}}"
+                             alt="Approach">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="pt-3">
+                        <h4 class="font-serif  mb-2">
+                            Deliver solutions at scale for citizens and countries
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <br><br>
+
+
+    <section class="py-5 bg-white mb-5">
+        <div class="container py-4">
+            <div class="row">
+                <!-- Left Column: Title -->
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <span class="text-uppercase fw-semibold tracking-wide small">Delivering change</span>
+                </div>
+
+                <!-- Right Column: Conference List -->
+                <div class="col-lg-9">
+                    <!-- 2024 Item -->
+                    @foreach($keyBenefitInvolved as $data)
+
+                        <div class="row align-items-center pb-5">
+                            <div class="col-md-5 mb-3 mb-md-0">
+                                <img src="{{ asset('images/key-benefit/'.$data->image) }}" alt="Future of Britain Conference 2024"
+                                     class="img-fluid rounded-1 w-100 object-fit-cover" style="height: 220px;">
+                            </div>
+                            <div class="col-md-7 ps-md-4">
+                                <h2 class="display-6 mb-4"> {{ $data->title ?? 'N/A' }}</h2>
+                                <a href="#"
+                                   class="btn btn-dark text-uppercase fw-semibold rounded-pill px-4 py-2 small">  Read the case study &rarr; </a>
+                            </div>
+                        </div>
+                        <hr class="border-dark my-0">
+                        <br>
+
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- join us -->
+    <section class="py-5">
+        <div class="container">
+            <div class="mb-6">
+                <p class="text-uppercase">Join us</p>
+                <h1 class="display-1 fw-bold ">Ready for business unusual? Deliver with us.</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <h5 class="mb-5">Our Reimagined State Accelerators enable governments and technology firms to work side by side to address real-world governance challenges with bold, practical solutions. Whether the goal is climate resilience, better connectivity, smarter agriculture or more responsive public services, TBI brings together the tools, insights and partnerships needed to make it happen.
+                        <br><br>
+                        The TBI team is currently preparing to launch the next generation of Reimagined State Accelerators. If you’re a government ready to tackle big challenges or a tech partner with solutions that can improve lives at scale, register your interest in participating in an Accelerator.
+                    </h5>
+                    <button class="btn btn-dark rounded-pill px-4 py-2">Reach Out <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join our network -->
+    <section class="py-5 text-white bg-secondary">
+        <div class="container py-4">
+            <div class="row g-4 mb-5">
+
+                <!-- Left Column: Badge / Label -->
+                <div class="col-md-3 mt-5">
+                    <h6 class=" text-white-emphasis text-uppercase ">
+                        Join our network
+                    </h6>
+                </div>
+
+                <!-- Right Column: Links List -->
+                <div class="col-md-9 mt-5">
+                    <div class="d-flex flex-column">
+
+                        <!-- Item 1 -->
+                        <a href="{{url('what-we-do/partnerships/inspire-change')}}"
+                           class="d-flex justify-content-between align-items-center text-light text-decoration-none py-4 border-bottom border-white ">
+                            <span class="display-5 font-serif">Connect with other changemakers</span>
+                            <i class="bi bi-arrow-right fs-4"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+@endif
 
 @endsection
