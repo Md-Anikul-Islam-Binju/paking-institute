@@ -174,17 +174,17 @@
 </section>
 
 <div class="container">
-    <div  class="card text-white mt-5 overflow-hidden border-0 rounded-0 position-relative">
+    <div class="mt-5">
+        <p class="text-uppercase">Featured</p>
+    </div>
+    <div  class="card text-white mt-3 overflow-hidden border-0 rounded-0 position-relative">
         <a href="{{route('insight.details',$latestInsight->slug)}}">
             <!-- Background Image -->
             <img src="{{ asset('images/insight/'.$latestInsight->cover_image) }}" class="card-img rounded-0" alt="Background Image"
                  style="object-fit: cover; min-height: 550px;">
 
             <!-- Dark Overlay Gradient -->
-            <div class="card-img-overlay d-flex flex-column justify-content-end p-4 p-md-5 bg-dark bg-opacity-50"
-                 style="background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%);">
-
-
+            <div class="card-img-overlay overlay d-flex flex-column justify-content-end p-4 p-md-5">
 
                 <!-- Main Content Container -->
                 <div class="col-12 col-lg-8 ps-md-3">
@@ -229,13 +229,12 @@
                     About Us
                 </h6>
 
-                <h1 class="display-1 fw-bold animate__animated animate__flash animate__slower animate__infinite">
-                    We are
-                    policy experts.
+                <h1 class="display-1 mb-5 fw-bold animate__animated animate__flash animate__slower animate__infinite">
+                    We are policy experts.
                 </h1>
 
                 <a href="{{route('aboutUs')}}" class="btn btn-dark rounded-pill px-4">
-                    Learn More
+                    Learn More <i class="bi bi-arrow-right"></i>
                 </a>
 
             </div>
@@ -243,96 +242,102 @@
     </div>
 </section>
 
-<div id="heroSlider" class="carousel slide carousel-fade position-relative" data-bs-ride="false">
-    <div class="carousel-inner container">
+<section class="mb-4">
+    <div class="container d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Explore</h1>
+        <a class="text-decoration-none text-dark" href="{{route('insight')}}">See all <i class="bi bi-arrow-right-circle-fill"></i></a>
+    </div>
+    <div id="heroSlider" class="carousel slide carousel-fade position-relative" data-bs-ride="false">
+        <div class="carousel-inner container">
 
-        <!-- Slide 1 -->
-        @foreach($insights as $insight)
-        <div class="carousel-item active position-relative">
-            <img src="{{ asset('images/insight/'.$insight->cover_image) }}" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
+            <!-- Slide 1 -->
+            @foreach($insights as $insight)
+                <div class="carousel-item active position-relative">
+                    <img src="{{ asset('images/insight/'.$insight->cover_image) }}" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
 
-            <!-- Image Overlay with Container -->
-            <div class="carousel-caption top-0 start-0 w-100 h-100 p-0 d-flex flex-column justify-content-between">
-                <!-- Top Empty Div for Spacing -->
-                <div></div>
+                    <!-- Image Overlay with Container -->
+                    <div class="carousel-caption top-0 start-0 w-100 h-100 p-0 d-flex flex-column justify-content-between">
+                        <!-- Top Empty Div for Spacing -->
+                        <div></div>
 
-                <!-- Center Text Content -->
-                <div class="text-center">
-                    <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                    <h1 class="display-1 fw-bold text-white">{{$insight->type->type}}</h1>
+                        <!-- Center Text Content -->
+                        <div class="text-center">
+                            <p class="text-uppercase text-white-50 mb-2">Explore</p>
+                            <h1 class="display-1 fw-bold text-white">{{$insight->type->type}}</h1>
 
-                    <a href="{{route('insight.details',$insight->slug)}}" class="btn btn-light mt-3 text-uppercase rounded-pill">See theme</a>
-                </div>
+                            <a href="{{route('insight.details',$insight->slug)}}" class="btn btn-light mt-3 text-uppercase rounded-pill px-4">See theme <i class="bi bi-arrow-right"></i></a>
+                        </div>
 
-                <!-- Bottom Controls inside Container -->
-                <div class="container pb-4 d-flex justify-content-end">
-                    <div class="d-flex gap-2">
-                        <button
-                            class="carousel-control-prev position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
-                            type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+                        <!-- Bottom Controls inside Container -->
+                        <div class="container pb-4 d-flex justify-content-end">
+                            <div class="d-flex gap-2">
+                                <button
+                                    class="carousel-control-prev position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
+                                    type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
                 <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
                   <box-icon name='left-arrow-alt' color='white' size='24px'></box-icon>
                 </span>
-                        </button>
+                                </button>
 
-                        <button
-                            class="carousel-control-next position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
-                            type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+                                <button
+                                    class="carousel-control-next position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
+                                    type="button" data-bs-target="#heroSlider" data-bs-slide="next">
                 <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
                   <box-icon name='right-arrow-alt' color='white' size='24px'></box-icon>
                 </span>
-                        </button>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
-</div>
+</section>
 
+<section class="mt-5">
+    <div class="container py-lg-5">
+        <div class="row align-items-center justify-content-center g-4 g-lg-5">
 
-<div class="container py-lg-5">
-    <div class="row align-items-center justify-content-center g-4 g-lg-5">
-
-        <div class="col-12 col-md-6 col-lg-5">
-            <div class="w-100">
-                <img src="{{asset('frontend/img/d.jfif')}}"
-                     alt="Woman holding microphone at conference" class="img-fluid w-100 object-fit-cover" />
+            <div class="col-12 col-md-6 col-lg-5">
+                <div class="w-100">
+                    <img src="{{asset('frontend/img/d.jfif')}}"
+                         alt="Woman holding microphone at conference" class="img-fluid w-100 h-100 object-fit-cover" />
+                </div>
             </div>
+
+            <div class="col-12 col-md-6 col-lg-5 ps-lg-5">
+                <!-- Heading -->
+                <h1 class="display-6 mb-4 text-dark fw-normal"
+                    style=" font-size: 2.25rem; line-height: 1.2;">
+                    TBI at UK Party Conferences 2025
+                </h1>
+
+                <!-- Tagline / Subtitle -->
+                <p class="fw-bold text-dark fs-6 mb-3">
+                    It's time to build a new political coalition for transformation.
+                </p>
+
+                <!-- Description Paragraph -->
+                <p class="text-dark opacity-75 fs-6 mb-4 fw-normal" style="line-height: 1.6;">
+                    We're advancing a bold agenda, built on innovation and powered by disruptive politics, that can transform how
+                    government delivers.
+                </p>
+
+                <!-- Call to Action Button -->
+                <a href="{{route('conference')}}"
+                   class="btn btn-dark rounded-pill px-4 py-2 text-white d-inline-flex align-items-center gap-2 text-decoration-none shadow-sm"
+                   style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.8px;">
+                    <span class="text-uppercase">LEARN MORE</span>
+                    <i class="bi bi-arrow-right fs-6"></i>
+                </a>
+            </div>
+
         </div>
-
-        <div class="col-12 col-md-6 col-lg-5 ps-lg-5">
-            <!-- Heading -->
-            <h1 class="display-6 mb-4 text-dark fw-normal"
-                style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.25rem; line-height: 1.2;">
-                TBI at UK Party Conferences 2025
-            </h1>
-
-            <!-- Tagline / Subtitle -->
-            <p class="fw-bold text-dark fs-6 mb-3">
-                It's time to build a new political coalition for transformation.
-            </p>
-
-            <!-- Description Paragraph -->
-            <p class="text-dark opacity-75 fs-6 mb-4 fw-normal" style="line-height: 1.6;">
-                We're advancing a bold agenda, built on innovation and powered by disruptive politics, that can transform how
-                government delivers.
-            </p>
-
-            <!-- Call to Action Button -->
-            <a href="{{route('conference')}}"
-               class="btn btn-dark rounded-pill px-4 py-2 text-white d-inline-flex align-items-center gap-2 text-decoration-none shadow-sm"
-               style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.8px;">
-                <span class="text-uppercase">LEARN MORE</span>
-                <i class="bi bi-arrow-right fs-6"></i>
-            </a>
-        </div>
-
     </div>
-</div>
+</section>
 
 <section class=" py-5 overflow-hidden position-relative bg-light">
-
     <!-- Heading -->
     <div class="container text-center mt-5 pt-4 mb-5">
       <span class="text-uppercase fw-semibold text-secondary" style="font-size:.75rem;letter-spacing:3px;">

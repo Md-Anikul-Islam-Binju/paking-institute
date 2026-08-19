@@ -93,37 +93,45 @@
 
 <!-- header 0 -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-black bg-dark py-1">
-        <div class="container">
-            <!-- <a class="navbar-brand" href="#">My App</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><box-icon name='twitter' type='logo' color='white'
-                                                               size='20px'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><box-icon name='linkedin' type='logo' color='white'
-                                                               size='20px'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><box-icon name='instagram' type='logo' color='white'
-                                                               size='20px'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><box-icon type='logo' name='facebook' color='white'
-                                                               size='20px'></box-icon></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><box-icon name='youtube' type='logo' color='white'
-                                                               size='20px'></box-icon></a>
-                    </li>
-                </ul>
-                <button class="btn btn-dark" type="button">NEWSLETTER</button>
-            </div>
+    <nav class="navbar navbar-dark bg-[#363535] py-1">
+        <div class="container d-flex justify-content-end align-items-center">
+
+            <!-- Social Links & Newsletter in One Straight Line -->
+            <ul class="navbar-nav flex-row align-items-center gap-3 mb-0">
+                <li class="nav-item">
+                    <a class="nav-link p-1 text-white d-flex align-items-center" href="#" aria-label="X (Twitter)">
+                        <i class="bi bi-twitter-x" style="font-size: 1.1rem;"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-1 text-white d-flex align-items-center" href="#" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin" style="font-size: 1.1rem;"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-1 text-white d-flex align-items-center" href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram" style="font-size: 1.1rem;"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-1 text-white d-flex align-items-center" href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook" style="font-size: 1.1rem;"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-1 text-white d-flex align-items-center" href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube" style="font-size: 1.1rem;"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!-- Trigger Modal Button -->
+                    <button type="button" class="btn text-light p-0 ms-2 border-0 shadow-none fw-normal" data-bs-toggle="modal"
+                            data-bs-target="#newsletterModal">
+                        NEWSLETTER
+                    </button>
+                </li>
+            </ul>
+
         </div>
     </nav>
 </header>
@@ -291,7 +299,7 @@
                                             <!-- Card 1: About Us -->
                                             <div class="col-12 col-md-4">
                                                 <a href="{{route('aboutUs')}}" class="text-decoration-none text-dark d-block mega-card">
-                                                    <div class="ratio ratio-16x9 mb-3">
+                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
                                                             src="{{ asset($about->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="About Us">
@@ -310,7 +318,7 @@
                                             <!-- Card 2: Executive Leadership -->
                                             <div class="col-12 col-md-4">
                                                 <a href="{{route('executiveLeadership')}}" class="text-decoration-none text-dark d-block mega-card">
-                                                    <div class="ratio ratio-16x9 mb-3">
+                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
                                                             src="{{ asset($leadership->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Executive Leadership">
@@ -329,7 +337,7 @@
                                             <!-- Card 3: Careers -->
                                             <div class="col-12 col-md-4">
                                                 <a href="{{route('career')}}" class="text-decoration-none text-dark d-block mega-card">
-                                                    <div class="ratio ratio-16x9 mb-3">
+                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
                                                         <img
                                                             src="{{ asset($career->cover_image) }}"
                                                             class="img-fluid rounded-0 object-fit-cover" alt="Careers">
@@ -670,6 +678,8 @@
 <script src="{{asset('frontend/js/accordion.js')}}"></script>
 <script src="{{asset('frontend/js/nav.js')}}"></script>
 <script src="{{asset('frontend/js/video.js')}}"></script>
+<script src="{{asset('frontend/js/utility-classes.js')}}"></script>
+
 </body>
 
 </html>

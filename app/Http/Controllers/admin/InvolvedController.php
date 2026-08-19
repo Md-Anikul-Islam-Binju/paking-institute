@@ -45,7 +45,7 @@ class InvolvedController extends Controller
             $involved = new Involved();
 
             $involved->title = $request->title;
-            $involved->slug = Str::slug($request->title) . '-' . time();
+            $involved->slug = Str::slug($request->title);
             $involved->details = $request->details;
 
             if ($request->hasFile('image')) {
@@ -90,7 +90,7 @@ class InvolvedController extends Controller
             $involved = Involved::findOrFail($id);
 
             $involved->title = $request->title;
-            $involved->slug = Str::slug($request->title) . '-' . $id;
+            $involved->slug = Str::slug($request->title);
             $involved->details = $request->details;
 
             if ($request->hasFile('image')) {

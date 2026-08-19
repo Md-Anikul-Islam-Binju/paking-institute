@@ -54,7 +54,7 @@ Route::get('/what-we-do/partnerships', [WhatWeDoController::class, 'partnership'
 Route::get('/what-we-do/future-of-britain', [WhatWeDoController::class, 'future'])->name('future');
 
 
-
+Route::get('/what-we-do/partnerships/{slug}', [WhatWeDoController::class, 'partnershipDetails'])->name('partnership.details');
 
 //who we are
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');

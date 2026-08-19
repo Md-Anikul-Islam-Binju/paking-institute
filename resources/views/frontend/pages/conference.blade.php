@@ -7,10 +7,10 @@
             <div class="mt-5 mb-5">
                 <p class="text-uppercase">Events</p>
                 <h1 class="mb-3 display-1 fw-bold">TBI at Party Conferences 2026</h1>
-                <p class="w-50 fs-5">At this year’s UK party conferences, the Tony Blair Institute will convene political leaders, expert thinkers and innovators to explore the ideas at the heart of Resurgent Britain – our agenda for Britain’s renewal. </p>
+                <p class="w-100 w-md-50 fs-5">At this year’s UK party conferences, the Tony Blair Institute will convene political leaders, expert thinkers and innovators to explore the ideas at the heart of Resurgent Britain – our agenda for Britain’s renewal. </p>
             </div>
             <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
-            <div class="overlapping-image-wrapper h-[32rem]">
+            <div class="overlapping-image-wrapper">
                 <img src="{{asset('frontend/img/11.webp')}}"
                      class="img-fluid w-100  shadow-lg  object-fit-cover" alt="Hero Banner Image">
             </div>

@@ -25,7 +25,7 @@
         <div class="container py-5">
             <div class="mb-5">
                 <h1 class="display-1 fw-bold">How to get involved</h1>
-                <p class="lead w-75">
+                <p class="lead w-md-75">
                     Whether you’re looking to connect with global changemakers or co-develop scalable technology solutions with governments, TBI offers multiple ways to partner.
                 </p>
             </div>
@@ -33,11 +33,15 @@
                 @foreach($involveds as $involved)
                 <div class="col">
                     <div class="card h-100 border-0">
-                        <img src="{{ asset('images/involved/'.$involved->image) }}" style="height: 40rem" class="card-img-top" alt="...">
+                        <img src="{{ asset('images/involved/'.$involved->image) }}"  class="card-img-top h-[50rem]" alt="...">
                         <div class="card-body">
                             <h2 class="card-title">  {{ $involved->title }}</h2>
-                            <p class="card-text mb-4">{!!$involved->details !!}</p>
-                            <button class="btn btn-outline-dark text-uppercase fw-semibold rounded-pill px-4 py-2">Join Our Network </button>
+                            <p class="card-text mb-4">
+                                {!! $involved->details
+                                            ? \Illuminate\Support\Str::limit(strip_tags($involved->details),50)
+                                            : 'N/A' !!}
+                            </p>
+                            <a href="{{route('partnership.details',$involved->slug)}}" class="btn btn-outline-dark text-uppercase fw-semibold rounded-pill px-4 py-2">Join Our Network <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

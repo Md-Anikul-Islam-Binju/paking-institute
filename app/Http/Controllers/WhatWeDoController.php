@@ -8,6 +8,7 @@ use App\Models\ExploreVision;
 use App\Models\Future;
 use App\Models\HowWork;
 use App\Models\Involved;
+use App\Models\KeyBenefit;
 use App\Models\Partnership;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,13 @@ class WhatWeDoController extends Controller
         $partnership = Partnership::first();
         $involveds = Involved::all();
         return view('frontend.pages.whatWeDo.partnership',compact('partnership','involveds'));
+    }
+
+    public function partnershipDetails($slug)
+    {
+        $involved = Involved::where('slug',$slug)->first();
+        $keyBenefit = KeyBenefit::latest()->get();
+        return view('frontend.pages.whatWeDo.partnershipDetails',compact('involved','keyBenefit'));
     }
 
     //future

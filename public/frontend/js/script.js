@@ -44,22 +44,30 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    document.querySelectorAll('[class]').forEach(el => {
-
-    el.className.split(/\s+/).forEach(c => {
-
-        // Height: h-[...]
-        let h = c.match(/^h-\[(.+)\]$/);
-        if (h) el.style.height = h[1];
-
-        // Top: top-[...]
-        let top = c.match(/^top-\[(.+)\]$/);
-        if (top) el.style.top = top[1];
-
-        // Bottom: bottom-[...]
-        let bottom = c.match(/^bottom-\[(.+)\]$/);
-        if (bottom) el.style.bottom = bottom[1];
-
-    });
-
-});
+//     document.querySelectorAll('[class]').forEach(el => {
+//
+//     el.className.split(/\s+/).forEach(c => {
+//
+//         // Background Color: bg-[...]
+//         let bg = c.match(/^bg-\[(.+)\]$/);
+//         if (bg) el.style.backgroundColor = bg[1];
+//
+//         // Color: c-[...]
+//         let color = c.match(/^c-\[(.+)\]$/);
+//         if (color) el.style.color = color[1];
+//
+//         // Height: h-[...]
+//         let h = c.match(/^h-\[(.+)\]$/);
+//         if (h) el.style.height = h[1];
+//
+//         // Top: top-[...]
+//         let top = c.match(/^top-\[(.+)\]$/);
+//         if (top) el.style.top = top[1];
+//
+//         // Bottom: bottom-[...]
+//         let bottom = c.match(/^bottom-\[(.+)\]$/);
+//         if (bottom) el.style.bottom = bottom[1];
+//
+//     });
+//
+// });

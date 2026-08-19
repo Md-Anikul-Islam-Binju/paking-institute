@@ -12,18 +12,18 @@ h6 {
 
 .overlay {
     background: linear-gradient(180deg,
-            rgba(226, 221, 221, 0.2) 0%,
-            rgba(0, 0, 0, .25) 25%,
-            rgba(0, 0, 0, .55) 60%,
-            rgba(0, 0, 0, .95) 100%);
-}
+    rgba(226, 221, 221, 0.1) 0%,
+    rgba(0, 0, 0, 0.25) 30%,
+    rgba(0, 0, 0, 0.65) 65%,
+    rgba(0, 0, 0, 0.95) 100%);
+    }
 /*  Hero Section half section in and out */
 .hero-image-wrapper {
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
         /* Position the image at the bottom of the hero content on desktop */
-        bottom: -25rem; 
+        bottom: -25rem;
     }
 
 .ticker-wrapper {

@@ -47,7 +47,7 @@
             id="{{ $category->slug }}"
         >
             <div class="container">
-                <div class="row row-cols-2 row-cols-md-3 g-4">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card border-0">
                             <div class="card-body">
@@ -124,7 +124,7 @@
 
                                         <img
                                             src="{{ asset('images/management/'.$expert->image) }}"
-                                            class="card-img-top img-fluid"
+                                            class="card-img-top img-fluid h-[30rem]"
                                             alt="{{ $expert->name }}"
                                         >
 
