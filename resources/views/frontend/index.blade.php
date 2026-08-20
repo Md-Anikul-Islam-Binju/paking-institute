@@ -1,8 +1,5 @@
 @extends('frontend.layout')
 @section('content')
-
-
-
 <!-- hero section muted-->
 <section class="hero-section">
     <div class="overflow-hidden position-relative vh-100">
