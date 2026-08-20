@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 @section('content')
 
-    <section class="vision-section py-5 text-bg-dark">
+    <section class="vision-section py-5 text-bg-dark" >
         <br>
         <div class="container">
             <div class="mt-5 mb-5" style="width: 60%;">

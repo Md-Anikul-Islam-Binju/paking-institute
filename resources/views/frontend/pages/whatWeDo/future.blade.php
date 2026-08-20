@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-md-7 ps-md-4">
                             <h2 class="display-6 mb-4"> {{ $vision->name }}</h2>
-                            <a href="#" class="btn btn-dark text-uppercase fw-semibold rounded-pill px-4 py-2 small">
+                            <a href="{{route('future.details',$vision->slug)}}" class="btn btn-dark text-uppercase fw-semibold rounded-pill px-4 py-2 small">
                                 {{$vision->tag}} &rarr;
                             </a>
                         </div>
@@ -75,8 +75,8 @@
                             <h3 class="card-title mb-5"> {{ $explore->title }}</h3>
                             <h2 class="card-title"> {{ $explore->topic ?: 'N/A' }}</h2>
                             <p class="card-text mb-4 fw-bold">{!!  $explore->details ?: 'N/A'  !!}</p>
-                            <button class="btn btn-outline-dark text-uppercase fw-semibold rounded-pill px-4 py-2">
-                                {{$explore->tag}} &rarr;</button>
+                            <a href="#" class="btn btn-outline-dark text-uppercase fw-semibold rounded-pill px-4 py-2">
+                                {{$explore->tag}} &rarr;</a>
                         </div>
                     </div>
                     <hr class="d-none d-sm-block">

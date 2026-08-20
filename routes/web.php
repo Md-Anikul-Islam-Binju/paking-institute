@@ -52,9 +52,8 @@ Route::get('/tbi-at-party-conferences', [HomeController::class, 'conference'])->
 Route::get('/what-we-do/approach', [WhatWeDoController::class, 'approach'])->name('approach');
 Route::get('/what-we-do/partnerships', [WhatWeDoController::class, 'partnership'])->name('partnership');
 Route::get('/what-we-do/future-of-britain', [WhatWeDoController::class, 'future'])->name('future');
-
-
 Route::get('/what-we-do/partnerships/{slug}', [WhatWeDoController::class, 'partnershipDetails'])->name('partnership.details');
+Route::get('/what-we-do/{slug}', [WhatWeDoController::class, 'futureDetails'])->name('future.details');
 
 //who we are
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');

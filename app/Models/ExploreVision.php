@@ -13,6 +13,13 @@ class ExploreVision extends Model
         'cover_image',
     ];
 
+    public function categories()
+    {
+        return $this->hasMany(
+            ConferenceCategory::class,
+            'explore_vision_id'
+        );
+    }
     public function conferences()
     {
         return $this->hasMany(Conference::class, 'explore_vision_id');

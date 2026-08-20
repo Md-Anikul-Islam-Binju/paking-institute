@@ -46,4 +46,35 @@ class WhatWeDoController extends Controller
         $explores = Explore::all();
         return view('frontend.pages.whatWeDo.future',compact('future','visions','explores'));
     }
+
+//    public function futureDetails($slug)
+//    {
+//        $vision = ExploreVision::where('slug',$slug)->first();
+//        return view('frontend.pages.whatWeDo.futureDetails',compact('vision'));
+//    }
+    public function futureDetails($slug)
+    {
+        $vision = ExploreVision::where('slug', $slug)
+            ->with([
+                'categories' => function ($query) {
+                    $query->where('status', 1)
+                        ->with([
+                            'subCategories' => function ($query) {
+                                $query->where('status', 1);
+                            },
+                            'conferences' => function ($query) {
+                                $query->orderBy('date', 'asc')
+                                    ->orderBy('start_time', 'asc');
+                            }
+                        ]);
+                }
+            ])
+            ->firstOrFail();
+
+        return view(
+            'frontend.pages.whatWeDo.futureDetails',
+            compact('vision')
+        );
+    }
+
 }
