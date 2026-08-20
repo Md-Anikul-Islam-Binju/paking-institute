@@ -2,8 +2,9 @@
 @section('content')
 
     <!--event-->
-    <section class="bg-white">
-        <div class="container">
+    <section class="bg-white" data-header-theme="light">
+        <br><br><br><br>
+        <div class="container"  >
             <div class="mt-5 mb-5">
                 <p class="text-uppercase">Events</p>
                 <h1 class="mb-3 display-1 fw-bold">TBI at Party Conferences 2026</h1>

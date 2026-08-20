@@ -115,9 +115,10 @@
         }
     </style>
     <section class="vision-section py-5 text-bg-dark">
+        <br>
         <div class="container ">
-            <div class="mt-2">
-                <small class="text-uppercase text-secondary fw-semibold">Leadership</small>
+            <div class="mt-5">
+                <small class="text-uppercase text-white fw-semibold">Leadership</small>
                 <h2 class="display-1 fw-bold mt-3 w-100">{{$leadership->title}}</h2>
             </div>
             <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->

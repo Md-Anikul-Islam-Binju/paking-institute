@@ -2,9 +2,10 @@
 @section('content')
 
     <section class="vision-section py-5 text-bg-dark">
-        <div class="container ">
-            <div class="mt-2 mb-5" style="width: 60%;">
-                <small class="text-uppercase text-secondary fw-semibold">Our Approach</small>
+        <br>
+        <div class="container">
+            <div class="mt-5 mb-5" style="width: 60%;">
+                <small class="text-uppercase text-white fw-semibold">Our Approach</small>
                 <h2 class="display-1 fw-bold mt-3">{{$approach->title}}</h2>
                 <h5>{!! $approach->details !!}</h5>
             </div>

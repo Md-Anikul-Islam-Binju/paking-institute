@@ -26,7 +26,7 @@
     }
 </style>
 <!-- Hero Section -->
-<div class="card text-white bg-dark border-0 vh-100">
+<div class="text-white bg-dark border-0 vh-100">
     <img src="{{asset('frontend/img/hero.png')}}" class="card-img" alt="Hero background image"
          style="object-fit: cover; min-height: 400px;">
 

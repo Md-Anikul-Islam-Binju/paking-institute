@@ -136,249 +136,467 @@
     </nav>
 </header>
 
+
 <!-- header 1 -->
-<header class="bg-white border-bottom position-relative main-header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 position-static">
-        <div class="container  position-static">
+<header id="stickyHeader" class="border-bottom position-relative transparent-header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 position-static">
+        <div class="container position-static">
 
             @php
                 $setting = \App\Models\Setting::first();
+
                 $approach = \App\Models\Approach::first();
                 $partnership = \App\Models\Partnership::first();
                 $future = \App\Models\Future::first();
+
                 $about = \App\Models\About::first();
                 $leadership = \App\Models\Leadership::first();
                 $career = \App\Models\Career::first();
             @endphp
 
-            <!-- Brand Logo / Text -->
-            <a class="navbar-brand me-auto d-flex align-items-center" href="{{route('home')}}">
-                <span class="fw-bold tracking-tight text-uppercase small">
-                      @if($setting && !empty($setting->logo))
-                        <img src="{{ asset('images/setting/' . $setting->logo) }}"
-                             alt="{{ $setting->name ?? 'Paking Institute' }}"
-                             width="120">
-                    @else
-                        <span class="fw-bold fs-4 text-dark">
-                            {{ $setting->name ?? 'Paking Institute' }}
-                        </span>
-                    @endif
-                </span>
+                <!-- Brand Logo / Text -->
+            <a class="navbar-brand me-auto d-flex align-items-center" href="{{ route('home') }}">
+
+                @if($setting && !empty($setting->logo))
+
+                    <img
+                        src="{{ asset('images/setting/' . $setting->logo) }}"
+                        alt="{{ $setting->name ?? 'Institute' }}"
+                        class="me-2"
+                        style="height: 40px;"
+                    >
+                @else
+
+                    <small class="fw-bold tracking-tight text-uppercase d-none d-lg-inline">
+                        {{ $setting->name ?? 'Peking Institute' }}
+                    </small>
+
+                @endif
+
             </a>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+            <!-- Mobile Menu Toggle -->
+            <button
+                class="navbar-toggler border-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
                 <span class="text-uppercase">menu</span>
+
             </button>
 
-            <!-- Navigation Content -->
+
+            <!-- Navigation -->
             <div class="collapse navbar-collapse" id="mainNavbar">
+
                 <ul class="navbar-nav ms-auto gap-3 me-lg-4 align-items-lg-center py-3 py-lg-0">
 
-                    <!-- WHAT WE DO Mega Dropdown -->
+
+                    <!-- =========================
+                         WHAT WE DO
+                    ========================== -->
                     <li class="nav-item dropdown position-static active">
-                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0  dropdown-toggle" href="#"
-                           id="whatWeDoMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <a
+                            class="nav-link fw-bold text-uppercase small py-1 px-0 dropdown-toggle"
+                            href="#"
+                            id="whatWeDoMenuLink"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
                             WHAT WE DO
+
                         </a>
 
-                        <!-- Full-Width Mega Menu -->
-                        <div class="dropdown-menu w-100 start-0 border-0 rounded-0 shadow-lg mt-0 py-5 bg-white"
-                             aria-labelledby="whatWeDoMenuLink">
+
+                        <div
+                            class="dropdown-menu w-100 start-0 border-0 rounded-0 shadow-lg mt-4 py-5 bg-white"
+                            aria-labelledby="whatWeDoMenuLink">
 
                             <div class="container-fluid px-lg-5">
+
                                 <div class="row align-items-start">
 
-                                    <!-- Left Sidebar Title -->
+                                    <!-- Left Title -->
                                     <div class="col-lg-3 mb-4 mb-lg-0">
-                                        <h6 class="fw-bold text-uppercase small tracking-wider">
+
+                                        <h6 class="fw-bold text-uppercase small tracking-wider text-dark">
                                             WHAT WE DO
                                         </h6>
+
                                     </div>
 
-                                    <!-- Content Cards -->
+
+                                    <!-- Cards -->
                                     <div class="col-lg-9">
+
                                         <div class="row g-4">
 
-                                            <!-- Card 1: Approach -->
+
+                                            <!-- APPROACH -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('approach')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('approach') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset('images/approach/'.$approach->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="Approach">
+
+                                                        @if($approach && $approach->cover_image)
+
+                                                            <img
+                                                                src="{{ asset('images/approach/' . $approach->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="Approach">
+
+                                                        @endif
+
                                                     </div>
 
                                                     <div class="d-flex align-items-center justify-content-between">
-                              <span class="fw-bold small text-uppercase">
-                                APPROACH
-                              </span>
-                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            APPROACH
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
 
 
-                                            <!-- Card 2: Partnerships -->
+                                            <!-- PARTNERSHIPS -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('partnership')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('partnership') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset('images/partnership/'.$partnership->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="Partnerships">
+
+                                                        @if($partnership && $partnership->cover_image)
+
+                                                            <img
+                                                                src="{{ asset('images/partnership/' . $partnership->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="Partnerships">
+
+                                                        @endif
+
                                                     </div>
 
                                                     <div class="d-flex align-items-center justify-content-between">
-                              <span class="fw-bold small text-uppercase">
-                                PARTNERSHIPS
-                              </span>
-                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            PARTNERSHIPS
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
 
 
-                                            <!-- Card 3: Future of Britain -->
+                                            <!-- FUTURE OF BRITAIN -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('future')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('future') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
 
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset('images/future/'.$future->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="Future of Britain">
+
+                                                        @if($future && $future->cover_image)
+
+                                                            <img
+                                                                src="{{ asset('images/future/' . $future->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="Future of Britain">
+
+                                                        @endif
+
                                                     </div>
 
                                                     <div class="d-flex align-items-center justify-content-between">
-                              <span class="fw-bold small text-uppercase">
-                                FUTURE OF BRITAIN
-                              </span>
-                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            FUTURE OF BRITAIN
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
+
+
                                         </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </li>
 
+
+                    <!-- INSIGHTS -->
                     <li class="nav-item">
-                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="{{route('insight')}}">INSIGHTS</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="{{route('expert')}}">EXPERTS</a>
-                    </li>
+                        <a
+                            class="nav-link fw-bold text-uppercase small py-1 px-0"
+                            href="{{ route('insight') }}">
 
-                    <!-- Mega Dropdown Navigation Item -->
-                    <li class="nav-item dropdown position-static">
-                        <a class="nav-link fw-bold text-uppercase small text-dark  dropdown-toggle" href="#" id="whoWeAreMenuLink"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            WHO WE ARE
+                            INSIGHTS
+
                         </a>
 
-                        <!-- Full-Width Mega Menu Container -->
-                        <div class="dropdown-menu w-100 start-0 border-0 rounded-0 shadow-lg mt-0 py-5 bg-white"
-                             aria-labelledby="whoWeAreMenuLink">
+                    </li>
+
+
+                    <!-- EXPERTS -->
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link fw-bold text-uppercase small py-1 px-0"
+                            href="{{ route('expert') }}">
+
+                            EXPERTS
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- =========================
+                         WHO WE ARE
+                    ========================== -->
+                    <li class="nav-item dropdown position-static">
+
+                        <a
+                            class="nav-link fw-bold text-uppercase small dropdown-toggle"
+                            href="#"
+                            id="whoWeAreMenuLink"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            WHO WE ARE
+
+                        </a>
+
+
+                        <div
+                            class="dropdown-menu w-100 start-0 border-0 rounded-0 shadow-lg mt-4 py-5 bg-white"
+                            aria-labelledby="whoWeAreMenuLink">
+
                             <div class="container-fluid px-lg-5">
+
                                 <div class="row align-items-start">
 
-                                    <!-- Left Sidebar Title -->
+                                    <!-- Left Title -->
                                     <div class="col-lg-3 mb-4 mb-lg-0">
-                                        <h6 class="fw-bold text-uppercase small tracking-wider">WHO WE ARE</h6>
+
+                                        <h6 class="fw-bold text-uppercase small tracking-wider text-dark">
+                                            WHO WE ARE
+                                        </h6>
+
                                     </div>
 
-                                    <!-- 3 Content Cards Grid -->
+
+                                    <!-- Cards -->
                                     <div class="col-lg-9">
+
                                         <div class="row g-4">
 
-                                            <!-- Card 1: About Us -->
+
+                                            <!-- ABOUT US -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('aboutUs')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('aboutUs') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
+
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset($about->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="About Us">
+
+                                                        @if($about && $about->cover_image)
+
+                                                            <img
+                                                                src="{{ asset($about->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="About Us">
+
+                                                        @endif
+
                                                     </div>
+
                                                     <div class="d-flex align-items-center justify-content-between">
-                                                        <span class="fw-bold small text-uppercase">ABOUT US</span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                                             class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                                        </svg>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            ABOUT US
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
 
-                                            <!-- Card 2: Executive Leadership -->
+
+                                            <!-- EXECUTIVE LEADERSHIP -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('executiveLeadership')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('executiveLeadership') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
+
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset($leadership->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="Executive Leadership">
+
+                                                        @if($leadership && $leadership->cover_image)
+
+                                                            <img
+                                                                src="{{ asset($leadership->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="Executive Leadership">
+
+                                                        @endif
+
                                                     </div>
+
                                                     <div class="d-flex align-items-center justify-content-between">
-                                                        <span class="fw-bold small text-uppercase">EXECUTIVE LEADERSHIP</span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                                             class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                                        </svg>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            EXECUTIVE LEADERSHIP
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
 
-                                            <!-- Card 3: Careers -->
+
+                                            <!-- CAREERS -->
                                             <div class="col-12 col-md-4">
-                                                <a href="{{route('career')}}" class="text-decoration-none text-dark d-block mega-card">
+
+                                                <a
+                                                    href="{{ route('career') }}"
+                                                    class="text-decoration-none text-dark d-block mega-card">
+
                                                     <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">
-                                                        <img
-                                                            src="{{ asset($career->cover_image) }}"
-                                                            class="img-fluid rounded-0 object-fit-cover" alt="Careers">
+
+                                                        @if($career && $career->cover_image)
+
+                                                            <img
+                                                                src="{{ asset($career->cover_image) }}"
+                                                                class="img-fluid rounded-0 object-fit-cover"
+                                                                alt="Careers">
+
+                                                        @endif
+
                                                     </div>
+
                                                     <div class="d-flex align-items-center justify-content-between">
-                                                        <span class="fw-bold small text-uppercase">CAREERS</span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                                             class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                                                            <path
-                                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                                        </svg>
+
+                                                        <span class="fw-bold small text-uppercase">
+                                                            CAREERS
+                                                        </span>
+
+                                                        <box-icon
+                                                            type="solid"
+                                                            name="right-arrow-circle">
+                                                        </box-icon>
+
                                                     </div>
+
                                                 </a>
+
                                             </div>
+
 
                                         </div>
+
                                     </div>
 
                                 </div>
+
                             </div>
+
                         </div>
+
                     </li>
 
                 </ul>
 
-                <!-- Search Icon Button -->
-                <button class="btn btn-link text-dark p-0 ms-lg-3" type="button" aria-label="Search">
-                    <box-icon name='search'></box-icon>
+
+                <!-- SEARCH -->
+                <button
+                    class="btn btn-link p-0 ms-lg-3"
+                    type="button"
+                    aria-label="Search">
+
+                    <box-icon name="search"></box-icon>
+
                 </button>
+
             </div>
+
         </div>
     </nav>
 </header>
 
 
 
-{{--<header class="bg-white border-bottom position-relative sticky-top">--}}
+
+<!-- header 1 -->
+{{--<header class="bg-white border-bottom position-relative main-header">--}}
 {{--    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 position-static">--}}
 {{--        <div class="container  position-static">--}}
+
 {{--            @php--}}
 {{--                $setting = \App\Models\Setting::first();--}}
+{{--                $approach = \App\Models\Approach::first();--}}
+{{--                $partnership = \App\Models\Partnership::first();--}}
+{{--                $future = \App\Models\Future::first();--}}
+{{--                $about = \App\Models\About::first();--}}
+{{--                $leadership = \App\Models\Leadership::first();--}}
+{{--                $career = \App\Models\Career::first();--}}
 {{--            @endphp--}}
 
 {{--            <!-- Brand Logo / Text -->--}}
@@ -388,26 +606,112 @@
 {{--                        <img src="{{ asset('images/setting/' . $setting->logo) }}"--}}
 {{--                             alt="{{ $setting->name ?? 'Paking Institute' }}"--}}
 {{--                             width="120">--}}
-{{--                      @else--}}
+{{--                    @else--}}
 {{--                        <span class="fw-bold fs-4 text-dark">--}}
 {{--                            {{ $setting->name ?? 'Paking Institute' }}--}}
 {{--                        </span>--}}
-{{--                      @endif--}}
+{{--                    @endif--}}
 {{--                </span>--}}
 {{--            </a>--}}
 
 {{--            <!-- Mobile Menu Toggle Button -->--}}
 {{--            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"--}}
 {{--                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--                <span class="navbar-toggler-icon"></span>--}}
+{{--                <span class="text-uppercase">menu</span>--}}
 {{--            </button>--}}
 
 {{--            <!-- Navigation Content -->--}}
 {{--            <div class="collapse navbar-collapse" id="mainNavbar">--}}
-{{--                <ul class="navbar-nav ms-auto gap-lg-4 me-lg-4 align-items-lg-center py-3 py-lg-0">--}}
+{{--                <ul class="navbar-nav ms-auto gap-3 me-lg-4 align-items-lg-center py-3 py-lg-0">--}}
 
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0" href="#">WHAT WE DO</a>--}}
+{{--                    <!-- WHAT WE DO Mega Dropdown -->--}}
+{{--                    <li class="nav-item dropdown position-static active">--}}
+{{--                        <a class="nav-link fw-bold text-uppercase small text-dark py-1 px-0  dropdown-toggle" href="#"--}}
+{{--                           id="whatWeDoMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                            WHAT WE DO--}}
+{{--                        </a>--}}
+
+{{--                        <!-- Full-Width Mega Menu -->--}}
+{{--                        <div class="dropdown-menu w-100 start-0 border-0 rounded-0 shadow-lg mt-0 py-5 bg-white"--}}
+{{--                             aria-labelledby="whatWeDoMenuLink">--}}
+
+{{--                            <div class="container-fluid px-lg-5">--}}
+{{--                                <div class="row align-items-start">--}}
+
+{{--                                    <!-- Left Sidebar Title -->--}}
+{{--                                    <div class="col-lg-3 mb-4 mb-lg-0">--}}
+{{--                                        <h6 class="fw-bold text-uppercase small tracking-wider">--}}
+{{--                                            WHAT WE DO--}}
+{{--                                        </h6>--}}
+{{--                                    </div>--}}
+
+{{--                                    <!-- Content Cards -->--}}
+{{--                                    <div class="col-lg-9">--}}
+{{--                                        <div class="row g-4">--}}
+
+{{--                                            <!-- Card 1: Approach -->--}}
+{{--                                            <div class="col-12 col-md-4">--}}
+{{--                                                <a href="{{route('approach')}}" class="text-decoration-none text-dark d-block mega-card">--}}
+
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
+{{--                                                        <img--}}
+{{--                                                            src="{{ asset('images/approach/'.$approach->cover_image) }}"--}}
+{{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="Approach">--}}
+{{--                                                    </div>--}}
+
+{{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
+{{--                              <span class="fw-bold small text-uppercase">--}}
+{{--                                APPROACH--}}
+{{--                              </span>--}}
+{{--                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+
+
+{{--                                            <!-- Card 2: Partnerships -->--}}
+{{--                                            <div class="col-12 col-md-4">--}}
+{{--                                                <a href="{{route('partnership')}}" class="text-decoration-none text-dark d-block mega-card">--}}
+
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
+{{--                                                        <img--}}
+{{--                                                            src="{{ asset('images/partnership/'.$partnership->cover_image) }}"--}}
+{{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="Partnerships">--}}
+{{--                                                    </div>--}}
+
+{{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
+{{--                              <span class="fw-bold small text-uppercase">--}}
+{{--                                PARTNERSHIPS--}}
+{{--                              </span>--}}
+{{--                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+
+
+{{--                                            <!-- Card 3: Future of Britain -->--}}
+{{--                                            <div class="col-12 col-md-4">--}}
+{{--                                                <a href="{{route('future')}}" class="text-decoration-none text-dark d-block mega-card">--}}
+
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
+{{--                                                        <img--}}
+{{--                                                            src="{{ asset('images/future/'.$future->cover_image) }}"--}}
+{{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="Future of Britain">--}}
+{{--                                                    </div>--}}
+
+{{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
+{{--                              <span class="fw-bold small text-uppercase">--}}
+{{--                                FUTURE OF BRITAIN--}}
+{{--                              </span>--}}
+{{--                                                        <box-icon type='solid' name='right-arrow-circle'></box-icon>--}}
+{{--                                                    </div>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 {{--                    </li>--}}
 
 {{--                    <li class="nav-item">--}}
@@ -420,8 +724,8 @@
 
 {{--                    <!-- Mega Dropdown Navigation Item -->--}}
 {{--                    <li class="nav-item dropdown position-static">--}}
-{{--                        <a class="nav-link fw-bold text-uppercase small text-dark  border-bottom border-2 border-dark dropdown-toggle"--}}
-{{--                           href="#" id="whoWeAreMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                        <a class="nav-link fw-bold text-uppercase small text-dark  dropdown-toggle" href="#" id="whoWeAreMenuLink"--}}
+{{--                           role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
 {{--                            WHO WE ARE--}}
 {{--                        </a>--}}
 
@@ -443,9 +747,9 @@
 {{--                                            <!-- Card 1: About Us -->--}}
 {{--                                            <div class="col-12 col-md-4">--}}
 {{--                                                <a href="{{route('aboutUs')}}" class="text-decoration-none text-dark d-block mega-card">--}}
-{{--                                                    <div class="ratio ratio-16x9 mb-3">--}}
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
 {{--                                                        <img--}}
-{{--                                                            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"--}}
+{{--                                                            src="{{ asset($about->cover_image) }}"--}}
 {{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="About Us">--}}
 {{--                                                    </div>--}}
 {{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
@@ -462,9 +766,9 @@
 {{--                                            <!-- Card 2: Executive Leadership -->--}}
 {{--                                            <div class="col-12 col-md-4">--}}
 {{--                                                <a href="{{route('executiveLeadership')}}" class="text-decoration-none text-dark d-block mega-card">--}}
-{{--                                                    <div class="ratio ratio-16x9 mb-3">--}}
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
 {{--                                                        <img--}}
-{{--                                                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"--}}
+{{--                                                            src="{{ asset($leadership->cover_image) }}"--}}
 {{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="Executive Leadership">--}}
 {{--                                                    </div>--}}
 {{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
@@ -481,9 +785,9 @@
 {{--                                            <!-- Card 3: Careers -->--}}
 {{--                                            <div class="col-12 col-md-4">--}}
 {{--                                                <a href="{{route('career')}}" class="text-decoration-none text-dark d-block mega-card">--}}
-{{--                                                    <div class="ratio ratio-16x9 mb-3">--}}
+{{--                                                    <div class="ratio ratio-16x9 mb-3 d-none d-lg-block">--}}
 {{--                                                        <img--}}
-{{--                                                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"--}}
+{{--                                                            src="{{ asset($career->cover_image) }}"--}}
 {{--                                                            class="img-fluid rounded-0 object-fit-cover" alt="Careers">--}}
 {{--                                                    </div>--}}
 {{--                                                    <div class="d-flex align-items-center justify-content-between">--}}
@@ -509,13 +813,8 @@
 
 {{--                <!-- Search Icon Button -->--}}
 {{--                <button class="btn btn-link text-dark p-0 ms-lg-3" type="button" aria-label="Search">--}}
-{{--                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search"--}}
-{{--                         viewBox="0 0 16 16">--}}
-{{--                        <path--}}
-{{--                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />--}}
-{{--                    </svg>--}}
+{{--                    <box-icon name='search'></box-icon>--}}
 {{--                </button>--}}
-
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </nav>--}}

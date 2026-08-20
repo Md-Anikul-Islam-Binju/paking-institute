@@ -4,9 +4,10 @@
     <!-- Partnerships -->
 
     <section class="vision-section py-5 text-bg-dark">
+        <br>
         <div class="container ">
-            <div class="mt-2 mb-5">
-                <small class="text-uppercase text-secondary fw-semibold">Partnerships</small>
+            <div class="mt-5 mb-5">
+                <small class="text-uppercase text-white fw-semibold">Partnerships</small>
                 <h2 class="display-1 fw-bold mt-3">{{$partnership->title}}</h2>
                 <h5>{!! $partnership->details  !!}</h5>
             </div>

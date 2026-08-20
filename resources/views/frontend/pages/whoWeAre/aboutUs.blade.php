@@ -104,9 +104,10 @@
 
     <!-- ABOUT US -->
 
-    <section class="vision-section py-5 bg-light text-dark">
+    <section class="vision-section py-5 bg-light text-dark" data-header-theme="light">
+        <br>
         <div class="container ">
-            <div class="mt-2 mb-5">
+            <div class="mt-5 mb-5">
                 <small class="text-uppercase text-secondary fw-semibold">About Us</small>
                 <h2 class="display-2 fw-bold mt-3"> {{$aboutUs->title}}</h2>
             </div>

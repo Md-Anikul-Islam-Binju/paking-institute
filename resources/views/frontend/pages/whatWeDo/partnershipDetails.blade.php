@@ -2,9 +2,10 @@
 @section('content')
 
 <!-- Inspiring change -->
-<section class="mb-5 py-5 bg-white">
+<section class="mb-5 py-5 bg-white" data-header-theme="light">
+    <br>
     <div class="container">
-        <div class="mt-3">
+        <div class="mt-5">
             <p class="fw-bold mb-5 text-uppercase tracking-wider">Inspiring change</p>
             <div class="row align-items-start">
                 <div class="col-md-6 pe-md-5">

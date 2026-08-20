@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>bionegraphy Modal Example</title>
+</head>
+
+<body class="bg-dark p-5">
+
+  <!-- Trigger Button -->
+  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#bioneModal">
+    Open bionegraphy
+  </button>
+
+  <!-- bionegraphy Fullscreen Modal -->
+  <div class="modal fade" id="bioneModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-black text-white position-relative">
+
+        <!-- Top Right Close Button -->
+        <div class="position-absolute top-0 end-0 p-4" style="z-index: 10;">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Main Modal Content -->
+        <div class="modal-body d-flex align-items-center justify-content-center p-3 p-md-5">
+          <div class="container" style="max-width: 1000px;">
+            <div class="row align-items-center gy-4">
+
+              <!-- Left Side: Profile Image -->
+              <div class="col-md-5 text-center text-md-start">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+                     alt="Tony Blair" 
+                     class="img-fluid w-100 object-fit-cover" 
+                     style="max-width: 380px; aspect-ratio: 4/5;">
+              </div>
+
+              <!-- Right Side: Scrollable Text Area -->
+              <div class="col-md-7 ps-md-5">
+                <!-- Name Header -->
+                <h1 class="display-3 fw-normal mb-1" style="font-family: 'Times New Roman', serif;">
+                  Tony Blair
+                </h1>
+                
+                <!-- Role / Title -->
+                <p class="text-uppercase fw-semibold tracking-wider text-white-50 small mb-4">
+                  EXECUTIVE CHAIRMAN
+                </p>
+
+                <!-- Scrollable bionegraphy Text Container -->
+                <div class="pe-3" style="max-height: 380px; overflow-y: auto;">
+                  <p class="text-white-50 lh-base mb-3">
+                    Former Prime Minister of Great Britain and Northern Ireland Tony Blair founded TBI on the belief that a country's success and ability to enact transformational change is dependent on the effectiveness of its leadership and governance.
+                  </p>
+
+                  <p class="text-white-50 lh-base mb-3">
+                    Under Tony's direction, TBI works with political leaders around the world to create real change for their people by advising on strategy, policy and delivery — with technology as an enabler of all three.
+                  </p>
+
+                  <p class="text-white-50 lh-base mb-3">
+                    During his tenure as prime minister, Tony implemented a major domestic policy agenda. Through record investment and reforms, the performance of the UK's education and health-care sectors was radically improved; crime was reduced by a third; a major programme of social liberalism and constitutional change was introduced; the Department for International Development was created and the UK's foreign aid to Africa trebled; and landmark legislation to tackle climate change was introduced.
+                  </p>
+
+                  <p class="text-white-50 lh-base">
+                    All of this was done in the context of record economic growth and employment levels. Tony also helped bring peace to Northern Ireland by securing the historic Good Friday Agreement in 1998, and he was a passionate advocate of interventionist foreign policy.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

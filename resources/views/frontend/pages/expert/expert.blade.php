@@ -1,9 +1,9 @@
 @extends('frontend.layout')
 @section('content')
 
-    <section class="vision-section py-5 bg-white text-dark mb-5">
+    <section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">
         <div class="container">
-            <div class="mt-2">
+            <div class="mt-5">
                 <h1 class="display-1 fw-bold">
                     Experts
                 </h1>

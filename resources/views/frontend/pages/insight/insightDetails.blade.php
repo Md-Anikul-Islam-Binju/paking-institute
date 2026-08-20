@@ -2,7 +2,8 @@
 @section('content')
 
     <section class="bg-tech text-white py-5 position-relative hero-section min-vh-100">
-        <div class="container pb-5">
+        <div class="container pb-5 mt-5">
+            <br>
             <!-- Category & Title -->
             <div class="d-flex flex-column align-items-start text-start mb-4">
                 <p class="text-uppercase fw-bold mb-2 opacity-75 tracking-wider"> {{ $insightDetail->type->type ?? 'N/A' }}</p>

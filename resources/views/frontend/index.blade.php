@@ -5,7 +5,7 @@
 
 <!-- hero section muted-->
 <section class="hero-section">
-    <div class="card border-0  overflow-hidden position-relative vh-100">
+    <div class="overflow-hidden position-relative vh-100">
         <video id="heroVideo" autoplay muted loop playsinline class="w-100 h-100 position-absolute top-0 start-0"
                style="object-fit: cover;">
             <source src="{{ asset('videos/slider/'.$slider->videos) }}" type="video/mp4">

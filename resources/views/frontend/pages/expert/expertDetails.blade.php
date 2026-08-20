@@ -1,7 +1,8 @@
 @extends('frontend.layout')
 @section('content')
 <!-- Hero Profile Section -->
-<section class="container text-center mb-5 pb-4 mt-5">
+<section class="container text-center mb-5 pb-4 mt-5" data-header-theme="light">
+    <br><br><br>
     <!-- Title -->
     <h1 class="display-3 mb-4" style="font-family: 'Times New Roman', serif;">  {{ $expertDetail->name }}</h1>
 

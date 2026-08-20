@@ -31,9 +31,10 @@
     <!-- ABOUT US -->
 
     <section class="vision-section py-5 text-bg-dark">
+        <br>
         <div class="container ">
-            <div class="mt-2 mb-5">
-                <small class="text-uppercase text-secondary fw-semibold">Careers</small>
+            <div class="mt-5 mb-5">
+                <small class="text-uppercase text-white fw-semibold">Careers</small>
                 <h2 class="display-1 fw-bold mt-3">{{$career->title}}</h2>
                 <h5>{!! $career->details !!}</h5>
                 <a href="https://tbinstitute.wd3.myworkdayjobs.com/TBI" target="_blank" class="btn btn-outline-light rounded-pill mt-3 py-2 text-uppercase fw-semibold ">Find Your Role <i class="bi bi-arrow-right ms-2"></i></a>
