@@ -61,7 +61,7 @@
 
 <section class="py-5">
     <div class="container py-5">
-        <div class="accordion-wrapper d-flex gap-4" style="height:520px;">
+        <div class="accordion-wrapper d-flex gap-2" style="height:520px;">
             <!-- Card 1 -->
           <a href="{{route('insight')}}" >
               <div class="accordion-card active" id="card-1" onclick="activateCard(1)" onmouseenter="activateCard(1)">

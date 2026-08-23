@@ -4,10 +4,10 @@
     <section class="vision-section py-5 text-bg-dark" >
         <br>
         <div class="container">
-            <div class="mt-5 mb-5" style="width: 60%;">
+            <div class="mt-5 mb-5">
                 <small class="text-uppercase text-white fw-semibold">Our Approach</small>
                 <h2 class="display-1 fw-bold mt-3">{{$approach->title}}</h2>
-                <h5>{!! $approach->details !!}</h5>
+                <h5 class="md:w-[80%]">{!! $approach->details !!}</h5>
             </div>
             <div class="overlapping-image-wrapper ">
                 <img
@@ -133,7 +133,7 @@
 
     <section class="mt-5">
         <div class="container">
-            <div class="mb-3">
+            <div class="mb-3 mt-5">
                 <p class="text-uppercase  fw-semibold">TECH</p>
             </div>
             <div class="row md-3">

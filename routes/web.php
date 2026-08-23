@@ -69,6 +69,12 @@ Route::get('/experts/{slug}', [ExpertController::class, 'expertDetail'])->name('
 Route::get('/insights', [InsightPageController::class, 'insight'])->name('insight');
 Route::get('/insights/{slug}', [InsightPageController::class, 'insightDetails'])->name('insight.details');
 
+Route::get('/contactus', [HomeController::class, 'contact'])->name('contactus');
+Route::get('/cookies', [HomeController::class, 'cookies'])->name('cookies');
+Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('terms');
+Route::get('/accessibility', [HomeController::class, 'accessibility'])->name('accessibility');
+Route::get('/financial-statements', [HomeController::class, 'financialStatements'])->name('financialStatements');
 
 
 Route::middleware('auth')->group(callback: function () {

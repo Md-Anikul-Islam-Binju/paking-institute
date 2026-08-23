@@ -21,6 +21,14 @@
                     On 9 July 2024, the Future of Britain Conference – hosted by the Tony Blair Institute for Global Change and My Life My Say – explored governing in the age of AI.</p>
             </div>
 
+            <div class="overlapping-image-wrapper">
+                <img
+                    src="{{ asset('images/explore-vision/'.$vision->cover_image) }}"
+                    class="img-fluid w-100  shadow-lg  object-fit-cover"
+                    alt="Hero Banner Image"
+                >
+            </div>
+
         </div>
     </section>
 

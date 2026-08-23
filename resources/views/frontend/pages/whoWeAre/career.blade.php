@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <!-- OUR VISION -->
+    <!-- OUR Culture -->
     <section class="vision-section py-5 text-bg-white">
         <div class="container ">
             <div class="mt-2">
@@ -66,7 +66,7 @@
                     <p class="lead fw-bold">
                         {!! $culture->details !!}
                     </p>
-                    <a href="{{route('aboutUs')}}" class="btn btn-outline-dark rounded-pill mt-2 py-2 w-25 text-uppercase fw-semibold ">
+                    <a href="{{route('aboutUs')}}" class="btn btn-outline-dark rounded-pill mt-2 w-50 py-2 text-uppercase fw-semibold ">
                         About Us <i class="bi bi-arrow-right ms-2"></i>
                     </a>
                 </div>
