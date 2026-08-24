@@ -26,15 +26,20 @@
     }
 </style>
 <!-- Hero Section -->
-<div class="text-white bg-dark border-0 vh-100">
-    <img src="{{asset('frontend/img/hero.png')}}" class="card-img" alt="Hero background image"
-         style="object-fit: cover; min-height: 400px;">
+<div class=" text-white bg-dark border-0 min-vh-100 position-relative overflow-hidden d-flex align-items-center justify-content-center">
+    <!-- Background Image -->
+    <img src="{{asset('frontend/img/hero.png')}}"
+         class="position-absolute top-0 start-0 w-100 h-100"
+         alt="Hero background image"
+         style="object-fit: cover; z-index: 1;">
 
-    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center p-4">
+    <!-- Content Overlay -->
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center p-4 w-100"
+         style="z-index: 2; background: rgba(0,0,0,0.4);">
         <p class="text-uppercase tracking-wide mb-2">Ideas with impact</p>
         <h1 class="display-1 fw-bold mb-3">Insights</h1>
 
-        <p class="card-text max-w-md my-3" style="max-width: 600px;">
+        <p class="card-text my-3" style="max-width: 600px;">
             Make better decisions across strategy, policy, and delivery with the latest insights, research, and
             reports from our experts.
         </p>

@@ -38,6 +38,24 @@ class WhatWeDoController extends Controller
         return view('frontend.pages.whatWeDo.partnershipDetails',compact('involved','keyBenefit','keyBenefitInvolved'));
     }
 
+
+//    public function partnershipDetailsMore($involved_id)
+//    {
+//        $keyBenefitInvolved = KeyBenefit::where('involved_id',2)->get();
+//        return view('frontend.pages.whatWeDo.partnershipDetailsMore',compact('keyBenefitInvolved'));
+//    }
+
+    public function partnershipDetailsMore($involved_id)
+    {
+        $keyBenefitInvolved = KeyBenefit::where('id', $involved_id)->firstOrFail();
+
+        return view(
+            'frontend.pages.whatWeDo.partnershipDetailsMore',
+            compact('keyBenefitInvolved')
+        );
+    }
+
+
     //future
     public function future()
     {
@@ -76,5 +94,6 @@ class WhatWeDoController extends Controller
             compact('vision')
         );
     }
+
 
 }

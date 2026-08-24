@@ -601,11 +601,11 @@
 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 36px; height: 36px; font-size: 14px;">X</a>
-                    <a href="#" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-facebook"></i></a>
+                    <a href="{{$setting->twitter}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 36px; height: 36px; font-size: 14px;"><i class="bi bi-twitter-x"></i></a>
+                    <a href="{{$setting->instagram}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-instagram"></i></a>
+                    <a href="{{$setting->linkedin}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-linkedin"></i></a>
+                    <a href="{{$setting->youtube}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-youtube"></i></a>
+                    <a href="{{$setting->facebook}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-facebook"></i></a>
                 </div>
             </div>
 
@@ -617,9 +617,9 @@
                     <div class="col-md-4 col-sm-6">
                         <h3 class="h4 mb-4" style="font-family: Georgia, serif;">What we do</h3>
                         <ul class="list-unstyled d-flex flex-column gap-3 small fw-bold">
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Approach</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Partnerships</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Future of Britain</a></li>
+                            <li><a href="{{ route('approach') }}" class="text-white text-decoration-none text-uppercase">Approach</a></li>
+                            <li><a href="{{ route('partnership') }}" class="text-white text-decoration-none text-uppercase">Partnerships</a></li>
+                            <li><a href="{{ route('future') }}" class="text-white text-decoration-none text-uppercase">Future of Britain</a></li>
                         </ul>
                     </div>
 
@@ -627,10 +627,10 @@
                     <div class="col-md-4 col-sm-6">
                         <h3 class="h4 mb-4" style="font-family: Georgia, serif;">Insights</h3>
                         <ul class="list-unstyled d-flex flex-column gap-3 small fw-bold">
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Insights</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Experts</a></li>
+                            <li><a href="{{ route('insight') }}" class="text-white text-decoration-none text-uppercase">Insights</a></li>
+                            <li><a href="{{ route('expert') }}" class="text-white text-decoration-none text-uppercase">Experts</a></li>
                             <li><a href="{{route('financialStatements')}}" class="text-white text-decoration-none text-uppercase">Financial Statements</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Media Centre</a></li>
+                            <li><a href="{{route('media')}}" class="text-white text-decoration-none text-uppercase">Media Centre</a></li>
                             <li><a href="{{route('contactus')}}" class="text-white text-decoration-none text-uppercase">Contact Us</a></li>
 
                         </ul>
@@ -640,9 +640,9 @@
                     <div class="col-md-4 col-sm-6">
                         <h3 class="h4 mb-4" style="font-family: Georgia, serif;">Who we are</h3>
                         <ul class="list-unstyled d-flex flex-column gap-3 small fw-bold">
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">About Us</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Leadership</a></li>
-                            <li><a href="#" class="text-white text-decoration-none text-uppercase">Careers</a></li>
+                            <li><a href="{{ route('aboutUs') }}" class="text-white text-decoration-none text-uppercase">About Us</a></li>
+                            <li><a href="{{ route('executiveLeadership') }}" class="text-white text-decoration-none text-uppercase">Leadership</a></li>
+                            <li><a href="{{ route('career') }}" class="text-white text-decoration-none text-uppercase">Careers</a></li>
 
 
                         </ul>

@@ -32,6 +32,10 @@ class HomeController extends Controller
     {
         return view('frontend.pages.contactus');
     }
+    public function media()
+    {
+        return view('frontend.pages.media');
+    }
 
     public function accessibility()
     {

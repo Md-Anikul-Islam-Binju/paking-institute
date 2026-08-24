@@ -39,6 +39,7 @@
         </div>
     </div>
 </section>
+
 <section class="py-5">
     <div class="container py-5">
         <div class="p-4">
@@ -96,7 +97,7 @@
             <!-- Left Column: Badge / Label -->
             <div class="col-md-3">
                 <h6 class=" text-dark-emphasis text-uppercase ">
-                    Create with us
+                    <>Create with us</>
                 </h6>
             </div>
 
@@ -156,6 +157,7 @@
         </div>
     </div>
 </section>
+
 @elseif($involved->slug == "deliver-change")
     <section>
         <div class="container">
@@ -242,7 +244,7 @@
                             </div>
                             <div class="col-md-7 ps-md-4">
                                 <h2 class="display-6 mb-4"> {{ $data->title ?? 'N/A' }}</h2>
-                                <a href="#"
+                                <a href="{{route('partnership.details.more',$data->id)}}"
                                    class="btn btn-dark text-uppercase fw-semibold rounded-pill px-4 py-2 small">  Read the case study &rarr; </a>
                             </div>
                         </div>
@@ -305,6 +307,8 @@
             </div>
         </div>
     </section>
+
+
 @endif
 
 @endsection

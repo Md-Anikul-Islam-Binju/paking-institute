@@ -50,10 +50,14 @@ Route::get('/tbi-at-party-conferences', [HomeController::class, 'conference'])->
 
 //what we do
 Route::get('/what-we-do/approach', [WhatWeDoController::class, 'approach'])->name('approach');
+Route::get('/what-we-do/bridging', [WhatWeDoController::class, 'bridging'])->name('bridging');
+Route::get('/what-we-do/advancing', [WhatWeDoController::class, 'advancing'])->name('advancing');
 Route::get('/what-we-do/partnerships', [WhatWeDoController::class, 'partnership'])->name('partnership');
 Route::get('/what-we-do/future-of-britain', [WhatWeDoController::class, 'future'])->name('future');
 Route::get('/what-we-do/partnerships/{slug}', [WhatWeDoController::class, 'partnershipDetails'])->name('partnership.details');
 Route::get('/what-we-do/{slug}', [WhatWeDoController::class, 'futureDetails'])->name('future.details');
+
+Route::get('/what-we-do/partnership/{involved_id}', [WhatWeDoController::class, 'partnershipDetailsMore'])->name('partnership.details.more');
 
 //who we are
 Route::get('/who-we-are/about', [WhoWeAreController::class, 'aboutUs'])->name('aboutUs');
@@ -74,6 +78,7 @@ Route::get('/cookies', [HomeController::class, 'cookies'])->name('cookies');
 Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('terms');
 Route::get('/accessibility', [HomeController::class, 'accessibility'])->name('accessibility');
+Route::get('/media-centre', [HomeController::class, 'media'])->name('media');
 Route::get('/financial-statements', [HomeController::class, 'financialStatements'])->name('financialStatements');
 
 
