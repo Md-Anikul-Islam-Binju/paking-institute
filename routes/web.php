@@ -34,6 +34,7 @@ use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InsightPageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WhatWeDoController;
 use App\Http\Controllers\WhoWeAreController;
@@ -47,7 +48,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/news-letter-info-store', [HomeController::class, 'storeNewsLetterInfo'])->name('news.letter.info.store');
 //conference
 Route::get('/tbi-at-party-conferences', [HomeController::class, 'conference'])->name('conference');
-
+//search
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 //what we do
 Route::get('/what-we-do/approach', [WhatWeDoController::class, 'approach'])->name('approach');

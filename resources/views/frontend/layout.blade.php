@@ -695,7 +695,7 @@
 
             <!-- Search Section -->
             <div class="flex-grow-1 d-flex align-items-center justify-content-center px-4 mb-4">
-                <form class="w-100">
+                <form class="w-100" action="{{ route('search') }}" method="GET">
                     <div class="input-group">
 
                         <!-- Search Icon -->
@@ -708,10 +708,12 @@
                                class="form-control bg-transparent text-white border-secondary border-start-0 border-end-0 py-3 shadow-none"
                                placeholder="SEARCH"
                                aria-label="Search"
-                               autocomplete="off">
+                               name="q"
+                               autocomplete="off"
+                               value="{{ request('q') }}">
 
                         <!-- Arrow Button -->
-                        <button type="submit" class="btn bg-transparent border-secondary border-start-0 rounded-end-pill text-white-50 pe-4">
+                        <button    type="submit" class="btn bg-transparent border-secondary border-start-0 rounded-end-pill text-white-50 pe-4">
                             <i class="bi bi-arrow-right fs-5"></i>
                         </button>
 
