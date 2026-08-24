@@ -32,7 +32,7 @@
 
                             <img
                                 src="{{ asset('images/insight/'.$insight->cover_image) }}"
-                                class="img-fluid w-100 object-fit-cover"
+                                class="img-fluid w-100 md:h-[11rem] object-fit-cover"
                                 alt="{{ $insight->title }}"
                                 style="height: 230px;"
                             >
