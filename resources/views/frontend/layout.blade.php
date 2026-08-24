@@ -737,21 +737,22 @@
                         Be the first to know what we're doing – and how you can get more involved.
                     </h2>
 
-                    <form>
+                    <form action="{{route('news.letter.info.store')}}" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="firstName" class="form-label small mb-1"><span class="text-danger">*</span> First
                                 Name</label>
-                            <input type="text" class="form-control rounded-0 border-dark shadow-none" id="firstName" required>
+                            <input type="text" name="first_name" class="form-control rounded-0 border-dark shadow-none" id="firstName" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="lastName" class="form-label small mb-1"><span class="text-danger">*</span> Last Name</label>
-                            <input type="text" class="form-control rounded-0 border-dark shadow-none" id="lastName" required>
+                            <input type="text" name="last_name" class="form-control rounded-0 border-dark shadow-none" id="lastName" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="emailInput" class="form-label small mb-1"><span class="text-danger">*</span> Email</label>
-                            <input type="email" class="form-control rounded-0 border-dark shadow-none" id="emailInput" required>
+                            <input type="email" name="email" class="form-control rounded-0 border-dark shadow-none" id="emailInput" required>
                         </div>
 
                         <p class="text-muted extra-small mb-4" style="font-size: 0.75rem;">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Insight;
 use App\Models\InsightType;
 use App\Models\NewsLetter;
+use App\Models\NewsletterInfo;
 use App\Models\SiteSetting;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -87,6 +88,41 @@ class HomeController extends Controller
             compact('financialStatements')
         );
     }
+
+    public function storeNewsLetterInfo(Request $request)
+    {
+        //dd($request->all());
+        try {
+
+            $request->validate([
+                'first_name'  => 'required|max:255',
+                'last_name'  => 'required|max:255',
+                'email'  => 'required|max:255',
+            ]);
+
+
+            $newsLetter = new NewsletterInfo();
+
+            $newsLetter->first_name = $request->first_name;
+            $newsLetter->last_name = $request->last_name;
+            $newsLetter->email = $request->email;
+            $newsLetter->save();
+            return back()->with(
+                'success',
+                'News Letter Info Created Successfully'
+            );
+
+
+        } catch (\Exception $e) {
+
+            return back()->with(
+                'error',
+                $e->getMessage()
+            );
+
+        }
+    }
+
 
 
 }
