@@ -39,26 +39,28 @@
     </section>
 
 
-
-
     @foreach($categories as $category)
+
         <section
-            class="py-5 {{ $loop->first ? 'container' : '' }}"
+            class="py-5"
             id="{{ $category->slug }}"
         >
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <div
+                    class="row row-cols-1 row-cols-md-3 g-4 expert-list"
+                    data-category="{{ $category->id }}"
+                >
+
+                    <!-- Category Information -->
                     <div class="col">
                         <div class="card border-0">
-                            <div class="card-body">
-                                <!-- Dynamic Category Name -->
+                            <div class="card-body px-0">
+
                                 <h1 class="fw-normal">
                                     {{ $category->name }}
                                 </h1>
 
-                                <!-- =========================
-                                     STATIC DESCRIPTION
-                                ========================== -->
 
                                 @if($category->slug === 'strategic-counsellors')
 
@@ -96,51 +98,50 @@
 
                                     <p class="card-text fs-5">
                                         Our Insight Authors generate bold ideas and practical
-                                        solutions to help leaders tackle the world’s most
+                                        solutions to help leaders tackle the world's most
                                         pressing challenges and deliver for their people.
                                     </p>
 
                                 @endif
 
                             </div>
-
                         </div>
-
                     </div>
 
 
-                    <!-- =========================
-                         DYNAMIC EXPERTS
-                    ========================== -->
-
+                    <!-- Experts -->
                     @foreach($category->managementBoards as $expert)
 
-                        <div class="col">
-                            <a class="text-decoration-none" href="{{route('expert.details',$expert->slug)}}">
+                        <div
+                            class="col expert-card
+                        {{ $loop->index >= 8 ? 'd-none extra-expert' : '' }}"
+                        >
+
+                            <a
+                                class="text-decoration-none text-dark"
+                                href="{{ route('expert.details', $expert->slug) }}"
+                            >
+
                                 <div class="card border-0 h-100">
 
-                                    <!-- Expert Image -->
                                     @if($expert->image)
 
                                         <img
-                                            src="{{ asset('images/management/'.$expert->image) }}"
-                                            class="card-img-top img-fluid h-[30rem]"
+                                            src="{{ asset('images/management/' . $expert->image) }}"
+                                            class="card-img-top img-fluid"
+                                            style="height: 30rem; object-fit: cover;"
                                             alt="{{ $expert->name }}"
                                         >
 
                                     @endif
 
 
-                                    <!-- Expert Information -->
                                     <div class="card-body px-0">
 
-                                        <!-- Expert Name -->
                                         <h2 class="fw-normal">
                                             {{ $expert->name }}
                                         </h2>
 
-
-                                        <!-- Expert Designation -->
                                         <p class="card-text">
                                             {{ $expert->designation }}
                                         </p>
@@ -148,7 +149,9 @@
                                     </div>
 
                                 </div>
+
                             </a>
+
                         </div>
 
                     @endforeach
@@ -156,29 +159,28 @@
                 </div>
 
 
-                <!-- =========================
-                     SEE MORE
-                ========================== -->
+                <!-- See More Button -->
+                @if($category->managementBoards->count() > 8)
 
-                @if($category->managementBoards->count() > 5)
+                    <div class="text-center mt-5">
 
-                    <div class="text-center mt-4">
-
-                        <a
-                            href="#"
-                            class="btn btn-outline-dark px-4 py-2 rounded-pill"
+                        <button
+                            type="button"
+                            class="btn btn-outline-dark px-4 py-2 rounded-pill see-more-btn"
+                            data-category="{{ $category->id }}"
                         >
+                        <span class="button-text">
                             See More
+                        </span>
 
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
+                            <i class="bi bi-arrow-down ms-2"></i>
+                        </button>
 
                     </div>
 
                 @endif
 
 
-                <!-- Bottom Border -->
                 <hr class="opacity-100 mt-5">
 
             </div>
@@ -186,6 +188,231 @@
         </section>
 
     @endforeach
+
+
+
+
+{{--    @foreach($categories as $category)--}}
+{{--        <section--}}
+{{--            class="py-5 {{ $loop->first ? 'container' : '' }}"--}}
+{{--            id="{{ $category->slug }}"--}}
+{{--        >--}}
+{{--            <div class="container">--}}
+{{--                <div class="row row-cols-1 row-cols-md-3 g-4">--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="card border-0">--}}
+{{--                            <div class="card-body">--}}
+{{--                                <!-- Dynamic Category Name -->--}}
+{{--                                <h1 class="fw-normal">--}}
+{{--                                    {{ $category->name }}--}}
+{{--                                </h1>--}}
+
+{{--                                <!-- =========================--}}
+{{--                                     STATIC DESCRIPTION--}}
+{{--                                ========================== -->--}}
+
+{{--                                @if($category->slug === 'strategic-counsellors')--}}
+
+{{--                                    <p class="fs-5 text-dark">--}}
+{{--                                        Our Strategic Counsellors provide invaluable--}}
+{{--                                        leadership experience and insights to our global--}}
+{{--                                        policy work.--}}
+{{--                                    </p>--}}
+
+{{--                                @elseif($category->slug === 'ai-innovation')--}}
+
+{{--                                    <p class="card-text fs-5">--}}
+{{--                                        Our AI & Innovation Team designs and equips--}}
+{{--                                        political leaders with the tools they need to--}}
+{{--                                        reimagine the state.--}}
+{{--                                    </p>--}}
+
+{{--                                @elseif($category->slug === 'global-affairs')--}}
+
+{{--                                    <p class="card-text fs-5">--}}
+{{--                                        Our Global Affairs Team helps leaders turn bold--}}
+{{--                                        ideas into real-world impact, connecting policy,--}}
+{{--                                        politics and global influence to get big things done.--}}
+{{--                                    </p>--}}
+
+{{--                                @elseif($category->slug === 'government-advisory')--}}
+
+{{--                                    <p class="card-text fs-5">--}}
+{{--                                        Our Government Advisory Team works--}}
+{{--                                        shoulder-to-shoulder with governments and leaders--}}
+{{--                                        to transform political vision into tangible impact.--}}
+{{--                                    </p>--}}
+
+{{--                                @elseif($category->slug === 'insight-authors')--}}
+
+{{--                                    <p class="card-text fs-5">--}}
+{{--                                        Our Insight Authors generate bold ideas and practical--}}
+{{--                                        solutions to help leaders tackle the world’s most--}}
+{{--                                        pressing challenges and deliver for their people.--}}
+{{--                                    </p>--}}
+
+{{--                                @endif--}}
+
+{{--                            </div>--}}
+
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+
+
+{{--                    <!-- =========================--}}
+{{--                         DYNAMIC EXPERTS--}}
+{{--                    ========================== -->--}}
+
+{{--                    @foreach($category->managementBoards as $expert)--}}
+
+{{--                        <div class="col">--}}
+{{--                            <a class="text-decoration-none" href="{{route('expert.details',$expert->slug)}}">--}}
+{{--                                <div class="card border-0 h-100">--}}
+
+{{--                                    <!-- Expert Image -->--}}
+{{--                                    @if($expert->image)--}}
+
+{{--                                        <img--}}
+{{--                                            src="{{ asset('images/management/'.$expert->image) }}"--}}
+{{--                                            class="card-img-top img-fluid h-[30rem]"--}}
+{{--                                            alt="{{ $expert->name }}"--}}
+{{--                                        >--}}
+
+{{--                                    @endif--}}
+
+
+{{--                                    <!-- Expert Information -->--}}
+{{--                                    <div class="card-body px-0">--}}
+
+{{--                                        <!-- Expert Name -->--}}
+{{--                                        <h2 class="fw-normal">--}}
+{{--                                            {{ $expert->name }}--}}
+{{--                                        </h2>--}}
+
+
+{{--                                        <!-- Expert Designation -->--}}
+{{--                                        <p class="card-text">--}}
+{{--                                            {{ $expert->designation }}--}}
+{{--                                        </p>--}}
+
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+
+{{--                    @endforeach--}}
+
+{{--                </div>--}}
+
+
+{{--                <!-- =========================--}}
+{{--                     SEE MORE--}}
+{{--                ========================== -->--}}
+
+{{--                @if($category->managementBoards->count() > 5)--}}
+
+{{--                    <div class="text-center mt-4">--}}
+
+{{--                        <a--}}
+{{--                            href="#"--}}
+{{--                            class="btn btn-outline-dark px-4 py-2 rounded-pill"--}}
+{{--                        >--}}
+{{--                            See More--}}
+
+{{--                            <i class="bi bi-arrow-right ms-2"></i>--}}
+{{--                        </a>--}}
+
+{{--                    </div>--}}
+
+{{--                @endif--}}
+
+
+{{--                <!-- Bottom Border -->--}}
+{{--                <hr class="opacity-100 mt-5">--}}
+
+{{--            </div>--}}
+
+{{--        </section>--}}
+
+{{--    @endforeach--}}
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const buttons = document.querySelectorAll('.see-more-btn');
+
+            buttons.forEach(function (button) {
+
+                button.addEventListener('click', function () {
+
+                    const categoryId = this.dataset.category;
+
+                    const expertList = document.querySelector(
+                        '.expert-list[data-category="' + categoryId + '"]'
+                    );
+
+                    const hiddenExperts = expertList.querySelectorAll('.extra-expert');
+
+                    const buttonText = this.querySelector('.button-text');
+                    const icon = this.querySelector('i');
+
+                    let isHidden = false;
+
+                    hiddenExperts.forEach(function (expert) {
+
+                        if (expert.classList.contains('d-none')) {
+                            isHidden = true;
+                        }
+
+                    });
+
+
+                    if (isHidden) {
+
+                        hiddenExperts.forEach(function (expert) {
+                            expert.classList.remove('d-none');
+                        });
+
+                        buttonText.textContent = 'See Less';
+
+                        icon.classList.remove('bi-arrow-down');
+                        icon.classList.add('bi-arrow-up');
+
+                    } else {
+
+                        hiddenExperts.forEach(function (expert) {
+                            expert.classList.add('d-none');
+                        });
+
+                        buttonText.textContent = 'See More';
+
+                        icon.classList.remove('bi-arrow-up');
+                        icon.classList.add('bi-arrow-down');
+
+                        document
+                            .getElementById(
+                                expertList.closest('section').id
+                            )
+                            .scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
 
 @endsection
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paking Institute</title>
+    <link rel="icon" href="{{asset('frontend/img/logo.png')}}" type="image/x-icon">
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
