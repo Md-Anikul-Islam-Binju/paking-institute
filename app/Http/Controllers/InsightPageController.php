@@ -34,7 +34,18 @@ class InsightPageController extends Controller
                 $query->where('id', '!=', $featuredInsight->id);
             })
             ->inRandomOrder()
+            ->latest()
+            ->limit(12)
             ->get();
+
+
+        $insightsAgain = Insight::with('type')
+            ->when($featuredInsight, function ($query) use ($featuredInsight) {
+                $query->where('id', '!=', $featuredInsight->id);
+            })
+            ->get();
+
+
 
 
         $types = InsightType::where('status', 1)
@@ -56,7 +67,7 @@ class InsightPageController extends Controller
             compact(
                 'featuredInsight',
                 'insights',
-                'types','insightTypes','newsLetters'
+                'types','insightTypes','newsLetters','insightsAgain'
             )
         );
     }

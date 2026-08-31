@@ -432,117 +432,126 @@
 
 </section>
 
-
 <section class="mt-5 mb-5">
 
     <div class="container-md">
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div
+            id="insights-container"
+            class="row row-cols-1 row-cols-md-3 g-4"
+        >
 
-            @forelse($insights as $insight)
+            @forelse($insightsAgain as $key => $insight)
 
-                <div class="col">
-                    <a class="text-decoration-none" href="{{route('insight.details',$insight->slug)}}">
-                     <div class="card border-0 h-100">
+                <div
+                    class="col insight-item"
+                    style="{{ $key >= 12 ? 'display: none;' : '' }}"
+                >
 
-                        {{-- Image --}}
-                        @if($insight->cover_image)
+                    <a class="text-decoration-none"
+                       href="{{ route('insight.details', $insight->slug) }}">
 
-                            <img
-                                src="{{ asset('images/insight/'.$insight->cover_image) }}"
-                                class="card-img-top"
-                                alt="{{ $insight->title }}"
-                                style="
-                                    height: 260px;
-                                    object-fit: cover;
-                                "
-                            >
+                        <div class="card border-0 h-100">
 
-                        @else
+                            {{-- Image --}}
+                            @if($insight->cover_image)
 
-                            <img
-                                src="{{ asset('frontend/img/hero.png') }}"
-                                class="card-img-top"
-                                alt="{{ $insight->title }}"
-                                style="
-                                    height: 260px;
-                                    object-fit: cover;
-                                "
-                            >
+                                <img
+                                    src="{{ asset('images/insight/'.$insight->cover_image) }}"
+                                    class="card-img-top"
+                                    alt="{{ $insight->title }}"
+                                    style="
+                                        height: 260px;
+                                        object-fit: cover;
+                                    "
+                                >
 
-                        @endif
+                            @else
+
+                                <img
+                                    src="{{ asset('frontend/img/hero.png') }}"
+                                    class="card-img-top"
+                                    alt="{{ $insight->title }}"
+                                    style="
+                                        height: 260px;
+                                        object-fit: cover;
+                                    "
+                                >
+
+                            @endif
 
 
-                        <div class="card-body px-0">
+                            <div class="card-body px-0">
 
-                            {{-- Category --}}
-                            @if($insight->type)
+                                {{-- Category --}}
+                                @if($insight->type)
 
-                                <p class="text-uppercase mb-2">
+                                    <p class="text-uppercase mb-2">
 
-                                    <span
-                                        class="d-inline-block rounded-circle me-1"
-                                        style="
-                                            width: 9px;
-                                            height: 9px;
-                                            background-color: #6197a3;
-                                        "
-                                    ></span>
+                                        <span
+                                            class="d-inline-block rounded-circle me-1"
+                                            style="
+                                                width: 9px;
+                                                height: 9px;
+                                                background-color: #6197a3;
+                                            "
+                                        ></span>
 
-                                    <small class="fw-semibold">
-                                        {{ $insight->type->type }}
+                                        <small class="fw-semibold">
+                                            {{ $insight->type->type }}
+                                        </small>
+
+                                    </p>
+
+                                @endif
+
+
+                                {{-- Title --}}
+                                <h5 class="card-title">
+                                    {{ $insight->title }}
+                                </h5>
+
+
+                                {{-- Tag + Date --}}
+                                <p class="text-uppercase mb-3">
+
+                                    <small>
+
+                                        @if($insight->tag)
+                                            {{ $insight->tag }}
+                                        @endif
+
+                                        @if($insight->tag && $insight->date)
+                                            |
+                                        @endif
+
+                                        @if($insight->date)
+                                            {{ \Carbon\Carbon::parse($insight->date)->format('jS F Y') }}
+                                        @endif
+
                                     </small>
 
                                 </p>
 
-                            @endif
 
+                                {{-- Remark --}}
+                                @if($insight->remark)
 
-                            {{-- Title --}}
-                            <h5 class="card-title">
-                                {{ $insight->title }}
-                            </h5>
+                                    <p class="card-text">
 
+                                        {{ \Illuminate\Support\Str::limit(
+                                            strip_tags($insight->remark),
+                                            180
+                                        ) }}
 
-                            {{-- Tag + Date --}}
-                            <p class="text-uppercase mb-3">
+                                    </p>
 
-                                <small>
+                                @endif
 
-                                    @if($insight->tag)
-                                        {{ $insight->tag }}
-                                    @endif
-
-                                    @if($insight->tag && $insight->date)
-                                        |
-                                    @endif
-
-                                    @if($insight->date)
-                                        {{ \Carbon\Carbon::parse($insight->date)->format('jS F Y') }}
-                                    @endif
-
-                                </small>
-
-                            </p>
-
-
-                            {{-- Remark --}}
-                            @if($insight->remark)
-
-                                <p class="card-text">
-
-                                    {{ \Illuminate\Support\Str::limit(
-                                        strip_tags($insight->remark),
-                                        180
-                                    ) }}
-
-                                </p>
-
-                            @endif
+                            </div>
 
                         </div>
 
-                    </div>
                     </a>
 
                 </div>
@@ -561,94 +570,29 @@
 
         </div>
 
+
+        {{-- See More --}}
+        @if($insightsAgain->count() > 12)
+
+            <div class="text-center mt-5">
+
+                <button
+                    type="button"
+                    id="seeMoreBtn"
+                    class="btn btn-outline-dark px-5 py-3 rounded-pill"
+                >
+                    See More
+                </button>
+
+            </div>
+
+        @endif
+
     </div>
 
 </section>
 
-{{--<section class="mt-5">--}}
-{{--    <div class="container-md">--}}
-{{--        <div class="row row-cols-1 row-cols-md-3 g-4">--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col">--}}
-{{--                <div class="card border-0 h-100">--}}
-{{--                    <img src="..." class="card-img-top" alt="...">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <p class="text-uppercase"><box-icon type='solid' size="0.9rem" color="#6197a3"--}}
-{{--                                                            name='circle'></box-icon> Public Services</p>--}}
-{{--                        <h5 class="card-title">How Rwanda Is Using Data to Deliver Better Health Care</h5>--}}
-{{--                        <p class="text-uppercase"><small>Commentary | 23rd July 2026</small></p>--}}
-{{--                        <p class="card-text">By connecting health data across the system, Rwanda is enabling faster--}}
-{{--                            decisions, shorter waits and better care.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
+
 
 
 
@@ -756,6 +700,44 @@
                 sectionTitle.textContent = title;
 
             });
+
+        });
+
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const items = document.querySelectorAll('.insight-item');
+        const seeMoreBtn = document.getElementById('seeMoreBtn');
+
+        let visibleItems = 12;
+        const increment = 12;
+
+        if (!seeMoreBtn) {
+            return;
+        }
+
+        seeMoreBtn.addEventListener('click', function () {
+
+            const nextVisibleItems = visibleItems + increment;
+
+            for (let i = visibleItems; i < nextVisibleItems; i++) {
+
+                if (items[i]) {
+                    items[i].style.display = '';
+                }
+
+            }
+
+            visibleItems = nextVisibleItems;
+
+            // সব data দেখানো হয়ে গেলে button hide
+            if (visibleItems >= items.length) {
+                seeMoreBtn.style.display = 'none';
+            }
 
         });
 
