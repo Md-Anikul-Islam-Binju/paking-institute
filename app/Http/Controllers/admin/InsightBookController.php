@@ -32,7 +32,7 @@ class InsightBookController extends Controller
 
         $books = InsightBook::with('insight')
             ->latest()
-            ->get();
+            ->paginate(20);
 
         return view('admin.pages.insightBook.index', compact('books', 'insights'));
     }

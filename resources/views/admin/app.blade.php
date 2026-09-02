@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
     <meta content="paking institute" name="author" />
-    <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
+    <link rel="icon" href="{{asset('frontend/img/logo.png')}}" type="image/x-icon">
     <!-- Select2 css -->
     <link href="{{asset('backend/vendor/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- summernote -->

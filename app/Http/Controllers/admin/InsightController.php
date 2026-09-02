@@ -31,7 +31,8 @@ class InsightController extends Controller
     {
         $insights = Insight::with('type')
             ->latest()
-            ->get();
+            ->paginate(10);
+
 
         $types = InsightType::where('status', 1)->latest()->get();
 

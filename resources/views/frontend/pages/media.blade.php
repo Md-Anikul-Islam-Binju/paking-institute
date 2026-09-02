@@ -10,7 +10,7 @@
             <div class="row d-flex flex-column flex-md-row gap-5">
                 <!-- Image Column (First on mobile, second on desktop) -->
                 <div class="col-md-5 order-1 order-md-2 mb-4 mb-md-0">
-                    <img src="https://via.placeholder.com/600x400" alt="Media Centre" class="img-fluid rounded">
+                    <img src="{{asset('frontend/img/test.webp')}}" alt="Media Centre" class="img-fluid rounded">
                 </div>
 
                 <!-- Text Column (Second on mobile, first on desktop) -->

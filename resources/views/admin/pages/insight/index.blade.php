@@ -38,7 +38,7 @@
 
                     <div class="card-body">
 
-                        <table id="basic-datatable"
+                        <table
                                class="table table-striped dt-responsive nowrap w-100">
 
                             <thead>
@@ -49,7 +49,7 @@
                                 <th>Title</th>
                                 <th>Date</th>
                                 <th>Tag</th>
-                                <th>Management</th>
+{{--                                <th>Management</th>--}}
                                 <th>PDF</th>
                                 <th>Action</th>
                             </tr>
@@ -78,7 +78,7 @@
                                     </td>
 
                                     <td>
-                                        {{ $insight->title }}
+                                        {{ \Illuminate\Support\Str::limit($insight->title, 50) }}
                                     </td>
 
                                     <td>
@@ -99,19 +99,22 @@
                                         @endif
                                     </td>
 
-                                    <td>
-                                        @if(!empty($insight->multiple_management_board_id))
-                                            @foreach($managements->whereIn('id',$insight->multiple_management_board_id) as $board)
-                                                <span class="badge bg-info mb-1">
-                                                   {{ $board->name }}
-                                                </span>
-                                            @endforeach
-                                        @else
-                                            <span class="badge bg-secondary">
-                                                N/A
-                                            </span>
-                                        @endif
-                                    </td>
+{{--                                    <td>--}}
+{{--                                        @if(!empty($insight->multiple_management_board_id))--}}
+{{--                                            @foreach($managements->whereIn('id',$insight->multiple_management_board_id) as $board)--}}
+{{--                                                <span class="badge bg-info mb-1">--}}
+{{--                                                   {{ $board->name }}--}}
+{{--                                                </span>--}}
+{{--                                            @endforeach--}}
+{{--                                        @else--}}
+{{--                                            <span class="badge bg-secondary">--}}
+{{--                                                N/A--}}
+{{--                                            </span>--}}
+{{--                                        @endif--}}
+{{--                                    </td>--}}
+
+
+
 
                                     <td>
                                         @if($insight->pdf_file)
@@ -434,6 +437,10 @@
                             </tbody>
 
                         </table>
+
+                        <div class="d-flex justify-content-end">
+                            {{ $insights->links('pagination::bootstrap-5') }}
+                        </div>
 
                     </div>
 

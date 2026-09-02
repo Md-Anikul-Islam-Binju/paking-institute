@@ -38,7 +38,7 @@
 
                     <div class="card-body">
 
-                        <table id="basic-datatable"
+                        <table
                                class="table table-striped dt-responsive nowrap w-100">
 
                             <thead>
@@ -265,6 +265,9 @@
                             </tbody>
 
                         </table>
+                        <div class="d-flex justify-content-end">
+                            {{ $books->links('pagination::bootstrap-5') }}
+                        </div>
 
                     </div>
 
