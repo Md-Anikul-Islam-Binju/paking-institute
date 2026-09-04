@@ -113,6 +113,15 @@
                 </li>
                 @endcan
 
+                @can('institute-event-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('institute-event.index')}}" class="side-nav-link">
+                            <i class="ri-calendar-event-line"></i>
+                            <span> Institute Event </span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('news-letter-list')
                     <li class="side-nav-item">
                         <a href="{{route('news.letter.section')}}" class="side-nav-link">

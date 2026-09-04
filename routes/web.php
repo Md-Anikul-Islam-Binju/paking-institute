@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\HowWorkController;
 use App\Http\Controllers\admin\InsightBookController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\InsightTypeController;
+use App\Http\Controllers\admin\InstituteController;
 use App\Http\Controllers\admin\InvolvedController;
 use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\KeyBenefitController;
@@ -87,6 +88,10 @@ Route::get('/financial-statements', [HomeController::class, 'financialStatements
 
 Route::middleware('auth')->group(callback: function () {
 
+
+    //institute
+    Route::get('/institute-event', [InstituteController::class, 'index'])->name('institute-event.index');
+    Route::post('/institute-event/create-update/{id?}', [InstituteController::class, 'createOrUpdateInstituteEvent'])->name('institute-event.createOrUpdate');
 
     //About
     Route::get('/about', [AboutController::class, 'index'])->name('about.section');
