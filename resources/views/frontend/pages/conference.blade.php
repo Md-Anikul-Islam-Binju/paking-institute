@@ -7,12 +7,12 @@
         <div class="container"  >
             <div class="mt-5 mb-5">
                 <p class="text-uppercase">Events</p>
-                <h1 class="mb-3 display-1 fw-bold">TBI at Party Conferences 2026</h1>
-                <p class="w-100 w-md-50 fs-5">At this year’s UK party conferences, the Tony Blair Institute will convene political leaders, expert thinkers and innovators to explore the ideas at the heart of Resurgent Britain – our agenda for Britain’s renewal. </p>
+                <h1 class="mb-3 display-1 fw-bold">{{$institute->sub_title}}</h1>
+                <p class="w-100 w-md-50 fs-5">{{$institute->sub_details}}</p>
             </div>
             <!-- শুধুমাত্র এই ডাইভটিতেই ওভারল্যাপ ক্লাস থাকবে -->
             <div class="overlapping-image-wrapper">
-                <img src="{{asset('frontend/img/11.webp')}}"
+                <img src="{{ asset($institute->sub_image) }}"
                      class="img-fluid w-100  shadow-lg  object-fit-cover" alt="Hero Banner Image">
             </div>
         </div>
@@ -21,13 +21,13 @@
     <section class="mb-5 py-1 bg-white">
         <div class="container">
             <div class="mt-3">
-                <h1 class="display-1 fw-bold mb-5">End decline. Harness the future. Transform Britain.</h1>
+                <h1 class="display-1 fw-bold mb-5">{{$institute->sub_remark}}</h1>
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-6">
-                        <h5 class="mb-5">Through a series of events and discussions, we’ll examine the biggest questions facing Britain and the bold, practical reforms needed to deliver national renewal in an era of rapid technological and geopolitical change.
+                        <h5 class="mb-5">{{$institute->sub_remark_details}}
                         </h5>
-                        <h5 class="fw-bold">Agenda coming soon.</h5>
+
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 
                         <!-- Item 1 -->
                         <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-secondary">
-                            <span class="display-5 font-serif">TBI at Party Conferences 2026</span>
+                            <span class="display-5 font-serif">Institute at Party Conferences 2026</span>
                             <i class="bi bi-arrow-right fs-4"></i>
                         </a>
 

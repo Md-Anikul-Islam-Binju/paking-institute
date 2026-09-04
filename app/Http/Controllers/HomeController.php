@@ -28,7 +28,9 @@ class HomeController extends Controller
     }
     public function conference()
     {
-        return view('frontend.pages.conference');
+        $institute = InstituteEvent::first();
+
+        return view('frontend.pages.conference',compact('institute'));
     }
 
     public function contact()

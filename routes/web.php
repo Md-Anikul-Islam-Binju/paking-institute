@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/news-letter-info-store', [HomeController::class, 'storeNewsLetterInfo'])->name('news.letter.info.store');
 //conference
-Route::get('/tbi-at-party-conferences', [HomeController::class, 'conference'])->name('conference');
+Route::get('/institute-at-party-conferences', [HomeController::class, 'conference'])->name('conference');
 //search
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
