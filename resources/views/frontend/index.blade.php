@@ -298,7 +298,7 @@
 
             <div class="col-12 col-md-6 col-lg-5">
                 <div class="w-100">
-                    <img src="{{asset('frontend/img/d.jfif')}}"
+                    <img src="{{ asset($institute->image) }}"
                          alt="Woman holding microphone at conference" class="img-fluid w-100 h-100 object-fit-cover" />
                 </div>
             </div>
@@ -307,18 +307,17 @@
                 <!-- Heading -->
                 <h1 class="display-6 mb-4 text-dark fw-normal"
                     style=" font-size: 2.25rem; line-height: 1.2;">
-                    TBI at UK Party Conferences 2025
+                    {{$institute->title}}
                 </h1>
 
                 <!-- Tagline / Subtitle -->
                 <p class="fw-bold text-dark fs-6 mb-3">
-                    It's time to build a new political coalition for transformation.
+                    {{$institute->remark}}
                 </p>
 
                 <!-- Description Paragraph -->
                 <p class="text-dark opacity-75 fs-6 mb-4 fw-normal" style="line-height: 1.6;">
-                    We're advancing a bold agenda, built on innovation and powered by disruptive politics, that can transform how
-                    government delivers.
+                    {{$institute->details}}
                 </p>
 
                 <!-- Call to Action Button -->

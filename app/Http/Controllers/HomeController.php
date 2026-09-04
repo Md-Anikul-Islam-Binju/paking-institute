@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Insight;
 use App\Models\InsightType;
+use App\Models\InstituteEvent;
 use App\Models\NewsLetter;
 use App\Models\NewsletterInfo;
 use App\Models\SiteSetting;
@@ -20,9 +21,10 @@ class HomeController extends Controller
         $latestInsight = Insight::where('type_id', $techType->id)->with('type')
             ->latest('created_at')
             ->first();
+        $institute = InstituteEvent::first();
 
         $insights = Insight::with('type')->limit(6)->get();
-        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights'));
+        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights','institute'));
     }
     public function conference()
     {
