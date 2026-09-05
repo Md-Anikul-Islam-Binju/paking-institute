@@ -29,6 +29,7 @@
     </div>
 </section>
 
+@if($howWork)
 <section class="py-5">
     <div class="container">
         <div class="row  g-5">
@@ -172,6 +173,7 @@
     </div>
 
 </section>
+@endif
 
 <div class="container">
     <div class="mt-5">
