@@ -72,12 +72,71 @@ class InsightPageController extends Controller
         );
     }
 
+//    public function insightDetails($slug)
+//    {
+//        $insightDetail = Insight::with(['type', 'books'])
+//            ->where('slug', $slug)
+//            ->firstOrFail();
+//        return view('frontend.pages.insight.insightDetails', compact('insightDetail'));
+//    }
+
+
     public function insightDetails($slug)
     {
-        //$insightDetail = Insight::where('slug',$slug)->with('type')->first();
-        $insightDetail = Insight::with(['type', 'books'])
+        $insightDetail = Insight::with([
+            'type',
+            'books' => function ($query) {
+                $query->orderBy('chapter_no', 'asc');
+            }
+        ])
             ->where('slug', $slug)
             ->firstOrFail();
-        return view('frontend.pages.insight.insightDetails', compact('insightDetail'));
+
+        /*
+        |--------------------------------------------------------------------------
+        | Multiple Experts Count
+        |--------------------------------------------------------------------------
+        | multiple_management_board_id is stored as JSON array.
+        | Example: [1, 5, 8, 10]
+        */
+        $multipleExpertCount = 0;
+
+        if (!empty($insightDetail->multiple_management_board_id)) {
+            $multipleExpertCount = count(
+                array_filter($insightDetail->multiple_management_board_id)
+            );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Related Articles
+        |--------------------------------------------------------------------------
+        | Randomly get 3 insights excluding current insight.
+        */
+        $relatedInsights = Insight::with('type')
+            ->where('id', '!=', $insightDetail->id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Insight Types
+        |--------------------------------------------------------------------------
+        | For dynamic newsletter ticker.
+        */
+        $insightTypes = InsightType::where('status', 1)
+            ->orderBy('id', 'asc')
+            ->get();
+
+        return view(
+            'frontend.pages.insight.insightDetails',
+            compact(
+                'insightDetail',
+                'multipleExpertCount',
+                'relatedInsights',
+                'insightTypes'
+            )
+        );
     }
 }
