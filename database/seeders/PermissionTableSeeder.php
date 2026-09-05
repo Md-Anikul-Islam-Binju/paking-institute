@@ -61,6 +61,8 @@ class PermissionTableSeeder extends Seeder
             'setting-list',
             //institute
             'institute-event-list',
+            //how-work-menu-list
+            'how-work-menu-list',
 
             //news-letter board
             'news-letter-list',

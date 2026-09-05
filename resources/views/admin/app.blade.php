@@ -113,6 +113,15 @@
                 </li>
                 @endcan
 
+                @can('how-work-menu-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('howWorkMenu.section')}}" class="side-nav-link">
+                            <i class="ri-flow-chart"></i>
+                            <span> How Work & Menu </span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('institute-event-list')
                     <li class="side-nav-item">
                         <a href="{{route('institute-event.index')}}" class="side-nav-link">

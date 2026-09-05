@@ -10,11 +10,11 @@
             </div>
             <div class="mb-4 fw-bold">
                 <p>For media enquiries contact our Media Team</p>
-                <p><a href="mediabids@institute.global">mediabids@institute.global</a></p>
+                <p><a href="mediabids@pekinginstitute.org">mediabids@pekinginstitute.org</a></p>
             </div>
             <div class="mb-4 fw-bold">
                 <p>Email us for general enquiries about our work, or to contact our People Team</p>
-                <p><a href="info@institute.global">info@institute.global</a></p>
+                <p><a href="info@pekinginstitute.org">info@pekinginstitute.org</a></p>
             </div>
         </div>
     </section>

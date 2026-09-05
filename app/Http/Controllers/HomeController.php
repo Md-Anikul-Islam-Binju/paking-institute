@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HowWorkMenu;
 use App\Models\Insight;
 use App\Models\InsightType;
 use App\Models\InstituteEvent;
@@ -22,9 +23,10 @@ class HomeController extends Controller
             ->latest('created_at')
             ->first();
         $institute = InstituteEvent::first();
+        $howWork = HowWorkMenu::first();
 
         $insights = Insight::with('type')->limit(6)->get();
-        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights','institute'));
+        return view('frontend.index',compact('slider','newsLetters','techType','latestInsight','insights','institute','howWork'));
     }
     public function conference()
     {

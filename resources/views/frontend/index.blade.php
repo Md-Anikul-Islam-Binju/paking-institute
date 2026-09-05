@@ -1,5 +1,6 @@
 @extends('frontend.layout')
 @section('content')
+
 <!-- hero section muted-->
 <section class="hero-section">
     <div class="overflow-hidden position-relative vh-100">
@@ -40,18 +41,11 @@
             <!-- Right Column -->
             <div class="col-md-7 ">
                 <h1 class="fw-bold mb-5">
-                    Here to turn bold ideas into reality
+                    {{$howWork->how_we_work_title}}
                 </h1>
 
                 <p class="fs-5 mb-0">
-                    We help governments and leaders get things done. We do it by
-                    advising on strategy, policy and delivery, unlocking the power
-                    of technology across all three. As a not-for-profit, we can
-                    work in the most challenging contexts and on the most
-                    transformative projects because our focus is on leaders rather
-                    than profits. And as a non-partisan organisation, we can bring
-                    the best of our expertise to leaders who want to translate
-                    their ambition into meaningful action for their people.
+                    {{$howWork->how_we_work_details}}
                 </p>
             </div>
 
@@ -68,7 +62,10 @@
 
                   <div class="card-img-box  overflow-hidden rounded-4">
 
-                      <img class="w-100 h-100 object-fit-cover"  src="{{asset('frontend/img/a.webp')}}"
+                      <img class="w-100 h-100 object-fit-cover"  src="{{ asset(
+                                                        'images/how-work-menu/' .
+                                                        $howWork->insight_logo
+                                                    ) }}"
                            alt="Insights">
 
                       <div class="card-overlay"></div>
@@ -83,7 +80,7 @@
                   <div class="pt-3">
                       <h2 class="font-serif display-6 mb-2">Insights</h2>
                       <p class="card-desc text-secondary overflow-hidden mb-0">
-                          Discover the latest thinking from our experts.
+                          {{ $howWork->insight_title}}
                       </p>
                   </div>
 
@@ -96,7 +93,10 @@
 
                     <div class="card-img-box overflow-hidden rounded-4">
 
-                        <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/b.webp')}}"
+                        <img class="w-100 h-100 object-fit-cover" src="{{ asset(
+                                                        'images/how-work-menu/' .
+                                                        $howWork->partnership_logo
+                                                    ) }}"
                              alt="Partnerships">
 
                         <div class="card-overlay"></div>
@@ -119,7 +119,7 @@
                         </h2>
 
                         <p class="card-desc">
-                            Join us to deliver meaningful change together.
+                            {{ $howWork->partnership_title}}
                         </p>
 
                     </div>
@@ -133,7 +133,10 @@
 
                  <div class="card-img-box overflow-hidden rounded-4">
 
-                     <img class="w-100 h-100 object-fit-cover" src="{{asset('frontend/img/c.webp')}}"
+                     <img class="w-100 h-100 object-fit-cover" src="{{ asset(
+                                                        'images/how-work-menu/' .
+                                                        $howWork->approach_logo
+                                                    ) }}"
                           alt="Approach">
 
                      <div class="card-overlay"></div>
@@ -156,7 +159,7 @@
                      </h2>
 
                      <p class="card-desc">
-                         Learn about our unique methodology and values.
+                         {{ $howWork->approach_title}}
                      </p>
 
                  </div>
@@ -239,60 +242,105 @@
     </div>
 </section>
 
-{{--<section class="mb-4">--}}
+<section class="mb-4">
+
     <div class="container d-flex justify-content-between align-items-center mb-4">
         <h1 class="mb-0">Explore</h1>
-        <a class="text-decoration-none text-dark" href="{{route('insight')}}">See all <i class="bi bi-arrow-right-circle-fill"></i></a>
+
+        <a class="text-decoration-none text-dark" href="{{ route('insight') }}">
+            See all
+            <i class="bi bi-arrow-right-circle-fill"></i>
+        </a>
     </div>
-    <div id="heroSlider" class="carousel slide carousel-fade position-relative" data-bs-ride="false">
+
+
+    <div id="heroSlider"
+         class="carousel slide position-relative"
+         data-bs-ride="false">
+
         <div class="carousel-inner container">
 
-            <!-- Slide 1 -->
-            @foreach($insights as $insight)
-                <div class="carousel-item active position-relative">
-                    <img src="{{ asset('images/insight/'.$insight->cover_image) }}" class="d-block w-100 object-fit-cover" style="height:600px;" alt="">
+            @foreach($insights as $key => $insight)
 
-                    <!-- Image Overlay with Container -->
-                    <div class="carousel-caption top-0 start-0 w-100 h-100 p-0 d-flex flex-column justify-content-between">
-                        <!-- Top Empty Div for Spacing -->
-                        <div></div>
+                <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
 
-                        <!-- Center Text Content -->
-                        <div class="text-center">
-                            <p class="text-uppercase text-white-50 mb-2">Explore</p>
-                            <h1 class="display-1 fw-bold text-white">{{$insight->type->type}}</h1>
+                    <div class="position-relative overflow-hidden">
 
-                            <a href="{{route('insight.details',$insight->slug)}}" class="btn btn-light mt-3 text-uppercase rounded-pill px-4">See theme <i class="bi bi-arrow-right"></i></a>
+                        <img
+                            src="{{ asset('images/insight/' . $insight->cover_image) }}"
+                            class="d-block w-100 object-fit-cover"
+                            style="height:650px;"
+                            alt="{{ $insight->type->type }}"
+                        >
+
+                        <div class="position-absolute top-0 start-0 w-100 h-100
+                                d-flex flex-column justify-content-center
+                                align-items-center text-center p-4">
+
+                            <p class="text-uppercase text-white-50 mb-2 fw-semibold tracking-wider">
+                                Explore
+                            </p>
+
+                            <h1 class="display-2 fw-bold text-white mb-3">
+                                {{ $insight->type->type }}
+                            </h1>
+
+                            <a
+                                href="{{ route('insight.details', $insight->slug) }}"
+                                class="btn btn-light text-uppercase rounded-pill px-4 py-2 shadow-sm"
+                            >
+                                See theme
+                            </a>
+
                         </div>
 
-                        <!-- Bottom Controls inside Container -->
-                        <div class="container pb-4 d-flex justify-content-end">
-                            <div class="d-flex gap-2">
-                                <button
-                                    class="carousel-control-prev position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
-                                    type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
-                <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
-                  <box-icon name='left-arrow-alt' color='white' size='24px'></box-icon>
-                </span>
-                                </button>
-
-                                <button
-                                    class="carousel-control-next position-relative start-0 w-auto opacity-100 border-0 bg-transparent p-0"
-                                    type="button" data-bs-target="#heroSlider" data-bs-slide="next">
-                <span class="p-2 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center">
-                  <box-icon name='right-arrow-alt' color='white' size='24px'></box-icon>
-                </span>
-                                </button>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
+
             @endforeach
+
         </div>
+
+
+        <!-- Controls -->
+        <div class="container position-absolute bottom-0 start-50 translate-middle-x
+                pb-5 px-4 d-flex justify-content-end z-3">
+
+            <div class="d-flex gap-2">
+
+                <!-- Previous -->
+                <button
+                    class="btn btn-dark bg-opacity-50 border-0 rounded-circle p-3
+                       d-flex align-items-center justify-content-center shadow"
+                    type="button"
+                    data-bs-target="#heroSlider"
+                    data-bs-slide="prev"
+                    aria-label="Previous Slide"
+                >
+                    <i class="bx bx-left-arrow-alt fs-5"></i>
+                </button>
+
+
+                <!-- Next -->
+                <button
+                    class="btn btn-dark bg-opacity-50 border-0 rounded-circle p-3
+                       d-flex align-items-center justify-content-center shadow"
+                    type="button"
+                    data-bs-target="#heroSlider"
+                    data-bs-slide="next"
+                    aria-label="Next Slide"
+                >
+                    <i class="bx bx-right-arrow-alt fs-5"></i>
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
-
-
 
 <section class="mt-5">
     <div class="container py-lg-5">

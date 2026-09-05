@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\ExploreController;
 use App\Http\Controllers\admin\ExploreVisionController;
 use App\Http\Controllers\admin\FutureController;
 use App\Http\Controllers\admin\HowWorkController;
+use App\Http\Controllers\admin\HowWorkMenuController;
 use App\Http\Controllers\admin\InsightBookController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\InsightTypeController;
@@ -135,7 +136,9 @@ Route::middleware('auth')->group(callback: function () {
     Route::get('/radical', [RadicalController::class, 'index'])->name('radical.section');
     Route::post('/radical-update/{id?}', [RadicalController::class, 'createOrUpdateRadical'])->name('radical.createOrUpdate');
 
-
+    //how-we-work
+    Route::get('/how-we-work-menu', [HowWorkMenuController::class, 'index'])->name('howWorkMenu.section');
+    Route::post('/how-we-work-menu-update/{id?}', [HowWorkMenuController::class, 'createOrUpdate'])->name('howWorkMenu.createOrUpdate');
 
     //slider home page
     Route::get('/slider', [SliderController::class, 'index'])->name('slider.section');
