@@ -239,7 +239,7 @@
     </div>
 </section>
 
-<section class="mb-4">
+{{--<section class="mb-4">--}}
     <div class="container d-flex justify-content-between align-items-center mb-4">
         <h1 class="mb-0">Explore</h1>
         <a class="text-decoration-none text-dark" href="{{route('insight')}}">See all <i class="bi bi-arrow-right-circle-fill"></i></a>
@@ -291,6 +291,8 @@
         </div>
     </div>
 </section>
+
+
 
 <section class="mt-5">
     <div class="container py-lg-5">
@@ -345,26 +347,13 @@
     <div class="ticker-wrapper mb-4">
         <div class="ticker-track gap-4" id="row1Track">
 
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=300&auto=format&fit=crop"
-                 class="ticker-img">
+            @foreach($newsLetters as $newsLetter)
+                <img src="{{ asset('images/news-letter/'.$newsLetter->image) }}"
+                     class="ticker-img">
 
-            <span class="ticker-text">Practical Solutions</span>
+                <span class="ticker-text">{{ $newsLetter->title }}</span>
+            @endforeach
 
-            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=300&auto=format&fit=crop"
-                 class="ticker-img">
-
-            <span class="ticker-text">Radical Ideas</span>
-
-            <!-- Duplicate -->
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=300&auto=format&fit=crop"
-                 class="ticker-img">
-
-            <span class="ticker-text">Practical Solutions</span>
-
-            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=300&auto=format&fit=crop"
-                 class="ticker-img">
-
-            <span class="ticker-text">Radical Ideas</span>
 
         </div>
     </div>
