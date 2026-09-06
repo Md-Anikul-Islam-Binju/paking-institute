@@ -120,14 +120,12 @@
         }
 
     </style>
+
+
     <br><br><br>
     <section class="mt-2 mb-5" data-header-theme="light">
 
         <div class="">
-
-            {{-- =========================
-                Dynamic Type Banner
-            ========================== --}}
             <div
                 class="insight-type-banner mb-5"
                 style="background-color: {{ $type->color_code ?? '#6197a3' }};"
@@ -209,6 +207,10 @@
         </div>
 
     </section>
+
+
+
+
 
 
     <section class="mt-5 mb-5">
@@ -410,10 +412,6 @@
     </section>
 
 
-
-
-
-
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -462,7 +460,5 @@
         });
 
     </script>
-
-
 
 @endsection
