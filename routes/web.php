@@ -77,6 +77,10 @@ Route::get('/experts/{slug}', [ExpertController::class, 'expertDetail'])->name('
 //insight
 Route::get('/insights', [InsightPageController::class, 'insight'])->name('insight');
 Route::get('/insights/{slug}', [InsightPageController::class, 'insightDetails'])->name('insight.details');
+Route::get('/insight-type/{slug}', [InsightPageController::class, 'typeWiseInsight'])->name('insight.type');
+
+
+
 
 Route::get('/contactus', [HomeController::class, 'contact'])->name('contactus');
 Route::get('/cookies', [HomeController::class, 'cookies'])->name('cookies');

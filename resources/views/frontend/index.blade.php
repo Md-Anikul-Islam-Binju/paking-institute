@@ -288,7 +288,7 @@
                             </h1>
 
                             <a
-                                href="{{ route('insight.details', $insight->slug) }}"
+                                href="{{ route('insight.type', $insight->type->slug) }}"
                                 class="btn btn-light text-uppercase rounded-pill px-4 py-2 shadow-sm"
                             >
                                 See theme

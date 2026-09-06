@@ -45,7 +45,9 @@
                             <tr>
                                 <th>S/N</th>
                                 <th>Type</th>
-                                <th>Slug</th>
+                                <th>Primary Image</th>
+                                <th>Secondary Image</th>
+                                <th>Color</th>
                                 <th>Status</th>
                                 <th width="120">Action</th>
                             </tr>
@@ -60,8 +62,49 @@
                                     <td>{{ $key+1 }}</td>
 
                                     <td>{{ $type->type }}</td>
+                                    <td>
+                                        @if($type->primary_image)
+                                            <img src="{{ asset($type->primary_image) }}"
+                                                 width="60"
+                                                 height="45"
+                                                 style="object-fit: cover;"
+                                                 class="rounded">
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
 
-                                    <td>{{ $type->slug }}</td>
+                                    <td>
+                                        @if($type->secondary_image)
+                                            <img src="{{ asset($type->secondary_image) }}"
+                                                 width="60"
+                                                 height="45"
+                                                 style="object-fit: cover;"
+                                                 class="rounded">
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        @if($type->color_code)
+                                            <div class="d-flex align-items-center gap-2">
+                                            <span style="
+                                                width:25px;
+                                                height:25px;
+                                                display:inline-block;
+                                                background:{{ $type->color_code }};
+                                                border:1px solid #ddd;
+                                                border-radius:4px;
+                                            "></span>
+
+                                                {{ $type->color_code }}
+                                            </div>
+                                        @else
+                                            N/A
+                                        @endif
+                                    </td>
+
 
                                     <td>
                                         @if($type->status)
@@ -121,7 +164,7 @@
                                             <div class="modal-body">
 
                                                 <form method="POST"
-                                                      action="{{ route('insight.type.update',$type->id) }}">
+                                                      action="{{ route('insight.type.update',$type->id) }}"   enctype="multipart/form-data">
 
                                                     @csrf
                                                     @method('PUT')
@@ -136,6 +179,75 @@
                                                                value="{{ $type->type }}"
                                                                class="form-control"
                                                                required>
+                                                    </div>
+
+                                                    <!-- Primary Image -->
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+
+                                                            <label class="form-label">
+                                                                Primary Image
+                                                            </label>
+
+                                                            @if($type->primary_image)
+                                                                <div class="mb-2">
+                                                                    <img src="{{ asset($type->primary_image) }}"
+                                                                         width="100"
+                                                                         height="70"
+                                                                         style="object-fit: cover;"
+                                                                         class="rounded border">
+                                                                </div>
+                                                            @endif
+
+                                                            <input type="file"
+                                                                   name="primary_image"
+                                                                   class="form-control"
+                                                                   accept="image/*">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Secondary Image -->
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+
+                                                            <label class="form-label">
+                                                                Secondary Image
+                                                            </label>
+
+                                                            @if($type->secondary_image)
+                                                                <div class="mb-2">
+                                                                    <img src="{{ asset($type->secondary_image) }}"
+                                                                         width="100"
+                                                                         height="70"
+                                                                         style="object-fit: cover;"
+                                                                         class="rounded border">
+                                                                </div>
+                                                            @endif
+
+                                                            <input type="file"
+                                                                   name="secondary_image"
+                                                                   class="form-control"
+                                                                   accept="image/*">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Color -->
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+
+                                                            <label class="form-label">
+                                                                Color Code
+                                                            </label>
+
+                                                            <input type="text"
+                                                                   name="color_code"
+                                                                   class="form-control"
+                                                                   placeholder="#000000"
+                                                                   value="{{ $type->color_code }}">
+
+                                                        </div>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -278,7 +390,7 @@
                     @endif
 
                     <form method="POST"
-                          action="{{ route('insight.type.store') }}">
+                          action="{{ route('insight.type.store') }}"   enctype="multipart/form-data">
 
                         @csrf
 
@@ -300,6 +412,68 @@
                                            required>
 
                                     @error('type')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <!-- Primary Image -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        Primary Image
+                                    </label>
+
+                                    <input type="file"
+                                           name="primary_image"
+                                           class="form-control"
+                                           accept="image/*">
+
+                                    @error('primary_image')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!-- Secondary Image -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        Secondary Image
+                                    </label>
+
+                                    <input type="file"
+                                           name="secondary_image"
+                                           class="form-control"
+                                           accept="image/*">
+
+                                    @error('secondary_image')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!-- Color Code -->
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        Color Code
+                                    </label>
+
+                                    <input type="text"
+                                           name="color_code"
+                                           class="form-control"
+                                           placeholder="#000000"
+                                           value="{{ old('color_code') }}">
+
+                                    @error('color_code')
                                     <small class="text-danger">
                                         {{ $message }}
                                     </small>

@@ -9,6 +9,9 @@ class InsightType extends Model
     protected $fillable = [
         'type',
         'slug',
+        'primary_image',
+        'secondary_image',
+        'color_code',
         'status',
     ];
 

@@ -39,12 +39,52 @@ class InsightTypeController extends Controller
             $request->validate([
                 'type' => 'required|max:255|unique:insight_types',
                 'status' => 'required|boolean',
+
+                'primary_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'secondary_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+
+                'color_code' => [
+                    'nullable',
+                    'regex:/^#[0-9A-Fa-f]{6}$/',
+                ],
             ]);
 
+            $primaryImage = null;
+            $secondaryImage = null;
+
+            // Primary Image
+            if ($request->hasFile('primary_image')) {
+
+                $imageName = time() . '_primary.' . $request->primary_image->extension();
+
+                $request->primary_image->move(
+                    public_path('images/insight-types'),
+                    $imageName
+                );
+
+                $primaryImage = 'images/insight-types/' . $imageName;
+            }
+
+            // Secondary Image
+            if ($request->hasFile('secondary_image')) {
+
+                $imageName = time() . '_secondary.' . $request->secondary_image->extension();
+
+                $request->secondary_image->move(
+                    public_path('images/insight-types'),
+                    $imageName
+                );
+
+                $secondaryImage = 'images/insight-types/' . $imageName;
+            }
+
             InsightType::create([
-                'type'   => $request->type,
-                'slug'   => Str::slug($request->type),
+                'type' => $request->type,
+                'slug' => Str::slug($request->type),
                 'status' => $request->status,
+                'primary_image' => $primaryImage,
+                'secondary_image' => $secondaryImage,
+                'color_code' => $request->color_code,
             ]);
 
             return redirect()->back()
@@ -54,23 +94,88 @@ class InsightTypeController extends Controller
 
             return redirect()->back()
                 ->with('error', $e->getMessage());
-
         }
     }
 
     public function update(Request $request, $id)
     {
-
         try {
 
             $request->validate([
                 'type' => 'required|max:255',
                 'status' => 'required|boolean',
+
+                'primary_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+                'secondary_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+
+                'color_code' => [
+                    'nullable',
+                    'regex:/^#[0-9A-Fa-f]{6}$/',
+                ],
             ]);
+
             $type = InsightType::findOrFail($id);
+
             $type->type = $request->type;
             $type->slug = Str::slug($request->type);
             $type->status = $request->status;
+            $type->color_code = $request->color_code;
+
+            /*
+            |--------------------------------------------------------------------------
+            | Primary Image
+            |--------------------------------------------------------------------------
+            */
+
+            if ($request->hasFile('primary_image')) {
+
+                // Delete old image
+                if (
+                    $type->primary_image &&
+                    file_exists(public_path($type->primary_image))
+                ) {
+                    unlink(public_path($type->primary_image));
+                }
+
+                $imageName = time() . '_primary.' .
+                    $request->primary_image->extension();
+
+                $request->primary_image->move(
+                    public_path('images/insight-types'),
+                    $imageName
+                );
+
+                $type->primary_image =
+                    'images/insight-types/' . $imageName;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Secondary Image
+            |--------------------------------------------------------------------------
+            */
+
+            if ($request->hasFile('secondary_image')) {
+
+                // Delete old image
+                if (
+                    $type->secondary_image &&
+                    file_exists(public_path($type->secondary_image))
+                ) {
+                    unlink(public_path($type->secondary_image));
+                }
+
+                $imageName = time() . '_secondary.' .
+                    $request->secondary_image->extension();
+
+                $request->secondary_image->move(
+                    public_path('images/insight-types'),
+                    $imageName
+                );
+
+                $type->secondary_image =
+                    'images/insight-types/' . $imageName;
+            }
 
             $type->save();
 
@@ -81,7 +186,6 @@ class InsightTypeController extends Controller
 
             return redirect()->back()
                 ->with('error', $e->getMessage());
-
         }
     }
 
@@ -91,12 +195,30 @@ class InsightTypeController extends Controller
 
             $type = InsightType::findOrFail($id);
 
-            // Prevent deleting if any Insight exists under this type
+            // Prevent deleting if any Insight exists
             if ($type->insights()->count() > 0) {
 
                 return redirect()->back()
-                    ->with('error', 'This Insight Type cannot be deleted because it contains Insights.');
+                    ->with(
+                        'error',
+                        'This Insight Type cannot be deleted because it contains Insights.'
+                    );
+            }
 
+            // Delete primary image
+            if (
+                $type->primary_image &&
+                file_exists(public_path($type->primary_image))
+            ) {
+                unlink(public_path($type->primary_image));
+            }
+
+            // Delete secondary image
+            if (
+                $type->secondary_image &&
+                file_exists(public_path($type->secondary_image))
+            ) {
+                unlink(public_path($type->secondary_image));
             }
 
             $type->delete();
@@ -108,7 +230,6 @@ class InsightTypeController extends Controller
 
             return redirect()->back()
                 ->with('error', $e->getMessage());
-
         }
     }
 }

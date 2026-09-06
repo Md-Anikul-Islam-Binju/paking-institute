@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('slug')->unique();
+            $table->string('primary_image')->nullable();
+            $table->string('secondary_image')->nullable();
+            $table->string('color_code')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

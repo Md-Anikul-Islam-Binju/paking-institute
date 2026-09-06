@@ -72,13 +72,7 @@ class InsightPageController extends Controller
         );
     }
 
-//    public function insightDetails($slug)
-//    {
-//        $insightDetail = Insight::with(['type', 'books'])
-//            ->where('slug', $slug)
-//            ->firstOrFail();
-//        return view('frontend.pages.insight.insightDetails', compact('insightDetail'));
-//    }
+
 
 
     public function insightDetails($slug)
@@ -136,6 +130,32 @@ class InsightPageController extends Controller
                 'multipleExpertCount',
                 'relatedInsights',
                 'insightTypes'
+            )
+        );
+    }
+
+
+    public function typeWiseInsight($slug)
+    {
+        $type = InsightType::with([
+            'insights' => function ($query) {
+                $query->latest('date')
+                    ->latest('id');
+            }
+        ])
+            ->where('slug', $slug)
+            ->where('status', 1)
+            ->firstOrFail();
+        $totalInsights = $type->insights->count();
+
+        $newsLetters = NewsLetter::latest()->get();
+
+        return view(
+            'frontend.pages.insight.typeWiseInsight',
+            compact(
+                'type',
+                'totalInsights',
+                'newsLetters'
             )
         );
     }
