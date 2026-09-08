@@ -19,6 +19,12 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         .accordion-card {
             flex: 1;
             cursor: pointer;
