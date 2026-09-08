@@ -26,15 +26,37 @@ class InsightBookController extends Controller
         })->only('index');
     }
 
-    public function index()
+//    public function index()
+//    {
+//        $insights = Insight::orderBy('title')->get();
+//
+//        $books = InsightBook::with('insight')
+//            ->latest()
+//            ->paginate(20);
+//
+//        return view('admin.pages.insightBook.index', compact('books', 'insights'));
+//    }
+
+    public function index(Request $request)
     {
         $insights = Insight::orderBy('title')->get();
 
-        $books = InsightBook::with('insight')
-            ->latest()
-            ->paginate(20);
+        $query = InsightBook::with('insight')
+            ->latest();
 
-        return view('admin.pages.insightBook.index', compact('books', 'insights'));
+        // Search by Insight Book title
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $books = $query
+            ->paginate(20)
+            ->withQueryString();
+
+        return view(
+            'admin.pages.insightBook.index',
+            compact('books', 'insights')
+        );
     }
 
     public function store(Request $request)

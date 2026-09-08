@@ -23,18 +23,67 @@
             <div class="col-12">
                 <div class="card">
 
+{{--                    <div class="card-header">--}}
+{{--                        <div class="d-flex justify-content-end">--}}
+{{--                            @can('insight-book-create')--}}
+{{--                                <button type="button"--}}
+{{--                                        class="btn btn-info"--}}
+{{--                                        data-bs-toggle="modal"--}}
+{{--                                        data-bs-target="#addNewModalId">--}}
+{{--                                    Add New--}}
+{{--                                </button>--}}
+{{--                            @endcan--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+
                     <div class="card-header">
-                        <div class="d-flex justify-content-end">
-                            @can('insight-book-create')
-                                <button type="button"
-                                        class="btn btn-info"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#addNewModalId">
-                                    Add New
-                                </button>
-                            @endcan
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <!-- Left: Search -->
+                            <div>
+                                <form action="{{ route('insight.book.section') }}" method="GET">
+                                    <div class="input-group">
+                                        <input
+                                            type="text"
+
+                                            name="search"
+                                            class="form-control"
+                                            placeholder="Search by title..."
+                                            value="{{ request('search') }}"
+                                            style="min-width: 280px;"
+                                        >
+
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="ri-search-line"></i> Search
+                                        </button>
+
+                                        @if(request('search'))
+                                            <a href="{{ route('insight.book.section') }}"
+                                               class="btn btn-secondary">
+                                                <i class="ri-close-line"></i> Clear
+                                            </a>
+                                        @endif
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Right: Add New -->
+                            <div>
+                                @can('insight-book-create')
+                                    <button type="button"
+                                            class="btn btn-info"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#addNewModalId">
+                                        Add New
+                                    </button>
+                                @endcan
+                            </div>
+
                         </div>
                     </div>
+
+
 
                     <div class="card-body">
 
