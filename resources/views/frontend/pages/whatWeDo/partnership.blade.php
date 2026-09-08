@@ -27,7 +27,7 @@
             <div class="mb-5">
                 <h1 class="display-1 fw-bold">How to get involved</h1>
                 <p class="lead w-md-75">
-                    Whether you’re looking to connect with global changemakers or co-develop scalable technology solutions with governments, TBI offers multiple ways to partner.
+                    Whether you’re looking to connect with global changemakers or co-develop scalable technology solutions with governments, Paking Institute offers multiple ways to partner.
                 </p>
             </div>
             <div class="row row-cols-1 row-cols-md-2 g-4 mt-5">

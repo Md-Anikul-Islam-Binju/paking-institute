@@ -97,7 +97,7 @@
             <!-- Left Column: Badge / Label -->
             <div class="col-md-3">
                 <h6 class=" text-dark-emphasis text-uppercase ">
-                    <>Create with us</>
+                    Create with us
                 </h6>
             </div>
 
