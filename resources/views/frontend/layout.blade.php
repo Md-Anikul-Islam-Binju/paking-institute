@@ -665,7 +665,7 @@
 
             <!-- Legal Text Left Column -->
             <div class="col-lg-5 col-md-12 text-secondary" style="font-size: 0.5rem; line-height: 1.4;">
-                Tony Blair Institute, trading as Tony Blair Institute for Global Change, is a company limited by guarantee registered in England and Wales (registered company number: 10505963) whose registered office is One Bartholomew Close, London, EC1A 7BL.
+                Paking Institute, trading as Paking Institute, is a company limited by guarantee registered in England and Wales (registered company number: 10505963) whose registered office is One Bartholomew Close, London, EC1A 7BL.
             </div>
 
             <!-- Links Right Side -->
