@@ -27,16 +27,48 @@ class InsightController extends Controller
         })->only('index');
     }
 
-    public function index()
+//    public function index()
+//    {
+//        $insights = Insight::with('type')
+//            ->latest()
+//            ->paginate(10);
+//
+//
+//        $types = InsightType::where('status', 1)->latest()->get();
+//
+//        $managements = ManagementBoard::latest()->get();
+//
+//        return view(
+//            'admin.pages.insight.index',
+//            compact(
+//                'insights',
+//                'types',
+//                'managements'
+//            )
+//        );
+//    }
+
+
+    public function index(Request $request)
     {
-        $insights = Insight::with('type')
+        $query = Insight::with('type')
+            ->latest();
+
+        // Search by title
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $insights = $query
+            ->paginate(10)
+            ->withQueryString();
+
+        $types = InsightType::where('status', 1)
             ->latest()
-            ->paginate(10);
+            ->get();
 
-
-        $types = InsightType::where('status', 1)->latest()->get();
-
-        $managements = ManagementBoard::latest()->get();
+        $managements = ManagementBoard::latest()
+            ->get();
 
         return view(
             'admin.pages.insight.index',
