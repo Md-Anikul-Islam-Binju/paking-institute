@@ -42,13 +42,34 @@
                                    class="form-control">
 
                             @if(isset($setting->logo))
-                                <div class="mt-2">
+                                <div class="mt-2 p-3 border rounded bg-dark d-inline-block">
                                     <img src="{{ asset('images/setting/'.$setting->logo) }}"
                                          width="120"
                                          class="border rounded">
                                 </div>
                             @endif
 
+                        </div>
+
+                        {{-- Color Logo --}}
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Color Logo</label>
+
+                            <input type="file"
+                                   name="color_logo"
+                                   class="form-control @error('color_logo') is-invalid @enderror">
+
+                            @error('color_logo')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
+                            @if(isset($setting->color_logo) && $setting->color_logo)
+                                <div class="mt-2">
+                                    <img src="{{ asset('images/setting/'.$setting->color_logo) }}"
+                                         width="120"
+                                         class="border rounded p-2">
+                                </div>
+                            @endif
                         </div>
 
 

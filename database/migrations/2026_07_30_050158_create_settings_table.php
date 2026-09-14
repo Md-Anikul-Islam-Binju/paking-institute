@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->string('logo')->nullable();
 
+            $table->string('color_logo')->nullable();
+
             $table->string('site_url')->nullable();
 
             $table->string('twitter')->nullable();

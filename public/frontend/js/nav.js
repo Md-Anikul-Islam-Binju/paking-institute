@@ -1,59 +1,338 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const stickyHeader = document.getElementById('stickyHeader');
-  const topHeader = document.querySelector('.top-header') || document.querySelector('header:first-of-type');
-  
-  // Target the page's first section to determine initial theme
-  const firstSection = document.querySelector('main section:first-of-type') || document.querySelector('section:first-of-type');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const stickyHeader = document.getElementById('stickyHeader');
+//   const topHeader = document.querySelector('.top-header') || document.querySelector('header:first-of-type');
+//
+//   // Target the page's first section to determine initial theme
+//   const firstSection = document.querySelector('main section:first-of-type') || document.querySelector('section:first-of-type');
+//
+//   if (stickyHeader) {
+//     let lastScroll = 0;
+//     const threshold = 10;
+//
+//     // Detect theme attribute from the first section ('light' or 'dark')
+//     // Defaults to 'theme-dark' (white text) if no attribute is found
+//     const sectionTheme = firstSection?.getAttribute('data-header-theme')?.trim().toLowerCase();
+//     const initialThemeClass = sectionTheme === 'light' ? 'theme-light' : 'theme-dark';
+//
+//     function handleScroll() {
+//       const currentScroll = window.scrollY || document.documentElement.scrollTop;
+//
+//       // 1. At top of page: Apply transparent state + initial section theme class
+//       if (currentScroll <= 10) {
+//         if (topHeader && topHeader !== stickyHeader) {
+//           stickyHeader.style.top = topHeader.offsetHeight + 'px';
+//         } else {
+//           stickyHeader.style.top = '0px';
+//         }
+//
+//         stickyHeader.classList.add('transparent-header', initialThemeClass);
+//         stickyHeader.classList.remove('scrolled', 'header-hidden');
+//         lastScroll = currentScroll;
+//         return;
+//       }
+//
+//       // 2. Scrolled state: Lock to top and switch to standard solid light styling
+//       stickyHeader.style.top = '0px';
+//       stickyHeader.classList.remove('transparent-header', 'theme-light', 'theme-dark');
+//       stickyHeader.classList.add('scrolled');
+//
+//       // 3. Scroll threshold check
+//       if (Math.abs(currentScroll - lastScroll) < threshold) return;
+//
+//       // 4. Show / Hide header based on scroll direction
+//       if (currentScroll > lastScroll && currentScroll > 80) {
+//         stickyHeader.classList.add('header-hidden');
+//       } else if (currentScroll < lastScroll) {
+//         stickyHeader.classList.remove('header-hidden');
+//       }
+//
+//       lastScroll = currentScroll;
+//     }
+//
+//     // Attach listeners
+//     window.addEventListener('scroll', handleScroll, { passive: true });
+//     window.addEventListener('resize', handleScroll);
+//
+//     // Initial calculation on page load
+//     handleScroll();
+//   }
+// });
 
-  if (stickyHeader) {
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const stickyHeader = document.getElementById('stickyHeader');
+
+    const topHeader =
+        document.querySelector('.top-header') ||
+        document.querySelector('header:first-of-type');
+
+    const firstSection =
+        document.querySelector('main section:first-of-type') ||
+        document.querySelector('section:first-of-type');
+
+    if (!stickyHeader) return;
+
+    const logo = stickyHeader.querySelector('.header-logo');
+
     let lastScroll = 0;
     const threshold = 10;
 
-    // Detect theme attribute from the first section ('light' or 'dark')
-    // Defaults to 'theme-dark' (white text) if no attribute is found
-    const sectionTheme = firstSection?.getAttribute('data-header-theme')?.trim().toLowerCase();
-    const initialThemeClass = sectionTheme === 'light' ? 'theme-light' : 'theme-dark';
+    // First section theme
+    const sectionTheme =
+        firstSection?.getAttribute('data-header-theme')?.trim().toLowerCase();
 
-    function handleScroll() {
-      const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    const initialThemeClass =
+        sectionTheme === 'light' ? 'theme-light' : 'theme-dark';
 
-      // 1. At top of page: Apply transparent state + initial section theme class
-      if (currentScroll <= 10) {
-        if (topHeader && topHeader !== stickyHeader) {
-          stickyHeader.style.top = topHeader.offsetHeight + 'px';
-        } else {
-          stickyHeader.style.top = '0px';
+
+    /*
+    |--------------------------------------------------------------------------
+    | Logo Switch
+    |--------------------------------------------------------------------------
+    */
+
+    function setLogo(type) {
+
+        if (!logo) return;
+
+        const defaultLogo = logo.getAttribute('data-default-logo');
+        const colorLogo = logo.getAttribute('data-color-logo');
+
+        if (type === 'color' && colorLogo) {
+
+            logo.src = colorLogo;
+
+        } else if (defaultLogo) {
+
+            logo.src = defaultLogo;
+
         }
-
-        stickyHeader.classList.add('transparent-header', initialThemeClass);
-        stickyHeader.classList.remove('scrolled', 'header-hidden');
-        lastScroll = currentScroll;
-        return;
-      }
-
-      // 2. Scrolled state: Lock to top and switch to standard solid light styling
-      stickyHeader.style.top = '0px';
-      stickyHeader.classList.remove('transparent-header', 'theme-light', 'theme-dark');
-      stickyHeader.classList.add('scrolled');
-
-      // 3. Scroll threshold check
-      if (Math.abs(currentScroll - lastScroll) < threshold) return;
-
-      // 4. Show / Hide header based on scroll direction
-      if (currentScroll > lastScroll && currentScroll > 80) {
-        stickyHeader.classList.add('header-hidden');
-      } else if (currentScroll < lastScroll) {
-        stickyHeader.classList.remove('header-hidden');
-      }
-
-      lastScroll = currentScroll;
     }
 
-    // Attach listeners
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-    
-    // Initial calculation on page load
+
+    /*
+    |--------------------------------------------------------------------------
+    | Scroll Handler
+    |--------------------------------------------------------------------------
+    */
+
+    // function handleScroll() {
+    //
+    //     const currentScroll =
+    //         window.scrollY || document.documentElement.scrollTop;
+    //
+    //
+    //     // ==========================================================
+    //     // TOP OF PAGE
+    //     // ==========================================================
+    //
+    //     if (currentScroll <= 10) {
+    //
+    //         if (topHeader && topHeader !== stickyHeader) {
+    //
+    //             stickyHeader.style.top =
+    //                 topHeader.offsetHeight + 'px';
+    //
+    //         } else {
+    //
+    //             stickyHeader.style.top = '0px';
+    //         }
+    //
+    //
+    //         stickyHeader.classList.add(
+    //             'transparent-header',
+    //             initialThemeClass
+    //         );
+    //
+    //         stickyHeader.classList.remove(
+    //             'scrolled',
+    //             'header-hidden'
+    //         );
+    //
+    //
+    //         // IMPORTANT:
+    //         // At top = default/white logo
+    //         setLogo('default');
+    //
+    //
+    //         lastScroll = currentScroll;
+    //
+    //         return;
+    //     }
+    //
+    //
+    //     // ==========================================================
+    //     // SCROLLED
+    //     // ==========================================================
+    //
+    //     stickyHeader.style.top = '0px';
+    //
+    //     stickyHeader.classList.remove(
+    //         'transparent-header',
+    //         'theme-light',
+    //         'theme-dark'
+    //     );
+    //
+    //     stickyHeader.classList.add('scrolled');
+    //
+    //
+    //     // IMPORTANT:
+    //     // Only after scrolling = color logo
+    //     setLogo('color');
+    //
+    //
+    //     // ==========================================================
+    //     // SCROLL THRESHOLD
+    //     // ==========================================================
+    //
+    //     if (Math.abs(currentScroll - lastScroll) < threshold) {
+    //         return;
+    //     }
+    //
+    //
+    //     // ==========================================================
+    //     // SHOW / HIDE HEADER
+    //     // ==========================================================
+    //
+    //     if (
+    //         currentScroll > lastScroll &&
+    //         currentScroll > 80
+    //     ) {
+    //
+    //         stickyHeader.classList.add('header-hidden');
+    //
+    //     } else if (currentScroll < lastScroll) {
+    //
+    //         stickyHeader.classList.remove('header-hidden');
+    //     }
+    //
+    //
+    //     lastScroll = currentScroll;
+    // }
+
+
+    function handleScroll() {
+
+        const currentScroll =
+            window.scrollY || document.documentElement.scrollTop;
+
+
+        // ==========================================================
+        // TOP OF PAGE
+        // ==========================================================
+
+        if (currentScroll <= 10) {
+
+            if (topHeader && topHeader !== stickyHeader) {
+
+                stickyHeader.style.top =
+                    topHeader.offsetHeight + 'px';
+
+            } else {
+
+                stickyHeader.style.top = '0px';
+            }
+
+
+            stickyHeader.classList.add(
+                'transparent-header',
+                initialThemeClass
+            );
+
+            stickyHeader.classList.remove(
+                'scrolled',
+                'header-hidden'
+            );
+
+
+            // ======================================================
+            // LOGO BASED ON BACKGROUND
+            // ======================================================
+
+            if (sectionTheme === 'light') {
+
+                // White/light background → Color Logo
+                setLogo('color');
+
+            } else {
+
+                // Dark background → White Logo
+                setLogo('default');
+            }
+
+
+            lastScroll = currentScroll;
+
+            return;
+        }
+
+
+        // ==========================================================
+        // SCROLLED
+        // ==========================================================
+
+        stickyHeader.style.top = '0px';
+
+        stickyHeader.classList.remove(
+            'transparent-header',
+            'theme-light',
+            'theme-dark'
+        );
+
+        stickyHeader.classList.add('scrolled');
+
+
+        // Scrolled → Always Color Logo
+        setLogo('color');
+
+
+        // ==========================================================
+        // SCROLL THRESHOLD
+        // ==========================================================
+
+        if (Math.abs(currentScroll - lastScroll) < threshold) {
+            return;
+        }
+
+
+        // ==========================================================
+        // SHOW / HIDE HEADER
+        // ==========================================================
+
+        if (
+            currentScroll > lastScroll &&
+            currentScroll > 80
+        ) {
+
+            stickyHeader.classList.add('header-hidden');
+
+        } else if (currentScroll < lastScroll) {
+
+            stickyHeader.classList.remove('header-hidden');
+        }
+
+
+        lastScroll = currentScroll;
+    }
+
+
+    // Scroll
+    window.addEventListener(
+        'scroll',
+        handleScroll,
+        { passive: true }
+    );
+
+
+    // Resize
+    window.addEventListener(
+        'resize',
+        handleScroll
+    );
+
+
+    // Initial
     handleScroll();
-  }
+
 });

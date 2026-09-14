@@ -160,16 +160,42 @@
     <nav class="navbar navbar-expand-lg navbar-light py-3 position-static">
         <div class="container position-static">
                 <!-- Brand Logo / Text -->
-            <a class="navbar-brand me-auto d-flex align-items-center" href="{{ route('home') }}">
+{{--            <a class="navbar-brand me-auto d-flex align-items-center" href="{{ route('home') }}">--}}
+
+{{--                @if($setting && !empty($setting->logo))--}}
+
+{{--                    <img--}}
+{{--                        src="{{ asset('images/setting/' . $setting->logo) }}"--}}
+{{--                        alt="{{ $setting->name ?? 'Institute' }}"--}}
+{{--                        class="me-2"--}}
+{{--                        style="height: 40px;"--}}
+{{--                    >--}}
+{{--                @else--}}
+
+{{--                    <small class="fw-bold tracking-tight text-uppercase d-none d-lg-inline">--}}
+{{--                        {{ $setting->name ?? 'Peking Institute' }}--}}
+{{--                    </small>--}}
+
+{{--                @endif--}}
+
+{{--            </a>--}}
+
+            {{-- Brand Logo --}}
+            <a class="navbar-brand me-auto d-flex align-items-center"
+               href="{{ route('home') }}">
 
                 @if($setting && !empty($setting->logo))
 
+                    {{-- Default / Top Header Logo --}}
                     <img
                         src="{{ asset('images/setting/' . $setting->logo) }}"
+                        data-default-logo="{{ asset('images/setting/' . $setting->logo) }}"
+                        data-color-logo="{{ !empty($setting->color_logo) ? asset('images/setting/' . $setting->color_logo) : asset('images/setting/' . $setting->logo) }}"
                         alt="{{ $setting->name ?? 'Institute' }}"
-                        class="me-2"
+                        class="me-2 header-logo"
                         style="height: 40px;"
                     >
+
                 @else
 
                     <small class="fw-bold tracking-tight text-uppercase d-none d-lg-inline">
@@ -609,11 +635,11 @@
 
                 <!-- Social Media Icons -->
                 <div class="d-flex gap-2">
-                    <a href="{{$setting->twitter}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 36px; height: 36px; font-size: 14px;"><i class="bi bi-twitter-x"></i></a>
-                    <a href="{{$setting->instagram}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-instagram"></i></a>
-                    <a href="{{$setting->linkedin}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-linkedin"></i></a>
-                    <a href="{{$setting->youtube}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-youtube"></i></a>
-                    <a href="{{$setting->facebook}}" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-facebook"></i></a>
+                    <a href="{{$setting->twitter}}" target="_blank" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 36px; height: 36px; font-size: 14px;"><i class="bi bi-twitter-x"></i></a>
+                    <a href="{{$setting->instagram}}" target="_blank" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-instagram"></i></a>
+                    <a href="{{$setting->linkedin}}" target="_blank" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-linkedin"></i></a>
+                    <a href="{{$setting->youtube}}" target="_blank" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-youtube"></i></a>
+                    <a href="{{$setting->facebook}}" target="_blank" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center text-dark" style="width: 36px; height: 36px;"><i class="bi bi-facebook"></i></a>
                 </div>
             </div>
 

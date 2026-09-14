@@ -37,6 +37,7 @@ class SettingController extends Controller
             $request->validate([
                 'name'        => 'required|max:255',
                 'logo'        => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:4096',
+                'color_logo'  => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:4096',
                 'site_url'    => 'nullable|max:255',
                 'twitter'     => 'nullable|max:255',
                 'facebook'    => 'nullable|max:255',
@@ -83,6 +84,33 @@ class SettingController extends Controller
 
                 $setting->logo = $logo;
             }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Color Logo
+            |--------------------------------------------------------------------------
+            */
+
+            if ($request->hasFile('color_logo')) {
+
+                if (
+                    $setting->color_logo &&
+                    file_exists(public_path('images/setting/' . $setting->color_logo))
+                ) {
+                    unlink(public_path('images/setting/' . $setting->color_logo));
+                }
+
+                $colorLogo = time() . '_color_logo.' . $request->color_logo->extension();
+
+                $request->color_logo->move(
+                    public_path('images/setting'),
+                    $colorLogo
+                );
+
+                $setting->color_logo = $colorLogo;
+            }
+
 
             $setting->save();
 
