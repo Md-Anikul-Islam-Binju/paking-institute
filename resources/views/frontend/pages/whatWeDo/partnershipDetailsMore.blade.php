@@ -290,7 +290,7 @@
                         <div class="d-flex flex-column">
 
                             <!-- Item 1 -->
-                            <a href="Delivering-change.html"
+                            <a href="{{url('what-we-do/partnerships/deliver-change')}}"
                                class="d-flex justify-content-between align-items-center text-black text-decoration-none py-4 border-bottom border-secondary">
                                 <span class="display-5 font-serif">Turn bold ideas into reality</span>
                                 <i class="bi bi-arrow-right fs-4"></i>
@@ -583,7 +583,7 @@
                         <div class="d-flex flex-column">
 
                             <!-- Item 1 -->
-                            <a href="Delivering-change.html"
+                            <a href="{{url('what-we-do/partnerships/deliver-change')}}"
                                class="d-flex justify-content-between align-items-center text-black text-decoration-none py-4 border-bottom border-secondary">
                                 <span class="display-5 font-serif">Turn bold ideas into reality</span>
                                 <i class="bi bi-arrow-right fs-4"></i>

@@ -135,13 +135,13 @@
 
                     <!-- Item 1 -->
                     <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-secondary">
-                        <span class="display-5 font-serif">TBI at Party Conferences 2026</span>
+                        <span class="display-5 font-serif">Peking Institute at Party Conferences 2026</span>
                         <i class="bi bi-arrow-right fs-4"></i>
                     </a>
 
                     <!-- Item 2 -->
                     <a href="#" class="d-flex justify-content-between align-items-center text-white text-decoration-none py-4 border-top border-secondary">
-                        <span class="display-5 font-serif">Insinghts</span>
+                        <span class="display-5 font-serif">Insights</span>
                         <i class="bi bi-arrow-right fs-4"></i>
                     </a>
 
@@ -268,9 +268,9 @@
             <div class="row">
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
-                    <h5 class="mb-5">Our Reimagined State Accelerators enable governments and technology firms to work side by side to address real-world governance challenges with bold, practical solutions. Whether the goal is climate resilience, better connectivity, smarter agriculture or more responsive public services, TBI brings together the tools, insights and partnerships needed to make it happen.
+                    <h5 class="mb-5">Our Reimagined State Accelerators enable governments and technology firms to work side by side to address real-world governance challenges with bold, practical solutions. Whether the goal is climate resilience, better connectivity, smarter agriculture or more responsive public services, Peking Institute brings together the tools, insights and partnerships needed to make it happen.
                         <br><br>
-                        The TBI team is currently preparing to launch the next generation of Reimagined State Accelerators. If you’re a government ready to tackle big challenges or a tech partner with solutions that can improve lives at scale, register your interest in participating in an Accelerator.
+                        The Peking Institute team is currently preparing to launch the next generation of Reimagined State Accelerators. If you’re a government ready to tackle big challenges or a tech partner with solutions that can improve lives at scale, register your interest in participating in an Accelerator.
                     </h5>
                     <button class="btn btn-dark rounded-pill px-4 py-2">Reach Out <i class="bi bi-arrow-right"></i></button>
                 </div>

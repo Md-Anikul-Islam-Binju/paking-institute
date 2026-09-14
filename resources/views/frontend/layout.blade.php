@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paking Institute</title>
+    <title>Peking Institute</title>
     <link rel="icon" href="{{asset('frontend/img/logo.png')}}" type="image/x-icon">
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/animate.min.css')}}" rel="stylesheet">
@@ -697,7 +697,7 @@
 
             <!-- Legal Text Left Column -->
             <div class="col-lg-5 col-md-12 text-secondary" style="font-size: 0.5rem; line-height: 1.4;">
-                Paking Institute, trading as Paking Institute, is a company limited by guarantee registered in England and Wales (registered company number: 10505963) whose registered office is One Bartholomew Close, London, EC1A 7BL.
+                Peking Institute, trading as Peking Institute, is a company limited by guarantee registered in England and Wales (registered company number: 10505963) whose registered office is One Bartholomew Close, London, EC1A 7BL.
             </div>
 
             <!-- Links Right Side -->

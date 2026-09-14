@@ -11,7 +11,7 @@
 
         <!-- Added 'text-white' to ensure full visibility -->
         <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
-            <h5 class="card-title">WELCOME TO PAKING INSTITUTE</h5>
+            <h5 class="card-title">WELCOME TO PEKING INSTITUTE</h5>
             <h1 class="card-text display-1 mb-2 fw-bold" style="max-width: 70rem;">
                 {{$slider->title}}
             </h1>
