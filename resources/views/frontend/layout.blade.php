@@ -624,7 +624,7 @@
             <div class="col-lg-5 col-md-12 pe-lg-5">
                 <h2 class="display-6 fw-bold mb-3" style="font-family: Georgia, serif;">Intelligence in your inbox.</h2>
                 <p class="text-secondary small mb-4" style="max-width: 380px;">
-                    Get the latest big ideas in strategy, policy and delivery in your inbox every month with our newsletter.
+                    PEKING INSTITUTE An international platform for diplomacy, economics, and law.
                 </p>
                 <div class="mb-5">
                     <button data-bs-toggle="modal"
@@ -663,8 +663,6 @@
                         <ul class="list-unstyled d-flex flex-column gap-3 small fw-bold">
                             <li><a href="{{ route('insight') }}" class="text-white text-decoration-none text-uppercase">Insights</a></li>
                             <li><a href="{{ route('expert') }}" class="text-white text-decoration-none text-uppercase">Experts</a></li>
-                            <li><a href="{{route('financialStatements')}}" class="text-white text-decoration-none text-uppercase">Financial Statements</a></li>
-                            <li><a href="{{route('media')}}" class="text-white text-decoration-none text-uppercase">Media Centre</a></li>
                             <li><a href="{{route('contactus')}}" class="text-white text-decoration-none text-uppercase">Contact Us</a></li>
 
                         </ul>
@@ -697,7 +695,7 @@
 
             <!-- Legal Text Left Column -->
             <div class="col-lg-5 col-md-12 text-secondary" style="font-size: 0.5rem; line-height: 1.4;">
-                Peking Institute, trading as Peking Institute, is a company limited by guarantee registered in England and Wales (registered company number: 10505963) whose registered office is One Bartholomew Close, London, EC1A 7BL.
+                Peking Institute,Ideas for a Changing World. © 2026 Peking Institute. All Rights Reserved.
             </div>
 
             <!-- Links Right Side -->
@@ -707,6 +705,8 @@
                     <a href="{{route('terms')}}" class="text-white text-decoration-none me-3 mb-2">Terms of Use</a>
                     <a href="{{route('privacy')}}" class="text-white text-decoration-none me-3 mb-2">Privacy Policy</a>
                     <a href="{{route('accessibility')}}" class="text-white text-decoration-none me-3 mb-2">Accessibility</a>
+                    <a href="{{route('financialStatements')}}" class="text-white text-decoration-none me-3 mb-2">Financial Statements</a>
+                    <a href="{{route('media')}}" class="text-white text-decoration-none me-3 mb-2">Media Centre</a>
                 </div>
             </div>
 
@@ -722,7 +722,7 @@
             <!-- Header -->
             <div class="d-flex justify-content-between align-items-center p-4">
                 <h6 class="text-uppercase fw-bold m-0 small text-white">
-                    Tony Blair Institute for Global Change
+                    Peking Institute
                 </h6>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
