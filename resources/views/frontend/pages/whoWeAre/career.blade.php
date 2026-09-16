@@ -51,6 +51,83 @@
         </div>
     </section>
 
+    <section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">
+        <div class="container">
+
+            <div class="mt-5 mb-5">
+                <h1 class="display-1 fw-bold">
+                    Work With Us
+                </h1>
+
+                <p class="fw-bold mt-3">
+                    Join Peking Institute in shaping a deeper understanding of the global order.
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <p class="mb-4">
+                        Peking Institute is built by people who take international affairs
+                        seriously — and who believe that better analysis leads to better decisions.
+                    </p>
+
+                    <p class="mb-5">
+                        We look for colleagues who bring intellectual rigor, independence of thought,
+                        and genuine curiosity about the forces shaping the global order — across
+                        research, policy analysis, partnerships, and operations.
+                    </p>
+
+                    <h2 class="fw-bold mb-4">
+                        Why Peking Institute
+                    </h2>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-4">
+                            <div class="h-100 border p-4">
+                                <h5 class="fw-bold mb-3">
+                                    Interdisciplinary Work
+                                </h5>
+                                <p class="mb-0">
+                                    Work at the intersection of diplomacy, economics, and law,
+                                    on questions with real-world consequence.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="h-100 border p-4">
+                                <h5 class="fw-bold mb-3">
+                                    Diverse Expertise
+                                </h5>
+                                <p class="mb-0">
+                                    Join a genuinely interdisciplinary team drawing on scholars,
+                                    diplomats, economists, and legal experts.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="h-100 border p-4">
+                                <h5 class="fw-bold mb-3">
+                                    Independent Research
+                                </h5>
+                                <p class="mb-0">
+                                    Contribute to independent, evidence-based research free
+                                    from institutional advocacy.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- OUR Culture -->
     <section class="vision-section py-5 text-bg-white">
         <div class="container ">

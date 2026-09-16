@@ -1,22 +1,36 @@
 @extends('frontend.layout')
 @section('content')
 
-    <section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">
-        <div class="container">
-            <div class="mt-5">
-                <h1 class="display-1 fw-bold">
-                    Experts
-                </h1>
-                <p class="fw-bold mt-3">
-                    Our experts help governments and leaders get things done.
-                    They think big, generating bold ideas and
-                    <br>
-                    translating them into the practical solutions and advice
-                    that leaders need to drive change.
-                </p>
-            </div>
+{{--    <section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">--}}
+{{--        <div class="container">--}}
+{{--            <div class="mt-5">--}}
+{{--                <h1 class="display-1 fw-bold">--}}
+{{--                    Experts--}}
+{{--                </h1>--}}
+{{--                <p class="fw-bold mt-3">--}}
+{{--                    PEKING INSTITUTE An international platform for diplomacy, economics, and law.--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+
+<section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="mt-5 mb-5">
+            <h1 class="display-1 fw-bold">
+                Experts
+            </h1>
+
+            <p class="fw-bold mt-3">
+                PEKING INSTITUTE An international platform for diplomacy, economics, and law.
+            </p>
         </div>
-    </section>
+
+
+    </div>
+</section>
 
 
 

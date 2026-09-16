@@ -122,6 +122,98 @@
         </div>
     </section>
 
+
+    <section class="vision-section py-5 bg-white text-dark mb-5" data-header-theme="light">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="mt-5 mb-5">
+                <h1 class="display-1 fw-bold">
+                    About the Peking Institute
+                </h1>
+
+                <p class="fw-bold mt-3">
+                    An independent think tank devoted to the study of global diplomacy,
+                    economics, and law.
+                </p>
+            </div>
+
+            <!-- About -->
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <p class="mb-4">
+                        Peking Institute is an independent think tank devoted to the study
+                        of global diplomacy, economics, and law.
+                    </p>
+
+                    <p class="mb-4">
+                        We conduct original research examining the political, economic,
+                        and legal forces that shape the international system, bringing
+                        interdisciplinary perspectives to bear on questions that rarely
+                        admit of single-discipline answers.
+                    </p>
+
+                    <p class="mb-4">
+                        Diplomatic relationships shape economic policy. Economic
+                        interdependence informs geopolitical calculation. Legal frameworks
+                        provide the architecture within which states, institutions, and
+                        enterprises interact across borders.
+                    </p>
+
+                    <p class="mb-5">
+                        Our work proceeds from the premise that these dynamics must be
+                        examined together to produce a genuinely complete understanding
+                        of the international environment.
+                    </p>
+
+                    <!-- Mission -->
+                    <div class="mb-5">
+                        <h2 class="fw-bold mb-3">
+                            Our Mission
+                        </h2>
+
+                        <p>
+                            To deepen understanding of the forces shaping the international
+                            system — through rigorous scholarship, intellectual openness,
+                            and constructive dialogue.
+                        </p>
+                    </div>
+
+                    <!-- Why Peking -->
+                    <div class="mb-5">
+                        <h2 class="fw-bold mb-3">
+                            Why "Peking"?
+                        </h2>
+
+                        <p class="mb-4">
+                            "Peking" is the historical English rendering of 北京 (Beijing),
+                            the capital of the People's Republic of China and one of the
+                            world's most consequential political, economic, diplomatic,
+                            and intellectual centers.
+                        </p>
+
+                        <p class="mb-4">
+                            The name reflects the Institute's particular emphasis on
+                            understanding China's role within the international system —
+                            most directly through our flagship U.S.–China Relations
+                            initiative.
+                        </p>
+
+                        <p>
+                            The Institute's scope, however, extends well beyond China.
+                            Our broader purpose is to examine the relationships among
+                            nations, economies, institutions, and legal systems that
+                            collectively define the international order.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- OUR VISION -->
 
     <section class="vision-section py-5 bg-dark text-white">
