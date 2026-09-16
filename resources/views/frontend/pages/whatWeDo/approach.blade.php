@@ -19,6 +19,165 @@
         </div>
     </section>
 
+    <section class="py-5 bg-white text-dark">
+        <div class="container">
+
+            <!-- Intro -->
+            <div class="row py-5">
+                <div class="col-lg-9">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Independent Thinking.<br>
+                        International Perspective.<br>
+                        Rigorous Debate.
+                    </h1>
+
+                    <p class="lead mb-4">
+                        Peking Institute is built on a simple principle: complex global
+                        problems deserve serious discussion.
+                    </p>
+
+                    <p>
+                        We do not seek to hand down a single answer to every question.
+                        We seek to create the conditions in which better answers can
+                        emerge — by bringing evidence, competing perspectives, and
+                        disciplined analysis to bear on the questions shaping the
+                        international order.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Our Method -->
+            <div class="row py-5 border-top">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold">
+                        Our Method
+                    </h2>
+                </div>
+
+                <div class="col-lg-8">
+                    <p class="mb-5">
+                        We examine global developments through three integrated lenses,
+                        because the most consequential international questions rarely
+                        respect the boundaries between them:
+                    </p>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-4">
+                            <div class="border-top border-dark pt-3">
+                                <h4 class="fw-bold">Diplomacy</h4>
+                                <p class="mb-0">
+                                    The architecture of international relations,
+                                    alliances, and negotiation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="border-top border-dark pt-3">
+                                <h4 class="fw-bold">Economics</h4>
+                                <p class="mb-0">
+                                    The markets, trade, and financial systems increasingly
+                                    entangled with geopolitics.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="border-top border-dark pt-3">
+                                <h4 class="fw-bold">Law</h4>
+                                <p class="mb-0">
+                                    The treaties, institutions, and legal frameworks
+                                    that define the boundaries of power.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="row py-5 border-top">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold">
+                        Our Values
+                    </h2>
+                </div>
+
+                <div class="col-lg-8">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <div class="h-100 border p-4">
+                                <h4 class="fw-bold mb-3">
+                                    Independence
+                                </h4>
+                                <p class="mb-0">
+                                    We are committed to intellectual independence and
+                                    analysis grounded in evidence rather than advocacy.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="h-100 border p-4">
+                                <h4 class="fw-bold mb-3">
+                                    Rigor
+                                </h4>
+                                <p class="mb-0">
+                                    We approach complex international questions with
+                                    methodological discipline and close attention to evidence.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="h-100 border p-4">
+                                <h4 class="fw-bold mb-3">
+                                    Openness
+                                </h4>
+                                <p class="mb-0">
+                                    We hold that the most consequential international
+                                    questions benefit from diverse perspectives and
+                                    constructive disagreement.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="h-100 border p-4">
+                                <h4 class="fw-bold mb-3">
+                                    Integrity
+                                </h4>
+                                <p class="mb-0">
+                                    We are committed to accuracy, fairness, transparency,
+                                    and the highest standards of responsible scholarship.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="h-100 border p-4">
+                                <h4 class="fw-bold mb-3">
+                                    Global Perspective
+                                </h4>
+                                <p class="mb-0">
+                                    We examine international issues from a vantage point
+                                    that transcends any single national or institutional interest.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- HOW WE WORK -->
     <section class="vision-section py-5 text-bg-white">
         <div class="container ">
@@ -37,6 +196,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section class="py-5 mb-5">
         <div class="container py-5">
