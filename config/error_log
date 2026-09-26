@@ -46,3 +46,63 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/ipeking/public_html/config/database.php on line 19
+[15-Sep-2026 23:08:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/app.php on line 16
+[15-Sep-2026 23:08:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/filesystems.php on line 16
+[15-Sep-2026 23:08:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/database.php on line 19
+[15-Sep-2026 23:08:32 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/mail.php on line 17
+[15-Sep-2026 23:08:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/services.php on line 18
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/mail.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/mail.php on line 17
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/services.php on line 18
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/queue.php on line 16
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/logging.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/logging.php on line 21
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/app.php on line 16
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/database.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/database.php on line 19
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/filesystems.php on line 16
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/cache.php on line 18
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/auth.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/auth.php on line 17
+[15-Sep-2026 23:09:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/ipeking/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/ipeking/public_html/config/session.php on line 21
