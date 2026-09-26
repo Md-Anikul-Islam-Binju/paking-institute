@@ -90,9 +90,7 @@ Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('terms');
 Route::get('/accessibility', [HomeController::class, 'accessibility'])->name('accessibility');
 Route::get('/media-centre', [HomeController::class, 'media'])->name('media');
 Route::get('/media/load-more', [HomeController::class, 'loadMoreMedia'])->name('frontend.media.load-more');
-
 Route::get('/insights/news/{slug}', [HomeController::class, 'mediaDetails'])->name('frontend.media.details');
-
 
 Route::get('/financial-statements', [HomeController::class, 'financialStatements'])->name('financialStatements');
 
@@ -267,7 +265,7 @@ Route::middleware('auth')->group(callback: function () {
 
 
 
-    // Media Center
+    //Media Center System
     Route::get('/media-center', [MediaCenterController::class, 'index'])->name('media.center');
     Route::post('/media-center-store', [MediaCenterController::class, 'store'])->name('media.center.store');
     Route::put('/media-center-update/{id}', [MediaCenterController::class, 'update'])->name('media.center.update');
