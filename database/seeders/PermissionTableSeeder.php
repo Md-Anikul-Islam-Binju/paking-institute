@@ -157,6 +157,12 @@ class PermissionTableSeeder extends Seeder
             'conference-edit',
             'conference-delete',
 
+            //media-center-list
+            'media-center-list',
+            'media-center-create',
+            'media-center-edit',
+            'media-center-delete',
+
 
         ];
         foreach ($permissions as $permission) {

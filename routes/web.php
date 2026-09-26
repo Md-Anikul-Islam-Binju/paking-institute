@@ -24,6 +24,7 @@ use App\Http\Controllers\admin\JoinUsController;
 use App\Http\Controllers\admin\KeyBenefitController;
 use App\Http\Controllers\admin\LeadershipController;
 use App\Http\Controllers\admin\ManagementController;
+use App\Http\Controllers\admin\MediaCenterController;
 use App\Http\Controllers\admin\NewsLetterController;
 use App\Http\Controllers\admin\OurGoalController;
 use App\Http\Controllers\admin\PartnershipController;
@@ -88,6 +89,11 @@ Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('privacy
 Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('terms');
 Route::get('/accessibility', [HomeController::class, 'accessibility'])->name('accessibility');
 Route::get('/media-centre', [HomeController::class, 'media'])->name('media');
+Route::get('/media/load-more', [HomeController::class, 'loadMoreMedia'])->name('frontend.media.load-more');
+
+Route::get('/insights/news/{slug}', [HomeController::class, 'mediaDetails'])->name('frontend.media.details');
+
+
 Route::get('/financial-statements', [HomeController::class, 'financialStatements'])->name('financialStatements');
 
 
@@ -258,6 +264,14 @@ Route::middleware('auth')->group(callback: function () {
 
     Route::get('/conference-category/{id}',[ConferenceController::class,'getCategories'])->name('conference.category');
     Route::get('/conference-sub-category/{id}',[ConferenceController::class,'getSubCategories'])->name('conference.sub.category');
+
+
+
+    // Media Center
+    Route::get('/media-center', [MediaCenterController::class, 'index'])->name('media.center');
+    Route::post('/media-center-store', [MediaCenterController::class, 'store'])->name('media.center.store');
+    Route::put('/media-center-update/{id}', [MediaCenterController::class, 'update'])->name('media.center.update');
+    Route::get('/media-center-delete/{id}', [MediaCenterController::class, 'destroy'])->name('media.center.destroy');
 
     //Role and User Section
     Route::resource('roles', RoleController::class);

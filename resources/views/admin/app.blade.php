@@ -141,6 +141,19 @@
                 @endcan
 
 
+                @can('media-center-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('media.center')}}" class="side-nav-link">
+                            <i class="ri-gallery-line"></i>
+                            <span> Media Center </span>
+                        </a>
+                    </li>
+                @endcan
+
+
+
+
+
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#insightPages" aria-expanded="false" aria-controls="insightPages" class="side-nav-link">
                         <i class="ri-article-line"></i>
@@ -280,6 +293,11 @@
                                         <a href="{{route('conference.section')}}">Conference</a>
                                     </li>
                                 @endcan
+
+
+
+
+
 
 
                         </ul>

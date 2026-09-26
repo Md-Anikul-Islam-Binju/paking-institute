@@ -6,6 +6,7 @@ use App\Models\HowWorkMenu;
 use App\Models\Insight;
 use App\Models\InsightType;
 use App\Models\InstituteEvent;
+use App\Models\MediaCenter;
 use App\Models\NewsLetter;
 use App\Models\NewsletterInfo;
 use App\Models\SiteSetting;
@@ -41,7 +42,31 @@ class HomeController extends Controller
     }
     public function media()
     {
-        return view('frontend.pages.media');
+        $media = MediaCenter::latest()->take(10)->get();
+
+        return view('frontend.pages.media', compact('media'));
+    }
+
+    public function loadMoreMedia(Request $request)
+    {
+        $offset = (int) $request->offset;
+
+        $media = MediaCenter::latest()
+            ->skip($offset)
+            ->take(10)
+            ->get();
+
+        return response()->json([
+            'data' => $media,
+            'count' => $media->count(),
+        ]);
+    }
+
+    public function mediaDetails($slug)
+    {
+        $media = MediaCenter::where('slug',$slug)->firstOrFail();
+        $newsLetters = NewsLetter::latest()->get();
+        return view('frontend.pages.mediaDetails', compact('media','newsLetters'));
     }
 
     public function accessibility()
