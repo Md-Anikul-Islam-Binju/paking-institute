@@ -163,7 +163,7 @@
 
                             {{-- Title --}}
                             <td>
-                                {{ $mediaCenter->title }}
+                                {{ Str::limit($mediaCenter->title, 30, '...') }}
                             </td>
 
 
