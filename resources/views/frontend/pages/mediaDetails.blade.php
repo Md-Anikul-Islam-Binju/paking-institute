@@ -1,5 +1,53 @@
 @extends('frontend.layout')
 
+@section('meta_title')
+    {{ $media->title }} | Peking Institute
+@endsection
+
+@section('meta_description')
+    {{ Str::limit(strip_tags($media->remark), 160) }}
+@endsection
+
+@section('og_type')
+    article
+@endsection
+
+@section('og_title')
+    {{ $media->title }}
+@endsection
+
+@section('og_description')
+    {{ Str::limit(strip_tags($media->remark), 160) }}
+@endsection
+
+@section('og_url')
+    {{ url()->current() }}
+@endsection
+
+@section('og_image')
+    @if(!empty($media->cover_image))
+        {{ asset('images/media-center/' . $media->cover_image) }}
+    @else
+        {{ asset('images/default-og.jpg') }}
+    @endif
+@endsection
+
+@section('twitter_title')
+    {{ $media->title }}
+@endsection
+
+@section('twitter_description')
+    {{ Str::limit(strip_tags($media->remark), 160) }}
+@endsection
+
+@section('twitter_image')
+    @if(!empty($media->cover_image))
+        {{ asset('images/media-center/' . $media->cover_image) }}
+    @else
+        {{ asset('images/default-og.jpg') }}
+    @endif
+@endsection
+
 @section('content')
 
     <style>

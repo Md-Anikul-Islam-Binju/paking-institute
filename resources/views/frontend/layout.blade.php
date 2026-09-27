@@ -4,7 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peking Institute</title>
+{{--    <title>Peking Institute</title>--}}
+    <title>
+        @yield('meta_title', 'Peking Institute')
+    </title>
+
+    <meta name="description"
+          content="@yield('meta_description', 'Peking Institute')">
+
+    {{-- Open Graph --}}
+    <meta property="og:type"
+          content="@yield('og_type', 'website')">
+
+    <meta property="og:title"
+          content="@yield('og_title', 'Peking Institute')">
+
+    <meta property="og:description"
+          content="@yield('og_description', 'Peking Institute')">
+
+    <meta property="og:url"
+          content="@yield('og_url', url()->current())">
+
+    <meta property="og:image"
+          content="@yield('og_image', asset('images/default-og.jpg'))">
+
+    <meta property="og:site_name"
+          content="Peking Institute">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="@yield('twitter_title', 'Peking Institute')">
+
+    <meta name="twitter:description"
+          content="@yield('twitter_description', 'Peking Institute')">
+
+    <meta name="twitter:image"
+          content="@yield('twitter_image', asset('images/default-og.jpg'))">
+
     <link rel="icon" href="{{asset('frontend/img/logo.png')}}" type="image/x-icon">
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/animate.min.css')}}" rel="stylesheet">
