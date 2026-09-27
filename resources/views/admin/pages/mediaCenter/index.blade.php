@@ -116,7 +116,7 @@
 
                         <th>Tag</th>
 
-                        <th>Management Board</th>
+{{--                        <th>Management Board</th>--}}
 
 
 
@@ -202,11 +202,11 @@
 
 
                             {{-- Management Board --}}
-                            <td>
+{{--                            <td>--}}
 
-                                {{ $mediaCenter->managementBoard?->name ?? 'N/A' }}
+{{--                                {{ $mediaCenter->managementBoard?->name ?? 'N/A' }}--}}
 
-                            </td>
+{{--                            </td>--}}
 
 
 
